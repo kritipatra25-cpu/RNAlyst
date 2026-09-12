@@ -1,9 +1,9 @@
 # OSD-678 PyDESeq2 Factorial Differential Expression Analysis
 
-> **DOCUMENT TYPE**: Statistical Analysis & QC Report  
-> **DATASET**: NASA OSDR OSD-678 (GLDS-612) *Arabidopsis thaliana* BRIC-23 Spaceflight Experiment  
-> **ENGINE**: PyDESeq2 v0.5.4 (Negative-Binomial Wald Test GLM)  
-> **INPUT**: 32,833 genes × 36 biological samples (STAR unnormalized integer counts)  
+> **DOCUMENT TYPE**: Statistical Analysis & QC Report
+> **DATASET**: NASA OSDR OSD-678 (GLDS-612) *Arabidopsis thaliana* BRIC-23 Spaceflight Experiment
+> **ENGINE**: PyDESeq2 v0.5.4 (Negative-Binomial Wald Test GLM)
+> **INPUT**: 32,833 genes × 36 biological samples (STAR unnormalized integer counts)
 > **RELEASE STATUS**: **`STATISTICALLY_VERIFIED`**
 
 ---

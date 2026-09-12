@@ -48,7 +48,7 @@ class TestPhase2Interpretation(unittest.TestCase):
     def test_centralized_fdr_classification_rule(self):
         """Rule 4: Centralized FDR classification logic test."""
         engine = LLMInterpretationEngine(self.mock_data_bundle, {"de_csv": "hash1"})
-        
+
         # Tier A: FDR Significant
         status, label = engine.classify_statistical_status(0.0001, 0.045)
         self.assertEqual(status, "FDR_SIGNIFICANT")

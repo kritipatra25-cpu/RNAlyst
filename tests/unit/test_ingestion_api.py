@@ -109,6 +109,8 @@ class TestIngestionAPIWorkflow(unittest.TestCase):
         res_query_json = res_query.json()
 
         self.assertTrue(res_query_json["success"])
+
+
         self.assertIsNotNone(res_query_json["message"])
 
 

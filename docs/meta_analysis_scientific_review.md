@@ -1,8 +1,8 @@
 # Scientific Review of Cross-Dataset Meta-Analysis: OSD-120 & OSD-658
 
-> **DOCUMENT TYPE**: Read-Only Scientific Review & Biological Interpretation  
-> **DATASETS**: NASA OSDR OSD-120 (*Arabidopsis* light-grown roots) & OSD-658 (*Arabidopsis* dark-grown roots)  
-> **REVIEW SCOPE**: Biological defensibility, evidence hierarchy, replication claims, and hypothesis evaluation  
+> **DOCUMENT TYPE**: Read-Only Scientific Review & Biological Interpretation
+> **DATASETS**: NASA OSDR OSD-120 (*Arabidopsis* light-grown roots) & OSD-658 (*Arabidopsis* dark-grown roots)
+> **REVIEW SCOPE**: Biological defensibility, evidence hierarchy, replication claims, and hypothesis evaluation
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---
@@ -86,7 +86,7 @@ The following genes exhibit the highest meta-analytic statistical confidence ($q
 
 ## 7. Single Most Important Defensible Biological Conclusion
 
-> **DEFENSIBLE BIOLOGICAL CONCLUSION**:  
+> **DEFENSIBLE BIOLOGICAL CONCLUSION**:
 > **`AT2G04170` represents a robust, highly reproducible spaceflight-induced root locus ($\text{Meta LFC} = +1.409, q < 10^{-12}, \text{I}^2 = 0.0\%$) across both light-grown (OSD-120) and dark-grown (OSD-658) spaceflight environments. Conversely, light-response genes such as `HYH` reflect condition-specific illumination interactions within flight hardware rather than universal microgravity mechanisms.**
 
 ---

@@ -58,13 +58,13 @@ class FASTQValidator:
                     elif mod == 2:
                         if not line.startswith("+"):
                             return False, f"Invalid FASTQ separator at line {line_idx + 1} in {file_path.name}: must start with '+'"
-                    
+
                     if read_count >= max_reads_check:
                         break
-                        
+
                 if read_count == 0:
                     return False, f"No valid FASTQ records found in {file_path.name}"
-                    
+
         except Exception as e:
             return False, f"Corrupted FASTQ/gzip file {file_path.name}: {e}"
 
@@ -76,7 +76,7 @@ class FASTQValidator:
         v1, err1 = cls.validate_fastq_file(r1_path)
         if not v1:
             return False, f"R1 validation failed: {err1}"
-        
+
         v2, err2 = cls.validate_fastq_file(r2_path)
         if not v2:
             return False, f"R2 validation failed: {err2}"
@@ -170,7 +170,7 @@ class MetadataValidator:
     def validate_design_matrix(cls, df: pd.DataFrame, design_formula: str, contrast: List[str]) -> Tuple[bool, List[str]]:
         """Validate experimental design formula, contrast variables, and check for rank deficiency."""
         errors = []
-        
+
         if len(contrast) != 3:
             errors.append(f"Contrast specification must be a 3-element list [factor, num_level, ref_level], got: {contrast}")
             return False, errors

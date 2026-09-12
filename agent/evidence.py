@@ -84,4 +84,3 @@ if __name__ == "__main__":
     print(
         f"Validated genes: {len(validated)}"
     )
-    

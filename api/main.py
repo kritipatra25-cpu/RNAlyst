@@ -1,8 +1,15 @@
 import os
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from api.routes import agent_query, analyses, qc, ingestion
+
 
 app = FastAPI(
     title="AI-Assisted RNA-seq Research API",
@@ -23,6 +30,7 @@ app.include_router(ingestion.router, prefix="/api/v1/ingestion", tags=["Dataset 
 app.include_router(ingestion.router, prefix="/ingestion", tags=["Dataset Ingestion"])
 app.include_router(agent_query.router, prefix="/api/v1/query", tags=["Agent Query"])
 app.include_router(analyses.router, prefix="/api/v1/analyses", tags=["Analyses"])
+app.include_router(analyses.router, prefix="/analyses", tags=["Analyses"])
 app.include_router(qc.qc_router, prefix="/api/v1/qc", tags=["QC"])
 app.include_router(qc.qc_router, prefix="/qc", tags=["QC"])
 

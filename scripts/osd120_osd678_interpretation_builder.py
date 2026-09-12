@@ -4,7 +4,7 @@ import json
 def build_biological_interpretation_summary():
     out_dir = 'results/osd120_osd678_interpretation'
     os.makedirs(out_dir, exist_ok=True)
-    
+
     summary_data = [
         {
             "candidate_gene": "AT1G01010",
@@ -111,11 +111,11 @@ def build_biological_interpretation_summary():
             "confidence": "LOW_DISCORDANT"
         }
     ]
-    
+
     out_file = os.path.join(out_dir, 'biological_interpretation_summary.json')
     with open(out_file, 'w') as f:
         json.dump(summary_data, f, indent=2)
-        
+
     print(f"Saved {out_file}")
 
 if __name__ == '__main__':

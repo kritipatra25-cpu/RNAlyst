@@ -1,7 +1,7 @@
 # OSD-120 Scientific Synthesis & Biological Model
 
-> **DOCUMENT TYPE**: Scientific Synthesis & Biological Model (Read-Only)  
-> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)  
+> **DOCUMENT TYPE**: Scientific Synthesis & Biological Model (Read-Only)
+> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---

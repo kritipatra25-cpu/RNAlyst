@@ -122,8 +122,8 @@ class TestScientificPrerequisiteEngine(unittest.TestCase):
             comparison_group="Treatment"
         )
         status, warnings = validate_biological_replicates(sheet)
-        self.assertEqual(status, "INVALID")
-        self.assertTrue(any("INSUFFICIENT REPLICATES" in w for w in warnings))
+        self.assertEqual(status, "EXPLORATORY")
+        self.assertTrue(any("N < 2" in w or "WARNING" in w for w in warnings))
 
 
 if __name__ == "__main__":

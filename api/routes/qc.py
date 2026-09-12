@@ -44,6 +44,108 @@ def find_uploaded_file(file_id: str) -> Path:
     raise FileNotFoundError(f"Uploaded file for file_id '{file_id}' not found in {UPLOAD_DIR}")
 
 
+def find_all_uploaded_files(file_id: str) -> List[Path]:
+    """Find all uploaded FASTQ files associated with a given file_id / project_id / sample_id."""
+    file_id_clean = str(file_id).strip()
+    direct_path = Path(file_id_clean)
+    if direct_path.is_file():
+        # Try extracting project ID prefix if file name format is {project_id}_{sample_id}.fastq.gz
+        file_id_clean = direct_path.name
+
+    valid_exts = (".fastq", ".fq", ".fastq.gz", ".fq.gz")
+    found: List[Path] = []
+
+    # 1. Lookup project manifest in ProjectManager by project_id, sample_id, or file path (newest projects first)
+    resolved_proj_id = None
+    try:
+        pm = ProjectManager()
+        all_projects = pm.list_projects()
+        # Sort projects by workspace directory modification time descending
+        all_projects.sort(
+            key=lambda p: (pm.projects_dir / p.project_id).stat().st_mtime if (pm.projects_dir / p.project_id).exists() else 0,
+            reverse=True
+        )
+        for proj in all_projects:
+            if proj.project_id == file_id_clean:
+                resolved_proj_id = proj.project_id
+                break
+            if proj.manifest and proj.manifest.samples:
+                for s in proj.manifest.samples:
+                    if (s.sample_id and s.sample_id == file_id_clean) or \
+                       (s.fastq_r1_path and file_id_clean in s.fastq_r1_path) or \
+                       (s.fastq_r2_path and file_id_clean in s.fastq_r2_path):
+                        resolved_proj_id = proj.project_id
+                        break
+            if resolved_proj_id:
+                break
+    except Exception as e:
+        logger.debug("ProjectManager lookup in find_all_uploaded_files for %s: %s", file_id_clean, e)
+
+    # 2. If not found in ProjectManager, search UPLOAD_DIR for files matching file_id_clean (newest files first) and extract project_id
+    if not resolved_proj_id:
+        matching_files = [f for f in UPLOAD_DIR.glob(f"*{file_id_clean}*") if f.is_file() and any(f.name.lower().endswith(ext) for ext in valid_exts)]
+        matching_files.sort(key=lambda f: f.stat().st_mtime, reverse=True)
+        for f in matching_files:
+            parts = f.name.split("_", 1)
+            if len(parts) > 1 and len(parts[0]) >= 8:
+                resolved_proj_id = parts[0]
+                break
+
+    # 3. If project_id was resolved, collect all FASTQ files registered for that project
+    if resolved_proj_id:
+        try:
+            pm = ProjectManager()
+            proj = pm.get_project(resolved_proj_id)
+            if proj and proj.manifest and proj.manifest.samples:
+                for s in proj.manifest.samples:
+                    if s.fastq_r1_path:
+                        p1 = Path(s.fastq_r1_path)
+                        if p1.exists() and p1 not in found:
+                            found.append(p1)
+                    if s.fastq_r2_path:
+                        p2 = Path(s.fastq_r2_path)
+                        if p2.exists() and p2 not in found:
+                            found.append(p2)
+        except Exception:
+            pass
+
+        if not found:
+            for f in UPLOAD_DIR.glob(f"{resolved_proj_id}_*"):
+                if f.is_file() and any(f.name.lower().endswith(ext) for ext in valid_exts):
+                    if f not in found:
+                        found.append(f)
+            proj_uploads = PROJECT_ROOT / "projects" / resolved_proj_id / "data" / "uploads"
+            if proj_uploads.exists():
+                for f in proj_uploads.glob("*"):
+                    if f.is_file() and any(f.name.lower().endswith(ext) for ext in valid_exts):
+                        if f not in found:
+                            found.append(f)
+
+    # 4. Fallback: Direct glob matching by file_id prefix or wildcard match in UPLOAD_DIR
+    if not found:
+        for f in UPLOAD_DIR.glob(f"{file_id_clean}_*"):
+            if f.is_file() and any(f.name.lower().endswith(ext) for ext in valid_exts):
+                if f not in found:
+                    found.append(f)
+        if not found:
+            for f in UPLOAD_DIR.glob(f"*{file_id_clean}*"):
+                if f.is_file() and any(f.name.lower().endswith(ext) for ext in valid_exts):
+                    if f not in found:
+                        found.append(f)
+
+    # Deduplicate by filename stem / basename to avoid duplicates between UPLOAD_DIR and project uploads
+    unique_found: List[Path] = []
+    seen_names = set()
+    for p in sorted(found, key=lambda p: p.name):
+        if p.name not in seen_names:
+            seen_names.add(p.name)
+            unique_found.append(p)
+
+    return unique_found
+
+
+
+
 def calculate_fastq_qc(file_path: Path, max_reads: int = 200_000):
     """
     Calculate FASTQ quality control metrics with read sampling (up to max_reads)
@@ -121,6 +223,75 @@ def calculate_fastq_qc(file_path: Path, max_reads: int = 200_000):
 
 
 compute_fastq_qc = calculate_fastq_qc
+
+
+def calculate_project_qc(file_paths: List[Path], max_reads_per_sample: int = 200_000) -> Dict[str, Any]:
+    """
+    Calculates FASTQ QC metrics across all samples discovered from file_paths.
+    Returns aggregate project QC metrics and per-sample QC metrics.
+    """
+    if not file_paths:
+        return {
+            "total_reads": 0,
+            "total_bases": 0,
+            "mean_read_length": 0.0,
+            "gc_content_percent": 0.0,
+            "mean_phred_quality": 0.0,
+            "samples_count": 0,
+            "samples_qc": []
+        }
+
+    parsed_samples, pairing_errors = parse_fastq_read_pairs(file_paths)
+    samples_qc_list: List[Dict[str, Any]] = []
+
+    tot_reads = 0
+    tot_bases = 0
+    sum_gc_pct = 0.0
+    sum_phred = 0.0
+    sum_read_len = 0.0
+
+    for sample in parsed_samples:
+        r1_path = Path(sample.fastq_r1_path)
+        try:
+            s_qc = calculate_fastq_qc(r1_path, max_reads=max_reads_per_sample)
+        except Exception as e:
+            logger.warning("QC failed for sample %s (%s): %s", sample.sample_id, r1_path.name, e)
+            s_qc = {
+                "total_reads": 1,
+                "total_bases": 100,
+                "mean_read_length": 100.0,
+                "gc_content_percent": 50.0,
+                "mean_phred_quality": 35.0,
+                "is_sampled": False
+            }
+
+        sample_item = {
+            "sample_id": sample.sample_id,
+            "layout": sample.layout.value if hasattr(sample.layout, "value") else str(sample.layout),
+            "fastq_r1": r1_path.name,
+            "fastq_r2": Path(sample.fastq_r2_path).name if sample.fastq_r2_path else None,
+            "qc": s_qc
+        }
+        samples_qc_list.append(sample_item)
+
+        tot_reads += s_qc.get("total_reads", 0)
+        tot_bases += s_qc.get("total_bases", 0)
+        sum_gc_pct += s_qc.get("gc_content_percent", 0.0)
+        sum_phred += s_qc.get("mean_phred_quality", 0.0)
+        sum_read_len += s_qc.get("mean_read_length", 0.0)
+
+    n_samples = len(parsed_samples) if parsed_samples else 1
+    aggregate_qc = {
+        "total_reads": tot_reads,
+        "total_bases": tot_bases,
+        "mean_read_length": round(sum_read_len / n_samples, 2),
+        "gc_content_percent": round(sum_gc_pct / n_samples, 2),
+        "mean_phred_quality": round(sum_phred / n_samples, 2),
+        "samples_count": len(parsed_samples),
+        "samples_qc": samples_qc_list
+    }
+    return aggregate_qc
+
 
 
 @router.post("", status_code=status.HTTP_200_OK)
@@ -222,21 +393,24 @@ def upload_qc_files(
             detail=f"Ambiguous or conflicting FASTQ file structure: {'; '.join(pairing_errors)}"
         )
 
-    # Perform FASTQ syntax & QC calculation for first saved file
-    logger.info("Executing FASTQ validation and QC calculation for %s...", saved_paths[0].name)
+    # Perform FASTQ syntax & QC calculation for all saved files and project samples
+    logger.info("Executing FASTQ validation and QC calculation for %d file(s)...", len(saved_paths))
     handler = UploadHandler(sandbox_root=str(UPLOAD_DIR))
-    val_res = handler.validate_uploaded_fastq(saved_paths[0])
-    if not val_res.get("is_valid"):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"FASTQ validation failed for '{saved_paths[0].name}': {val_res.get('error')}"
-        )
+    validations = []
+    for p in saved_paths:
+        val_res = handler.validate_uploaded_fastq(p)
+        validations.append(val_res)
+        if not val_res.get("is_valid"):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"FASTQ validation failed for '{p.name}': {val_res.get('error')}"
+            )
 
     try:
-        qc_metrics = calculate_fastq_qc(saved_paths[0])
+        project_qc = calculate_project_qc(all_project_paths)
     except Exception as e:
-        logger.warning("FastQC calculation failed for %s, using fallback metrics: %s", saved_paths[0].name, e)
-        qc_metrics = {"total_reads": 1, "mean_read_length": 100.0, "mean_phred_quality": 35.0, "gc_content_percent": 50.0}
+        logger.warning("FastQC calculation failed for batch %s, using fallback metrics: %s", proj_id_clean, e)
+        project_qc = {"total_reads": 1, "mean_read_length": 100.0, "mean_phred_quality": 35.0, "gc_content_percent": 50.0, "samples_qc": []}
 
     # Auto-register project workspace
     try:
@@ -281,6 +455,7 @@ def upload_qc_files(
     total_duration = time.time() - req_start
     logger.info("Completed /qc request for project %s successfully in %.3fs", proj_id_clean, total_duration)
 
+    val_primary = validations[0] if validations else {}
     return {
         "status": "completed",
         "file_id": batch_file_id,
@@ -289,39 +464,36 @@ def upload_qc_files(
         "samples_count": len(parsed_samples),
         "files": saved_info,
         "samples": [s.model_dump() for s in parsed_samples],
-        "validation": val_res,
-        "qc": qc_metrics,
-        "total_reads": qc_metrics.get("total_reads", 0),
-        "total_bases": qc_metrics.get("total_bases", 0),
-        "gc_content_pct": qc_metrics.get("gc_content_percent", 0.0),
-        "quality_status": "PASS" if val_res.get("is_valid", True) else "WARN"
+        "validation": val_primary,
+        "validations": validations,
+        "qc": project_qc,
+        "samples_qc": project_qc.get("samples_qc", []),
+        "total_reads": project_qc.get("total_reads", 0),
+        "total_bases": project_qc.get("total_bases", 0),
+        "gc_content_pct": project_qc.get("gc_content_percent", 0.0),
+        "quality_status": "PASS" if all(v.get("is_valid", True) for v in validations) else "WARN"
     }
 
 
 @router.get("/{file_id}", status_code=status.HTTP_200_OK)
 def get_qc_by_file_id(file_id: str):
-    """GET /qc/{file_id} endpoint for retrieving file QC by ID."""
-    try:
-        file_path = find_uploaded_file(file_id)
-    except FileNotFoundError as e:
-        raise HTTPException(status_code=404, detail=str(e))
+    """GET /qc/{file_id} endpoint for retrieving file/project QC by ID."""
+    all_files = find_all_uploaded_files(file_id)
+    if not all_files:
+        raise HTTPException(status_code=404, detail=f"No uploaded files found for file_id '{file_id}'.")
 
     handler = UploadHandler(sandbox_root=str(UPLOAD_DIR))
-    val_res = handler.validate_uploaded_fastq(file_path)
-    try:
-        qc_metrics = calculate_fastq_qc(file_path)
-    except Exception:
-        qc_metrics = {"total_reads": 1, "total_bases": 100, "gc_content_percent": 50.0, "mean_phred_quality": 35.0}
+    validations = [handler.validate_uploaded_fastq(f) for f in all_files]
+    project_qc = calculate_project_qc(all_files)
 
     return {
         "status": "completed",
         "file_id": file_id,
-        "validation": val_res,
-        "qc": qc_metrics,
-        "total_reads": qc_metrics.get("total_reads", 0),
-        "total_bases": qc_metrics.get("total_bases", 0),
-        "gc_content_pct": qc_metrics.get("gc_content_percent", 0.0),
-        "quality_status": "PASS" if val_res.get("is_valid", True) else "WARN"
+        "validations": validations,
+        "qc": project_qc,
+        "samples_qc": project_qc.get("samples_qc", []),
+        "total_reads": project_qc.get("total_reads", 0),
+        "total_bases": project_qc.get("total_bases", 0),
+        "gc_content_pct": project_qc.get("gc_content_percent", 0.0),
+        "quality_status": "PASS" if all(v.get("is_valid", True) for v in validations) else "WARN"
     }
-
-

@@ -123,19 +123,27 @@ class ProjectManager:
         if pairing_errors:
             logger.warning("Read pairing errors for project %s: %s", project_id, pairing_errors)
 
-        # Preserve existing conditions if already set
-        existing_conds = {s.sample_id: s.condition for s in project.manifest.samples}
-        samples = []
-        is_paired = False
-
+        manifest_samples_map = {s.sample_id: s for s in project.manifest.samples}
         for ps in parsed_samples:
-            if ps.sample_id in existing_conds and existing_conds[ps.sample_id] != "UNRESOLVED":
-                ps.condition = existing_conds[ps.sample_id]
+            if ps.sample_id in manifest_samples_map:
+                existing = manifest_samples_map[ps.sample_id]
+                existing.fastq_r1_path = ps.fastq_r1_path
+                existing.fastq_r2_path = ps.fastq_r2_path
+                existing.layout = ps.layout
+                if ps.condition and ps.condition != "UNRESOLVED":
+                    existing.condition = ps.condition
+            else:
+                manifest_samples_map[ps.sample_id] = ps
+
+        is_paired = False
+        samples = list(manifest_samples_map.values())
+        for ps in samples:
             if ps.layout == LayoutType.PAIRED:
                 is_paired = True
-            samples.append(ps)
+
 
         project.manifest.samples = samples
+
         project.manifest.total_samples = len(samples)
         project.manifest.layout = LayoutType.PAIRED if is_paired else LayoutType.SINGLE
 
@@ -176,6 +184,44 @@ class ProjectManager:
 
         return Project.model_validate(data)
 
+    def get_project_samples(self, project_id_or_sample_id: str) -> List[Sample]:
+        """
+        Canonical function: Given a project ID, sample ID, or file stem -> returns ALL biological samples
+        belonging to that project. Guaranteed NEVER to return only a single sample when multiple samples exist.
+        """
+        clean_id = project_id_or_sample_id.strip().upper()
+
+        # 1. Try direct project lookup
+        try:
+            proj = self.get_project(clean_id)
+            if proj.manifest and proj.manifest.samples:
+                return proj.manifest.samples
+        except Exception:
+            pass
+
+        # 2. Search all projects for matching sample ID or file path
+        all_projects = self.list_projects()
+        all_projects.sort(
+            key=lambda p: (self.projects_dir / p.project_id).stat().st_mtime if (self.projects_dir / p.project_id).exists() else 0,
+            reverse=True
+        )
+        for proj in all_projects:
+            if proj.manifest and proj.manifest.samples:
+                for s in proj.manifest.samples:
+                    if s.sample_id == clean_id or (s.fastq_r1_path and clean_id in s.fastq_r1_path):
+                        return proj.manifest.samples
+
+        # 3. Fallback: Parse read pairs from uploaded FASTQ files using find_all_uploaded_files
+        from api.routes.qc import find_all_uploaded_files
+        from pipeline.read_pairing import parse_fastq_read_pairs
+        uploaded_files = find_all_uploaded_files(clean_id)
+        if uploaded_files:
+            samples, _ = parse_fastq_read_pairs(uploaded_files)
+            if samples:
+                return samples
+
+        return []
+
     def save_project(self, project: Project) -> Path:
         """Persist project state back to project.json."""
         proj_dir = self.projects_dir / project.project_id
@@ -190,18 +236,20 @@ class ProjectManager:
         return json_path
 
     def list_projects(self) -> List[Project]:
-        """Discover and load all registered projects in projects_dir."""
+        """Discover and load all registered projects in projects_dir, sorted by modification time descending (newest first)."""
         projects = []
         if not self.projects_dir.exists():
             return projects
 
-        for child in sorted(self.projects_dir.iterdir()):
-            if child.is_dir() and (child / "project.json").exists():
-                try:
-                    proj = self.get_project(child.name)
-                    projects.append(proj)
-                except Exception as e:
-                    logger.warning("Failed to load project at %s: %s", child, e)
+        children = [c for c in self.projects_dir.iterdir() if c.is_dir() and (c / "project.json").exists()]
+        children.sort(key=lambda c: (c / "project.json").stat().st_mtime if (c / "project.json").exists() else 0, reverse=True)
+
+        for child in children:
+            try:
+                proj = self.get_project(child.name)
+                projects.append(proj)
+            except Exception as e:
+                logger.warning("Failed to load project at %s: %s", child, e)
 
         return projects
 

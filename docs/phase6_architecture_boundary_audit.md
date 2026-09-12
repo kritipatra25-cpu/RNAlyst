@@ -1,8 +1,8 @@
 # Phase 6 — Core Backend / AI Boundary Audit Report
 
-> **CANONICAL ARCHITECTURE SPECIFICATION & BOUNDARY AUDIT**  
-> **DATE**: 2026-08-21  
-> **AUDIT SCOPE**: Deterministic Core Backend, Dataset Configurations, Biological Interpretation Engine, and AI/LLM Orchestration Layer  
+> **CANONICAL ARCHITECTURE SPECIFICATION & BOUNDARY AUDIT**
+> **DATE**: 2026-08-21
+> **AUDIT SCOPE**: Deterministic Core Backend, Dataset Configurations, Biological Interpretation Engine, and AI/LLM Orchestration Layer
 > **FINAL AUDIT VERDICT**: **`ARCHITECTURE_BOUNDARY_CLEAN`**
 
 ---

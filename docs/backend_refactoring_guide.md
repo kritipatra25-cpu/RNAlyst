@@ -1,7 +1,7 @@
 # Generic Bulk RNA-seq AI Agent Core Backend Guide
 
-> **MODULE**: Core Bioinformatics Pipeline & Generic CLI Runner  
-> **CANONICAL ENTRYPOINT**: `python -m pipeline.cli run --config <path_to_config.yaml>`  
+> **MODULE**: Core Bioinformatics Pipeline & Generic CLI Runner
+> **CANONICAL ENTRYPOINT**: `python -m pipeline.cli run --config <path_to_config.yaml>`
 > **REPRODUCIBILITY STATUS**: **`BENCHMARK_REPRODUCED`** (100% exact numerical match against locked OSD-678 benchmark)
 
 ---

@@ -42,7 +42,7 @@ class NASAOSDRClient:
         acc_clean = accession.strip().upper()
         if not (acc_clean.startswith("OSD-") or acc_clean.startswith("GLDS-")):
             raise ValueError(f"Invalid OSDR accession format: {accession}. Expected 'OSD-XXX' or 'GLDS-XXX'.")
-        
+
         endpoint = f"repo/studies/{acc_clean}"
         data = self._make_request(endpoint)
         if not data:
@@ -53,7 +53,7 @@ class NASAOSDRClient:
         """Extract and normalize the sample metadata table into a pandas DataFrame."""
         samples_node = study_metadata.get("samples", {})
         table_rows = samples_node.get("table", []) if isinstance(samples_node, dict) else []
-        
+
         if not table_rows:
             logger.warning("No sample table rows found in study metadata.")
             return pd.DataFrame()
@@ -69,7 +69,7 @@ class NASAOSDRClient:
         for idx, assay in enumerate(assays):
             if not isinstance(assay, dict):
                 continue
-            
+
             assay_info = {
                 "assay_index": idx + 1,
                 "measurement_type": assay.get("measurementType"),
@@ -79,7 +79,7 @@ class NASAOSDRClient:
                 "total_records": assay.get("totalRecords", 0),
                 "data_files": assay.get("dataFiles", []),
             }
-            
+
             # Extract sample-level assay parameters from inner table
             inner_table = assay.get("table", {}).get("table", []) if isinstance(assay.get("table"), dict) else []
             if inner_table:
@@ -88,7 +88,7 @@ class NASAOSDRClient:
                 assay_info["strandedness"] = r0.get("Parameter Value[stranded]") or r0.get("Parameter Value[Stranded]")
                 assay_info["read_length"] = r0.get("Parameter Value[Read Length]")
                 assay_info["sequencing_instrument"] = r0.get("Parameter Value[sequencing instrument]") or r0.get("Parameter Value[Sequencing Instrument]")
-            
+
             parsed_assays.append(assay_info)
 
         return parsed_assays
@@ -116,7 +116,7 @@ class NASAOSDRClient:
                 ftype = f.get("type", "")
                 url = f.get("remoteUrl") or f.get("url") or f.get("link")
                 size = f.get("size") or f.get("file_size") or 0
-                
+
                 file_obj = {"name": name, "type": ftype, "url": url, "size": size}
                 name_lower = name.lower()
 

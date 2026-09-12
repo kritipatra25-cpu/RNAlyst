@@ -27,7 +27,7 @@ class QuantificationRunner:
     @staticmethod
     def parse_quant_sf(quant_sf_path: Path) -> pd.DataFrame:
         """Parse Salmon transcript-level quant.sf file into DataFrame.
-        
+
         Expected columns in quant.sf: Name, Length, EffectiveLength, TPM, NumReads
         """
         quant_sf_path = Path(quant_sf_path)
@@ -51,12 +51,12 @@ class QuantificationRunner:
         tx2gene_path: Optional[Path] = None
     ) -> pd.DataFrame:
         """Aggregate multiple sample quant.sf files into a unified gene-level count matrix DataFrame.
-        
+
         Args:
             quant_dir_map: Mapping of sample_id -> Path to quant directory or quant.sf file.
             tx2gene_path: Optional Path to tx2gene mapping CSV (columns: transcript_id, gene_id).
                           If None, attempts auto-extraction of gene_id from transcript_id.
-                          
+
         Returns:
             pd.DataFrame indexed by gene_id with sample_id count columns.
         """

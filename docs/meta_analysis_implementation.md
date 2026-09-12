@@ -1,8 +1,8 @@
 # Meta-Analysis Implementation Report: OSD-120 & OSD-658 Integration
 
-> **DOCUMENT TYPE**: CONDITIONAL-GO Meta-Analysis Implementation Report (Read-Only)  
-> **DATASETS ANALYZED**: NASA OSDR OSD-120 (*Arabidopsis* light-grown roots) & OSD-658 (*Arabidopsis* dark-grown roots)  
-> **METHODOLOGY**: Inverse-Variance Weighted Fixed-Effects Meta-Analysis with Cochran $Q$ and $\text{I}^2$ Heterogeneity Evaluation  
+> **DOCUMENT TYPE**: CONDITIONAL-GO Meta-Analysis Implementation Report (Read-Only)
+> **DATASETS ANALYZED**: NASA OSDR OSD-120 (*Arabidopsis* light-grown roots) & OSD-658 (*Arabidopsis* dark-grown roots)
+> **METHODOLOGY**: Inverse-Variance Weighted Fixed-Effects Meta-Analysis with Cochran $Q$ and $\text{I}^2$ Heterogeneity Evaluation
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---

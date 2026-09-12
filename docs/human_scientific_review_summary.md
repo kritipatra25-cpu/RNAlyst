@@ -1,7 +1,7 @@
 # Human Scientific Review Summary: OSD-120 Phase 3 Candidate Genes
 
-> **DOCUMENT TYPE**: Human Scientific Review Summary (Read-Only)  
-> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)  
+> **DOCUMENT TYPE**: Human Scientific Review Summary (Read-Only)
+> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---
@@ -119,7 +119,7 @@ Supported mechanism [MISSING]
 
 ### **`B. KEEP AS EXPLORATORY ONLY`**
 
-**Rationale for Decision**:  
+**Rationale for Decision**:
 None of the 8 candidate genes achieve Benjamini-Hochberg FDR significance ($padj \ge 0.1809$), and no locus-specific empirical literature exists for these unassigned loci. However, top candidates such as `AT3G17609` (large effect size, GO cell wall organization) and `AT4G04720` (low $p$-value, GO gravitropism) represent plausible targets for secondary screening. Therefore, the dataset should be **KEPT AS EXPLORATORY ONLY** and not published as confirmed differential expression or promoted to experimental follow-up without independent biological replication.
 
 ---

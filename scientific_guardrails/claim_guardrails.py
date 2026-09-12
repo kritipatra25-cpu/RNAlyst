@@ -16,7 +16,7 @@ PROHIBITED_TERMS = [
 def validate_ai_claim_text(text: str) -> Tuple[bool, List[str]]:
     """Scans proposed LLM interpretation text against prohibited scientific claim rules."""
     rejections = []
-    
+
     for pattern in PROHIBITED_TERMS:
         if re.search(pattern, text, re.IGNORECASE):
             rejections.append(f"Prohibited language match: '{pattern}'. Use evidence-grounded scientific terminology.")

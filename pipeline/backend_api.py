@@ -146,7 +146,7 @@ class RNASeqBackendAPI:
             c_ids = [c.id for c in config.contrasts]
             ic_ids = [ic.id for ic in config.interaction_contrasts]
             cand_count = len(config.candidate_selection.specified_genes)
-            
+
             # Calculate samples_count from sample metadata file
             samples_count = 0
             try:
@@ -154,12 +154,12 @@ class RNASeqBackendAPI:
                 samples_count = len(sample_df)
             except Exception as e:
                 logger.warning(f"Failed to read sample metadata for {dataset_id}: {e}")
-            
+
             # Extract description from first contrast if available
             description = None
             if config.contrasts and len(config.contrasts) > 0:
                 description = config.contrasts[0].description
-            
+
             datasets.append(DatasetMetadata(
                 dataset_id=config.dataset_id,
                 organism=config.organism,
@@ -179,7 +179,7 @@ class RNASeqBackendAPI:
         dataset_key = dataset_id.strip().upper()
         if dataset_key not in self._dataset_config_map:
             raise ValueError(f"Unknown dataset_id '{dataset_id}'. Available: {list(self._dataset_config_map.keys())}")
-        
+
         config = load_dataset_config(str(self._dataset_config_map[dataset_key]))
         contrasts = []
         for c in config.contrasts:
@@ -197,14 +197,14 @@ class RNASeqBackendAPI:
         dataset_key = request.dataset_id.strip().upper()
         if dataset_key not in self._dataset_config_map:
             raise ValueError(f"Unknown dataset_id '{request.dataset_id}'. Available: {list(self._dataset_config_map.keys())}")
-            
+
         config = load_dataset_config(str(self._dataset_config_map[dataset_key]))
-        
+
         if request.contrast_id:
             valid_c_ids = [c.id for c in config.contrasts] + [ic.id for ic in config.interaction_contrasts]
             if request.contrast_id not in valid_c_ids:
                 raise ValueError(f"Invalid contrast_id '{request.contrast_id}' for dataset {dataset_key}. Valid contrasts: {valid_c_ids}")
-                
+
         return True
 
     def validate_preflight(self, dataset_id: str) -> PreflightValidationResult:
@@ -226,7 +226,7 @@ class RNASeqBackendAPI:
         metadata = pd.read_csv(config.sample_metadata_path)
 
         is_valid_meta, meta_errs = MetadataValidator.validate_sample_sheet(metadata)
-        
+
         group_col = config.combined_group_column or list(config.factors.keys())[0]
         if config.combined_group_column and config.combined_group_column not in metadata.columns:
             group_cols = list(config.factors.keys())
@@ -268,7 +268,7 @@ class RNASeqBackendAPI:
         self.validate_request(request)
         dataset_key = request.dataset_id.strip().upper()
         config_path = str(self._dataset_config_map[dataset_key])
-        
+
         # Check if pre-computed results already exist to avoid unnecessary expensive re-computation
         try:
             return self.get_result(dataset_key)
@@ -282,24 +282,24 @@ class RNASeqBackendAPI:
         dataset_key = dataset_id.strip().upper()
         if dataset_key not in self._dataset_config_map:
             raise ValueError(f"Unknown dataset_id '{dataset_id}'. Available: {list(self._dataset_config_map.keys())}")
-            
+
         config = load_dataset_config(str(self._dataset_config_map[dataset_key]))
         out_dir = Path(config.output_dir).resolve()
-        
+
         clean_id = dataset_key.lower().replace("-", "")
         summary_json_path = out_dir / f"{clean_id}_analysis_summary.json"
         cand_csv_path = out_dir / "candidate_validation" / f"{clean_id}_candidate_comparison.csv"
         prov_json_path = out_dir / f"{clean_id}_provenance_manifest.json"
-        
+
         if not summary_json_path.exists():
             raise FileNotFoundError(f"Analysis summary file missing for {dataset_id} at {summary_json_path}. Run analysis first.")
-            
+
         with open(summary_json_path, "r", encoding="utf-8") as f:
             summary_data = json.load(f)
-            
+
         c_count = len(config.contrasts) + len(config.interaction_contrasts)
         cand_count = len(summary_data.get("candidate_gene_outcomes", []))
-        
+
         return AnalysisResult(
             dataset_id=config.dataset_id,
             execution_status="SUCCESS",
@@ -317,14 +317,14 @@ class RNASeqBackendAPI:
         dataset_key = dataset_id.strip().upper()
         if dataset_key not in self._dataset_config_map:
             raise ValueError(f"Unknown dataset_id '{dataset_id}'. Available: {list(self._dataset_config_map.keys())}")
-            
+
         config = load_dataset_config(str(self._dataset_config_map[dataset_key]))
         out_dir = Path(config.output_dir).resolve()
         clean_id = dataset_key.lower().replace("-", "")
         prov_json_path = out_dir / f"{clean_id}_provenance_manifest.json"
-        
+
         if not prov_json_path.exists():
             raise FileNotFoundError(f"Provenance manifest missing for {dataset_id} at {prov_json_path}. Run analysis first.")
-            
+
         with open(prov_json_path, "r", encoding="utf-8") as f:
             return json.load(f)

@@ -7,7 +7,7 @@ from pipeline.schemas.input_schemas import SampleSheetInput
 def validate_experimental_design_matrix(sample_sheet: SampleSheetInput) -> Tuple[str, List[str]]:
     """Checks for rank deficiency and complete batch confounding."""
     warnings: List[str] = []
-    
+
     data = []
     for s in sample_sheet.samples:
         data.append({
@@ -16,7 +16,7 @@ def validate_experimental_design_matrix(sample_sheet: SampleSheetInput) -> Tuple
             "batch": s.batch or "batch1",
             "genotype": s.genotype or "wt"
         })
-    
+
     df = pd.DataFrame(data)
 
     # Check complete batch confounding

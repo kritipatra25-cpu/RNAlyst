@@ -1,8 +1,8 @@
 # Phase 5B — Backend Refactoring Plan
 
-> **DOCUMENT TYPE**: Read-Only Architectural Refactoring Specification  
-> **TARGET SYSTEM**: Bulk RNA-seq AI Agent Core Backend  
-> **SCOPE**: Modular extraction of dataset-specific logic into reusable configurations, generic CLI runner, and species-agnostic plugins.  
+> **DOCUMENT TYPE**: Read-Only Architectural Refactoring Specification
+> **TARGET SYSTEM**: Bulk RNA-seq AI Agent Core Backend
+> **SCOPE**: Modular extraction of dataset-specific logic into reusable configurations, generic CLI runner, and species-agnostic plugins.
 > **FINAL REFACTORING STATUS**: **`FINAL STATUS: A. SAFE TO IMPLEMENT`**
 
 ---

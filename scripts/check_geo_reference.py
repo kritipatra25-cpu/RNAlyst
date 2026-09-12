@@ -10,7 +10,7 @@ try:
     html = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
     files = re.findall(r'href="(GSE94983[^"]+)"', html)
     print("Found GEO Supplementary Files:", files)
-    
+
     found_de = False
     for f in files:
         file_url = geo_url + f

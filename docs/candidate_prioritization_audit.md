@@ -1,14 +1,14 @@
 # Read-Only Candidate Prioritization Audit: OSD-120 RNA-Seq Analysis
 
-> **DOCUMENT TYPE**: Candidate Prioritization Audit (Read-Only)  
-> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)  
+> **DOCUMENT TYPE**: Candidate Prioritization Audit (Read-Only)
+> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---
 
 ## 1. Executive Summary & Prioritization Table
 
-This audit evaluates the 8 Phase 3 candidate genes from OSD-120 to determine research priority for human scientific investigation. 
+This audit evaluates the 8 Phase 3 candidate genes from OSD-120 to determine research priority for human scientific investigation.
 
 ### Critical Statistical Guardrails
 - **No False Significance**: Large absolute fold change is NOT evidence of statistical significance.

@@ -37,12 +37,14 @@ class UploadHandler:
 
     def sanitize_filename(self, filename: str) -> str:
         """Sanitize uploaded filename to prevent directory traversal attacks."""
-        clean_name = Path(filename).name
+        clean_name = Path(filename.replace("\\", "/")).name
         # Remove dangerous characters
         clean_name = clean_name.replace("..", "_").replace("/", "_").replace("\\", "_")
         if not clean_name:
             raise ValueError("Filename is invalid or empty after sanitization.")
         return clean_name
+
+
 
     def save_uploaded_file(self, project_id: str, filename: str, content_bytes: bytes) -> Path:
         """Save raw bytes into project sandbox directory with filename sanitization."""

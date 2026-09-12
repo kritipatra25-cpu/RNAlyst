@@ -2,7 +2,7 @@
 
 ## 1. Reconciliation Summary
 
-This document presents a read-only scientific reconciliation of gene identities for the 8 candidate genes identified in the OSD-120 RNA-seq primary analysis pipeline. 
+This document presents a read-only scientific reconciliation of gene identities for the 8 candidate genes identified in the OSD-120 RNA-seq primary analysis pipeline.
 
 ### Key Findings
 1. **TAIR10 Identifier Validity**: All 8 candidate gene identifiers (`AT1G01010`, `AT2G04170`, `AT3G17609`, `AT3G46640`, `AT4G04720`, `AT5G07390`, `AT5G13930`, `AT5G57630`) are **100% valid TAIR10 locus identifiers** corresponding to annotated genomic loci in *Arabidopsis thaliana*.

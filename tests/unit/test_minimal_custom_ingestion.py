@@ -89,13 +89,13 @@ class TestMinimalCustomIngestion(unittest.TestCase):
 
         # 4. Verify derived project state
         proj_final = pm.get_project(project_id)
-        
+
         # Derived sample IDs
         sample_ids = [s.sample_id for s in proj_final.manifest.samples]
         self.assertIn("S1", sample_ids)
         self.assertIn("S2", sample_ids)
         self.assertEqual(len(sample_ids), 2)
-        
+
         # Paired-end layout
         self.assertEqual(proj_final.manifest.layout.value, "PAIRED")
 

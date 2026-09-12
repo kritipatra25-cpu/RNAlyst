@@ -167,9 +167,17 @@ def parse_fastq_read_pairs(file_paths: List[Path]) -> Tuple[List[Sample], List[s
         if len(r1_list) == 0 and len(r2_list) == 1:
             errors.append(f"Unmatched R2 file detected for sample '{sample_id}': {r2_list[0].name} (missing corresponding R1 file)")
             continue
-        if len(r1_list) == 1 and len(r2_list) == 0 and has_explicit_r1_r2:
-            errors.append(f"Unmatched R1 file detected for sample '{sample_id}': {r1_list[0].name} (missing corresponding R2 file)")
+        if len(r1_list) == 1 and len(r2_list) == 0:
+            samples.append(Sample(
+                sample_id=sample_id,
+                condition="UNRESOLVED",
+                layout=LayoutType.SINGLE,
+                fastq_r1_path=str(r1_list[0]),
+                fastq_r2_path=None
+            ))
+            seen_sample_ids.add(sample_id)
             continue
+
 
         if not r1_list and not r2_list and len(unmatched_list) == 1:
             samples.append(Sample(

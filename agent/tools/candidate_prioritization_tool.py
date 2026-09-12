@@ -1,8 +1,8 @@
 """
 Candidate Gene Prioritization Agent Tool Contract.
 
-Wraps deterministic CandidatePrioritizer cross-contrast gene evaluation and 
-concordance classification as a BaseTool contract with typed schemas, argument 
+Wraps deterministic CandidatePrioritizer cross-contrast gene evaluation and
+concordance classification as a BaseTool contract with typed schemas, argument
 validation, structured ToolResult output, and provenance tracking.
 """
 

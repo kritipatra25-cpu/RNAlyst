@@ -1,8 +1,8 @@
 # OSD-678 Validation Audit & Prompt-3 Boundary Check (Prompt 2.5)
 
-> **DOCUMENT TYPE**: Read-Only Human-Review Support Audit & Prompt-3 Boundary Contract  
-> **DATASETS UNDER AUDIT**: NASA OSDR OSD-120 (Roots) & OSD-678 (Whole Seedlings)  
-> **AUDIT PURPOSE**: Evaluate completed OSD-678 validation results, enforce scientific language guardrails, document experimental non-equivalence, evaluate the CRY hypothesis, partition candidate genes, and establish the Prompt 3 Evidence Contract.  
+> **DOCUMENT TYPE**: Read-Only Human-Review Support Audit & Prompt-3 Boundary Contract
+> **DATASETS UNDER AUDIT**: NASA OSDR OSD-120 (Roots) & OSD-678 (Whole Seedlings)
+> **AUDIT PURPOSE**: Evaluate completed OSD-678 validation results, enforce scientific language guardrails, document experimental non-equivalence, evaluate the CRY hypothesis, partition candidate genes, and establish the Prompt 3 Evidence Contract.
 > **RELEASE GATE**: **`READY_FOR_PROMPT_3`**
 
 ---

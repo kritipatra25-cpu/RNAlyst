@@ -142,25 +142,36 @@ class TestDynamicVisualizations(unittest.TestCase):
 
     def test_qc_tool_execution_and_provenance(self):
         """Verify QC tool generates QC summary plot with complete provenance attached."""
-        out_file = self.tmp_path / "qc_output.png"
-        tool = QCPlotTool()
+        upload_dir = Path("data/uploads")
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        dummy_fq = upload_dir / "TEST_PROJECT_001_sample1.fastq.gz"
+        import gzip
+        with gzip.open(dummy_fq, "wt") as f:
+            f.write("@HEADER1\nATCGATCGATCG\n+\nIIIIIIIIIIII\n")
 
-        res = tool.run({
-            "output_path": str(out_file),
-            "project_id": "TEST_PROJECT_001"
-        })
+        try:
+            out_file = self.tmp_path / "qc_output.png"
+            tool = QCPlotTool()
 
-        if res.status != "success":
-            print(f"\nQC TOOL ERROR: {res.error}")
-        self.assertEqual(res.status, "success")
-        self.assertTrue(out_file.exists())
-        self.assertEqual(len(res.artifacts), 1)
-        self.assertEqual(res.artifacts[0].artifact_type, "image")
+            res = tool.run({
+                "output_path": str(out_file),
+                "project_id": "TEST_PROJECT_001"
+            })
 
-        prov = res.provenance
-        self.assertEqual(prov.get("project_id"), "TEST_PROJECT_001")
-        self.assertEqual(prov.get("tool"), "generate_qc_plot")
-        self.assertEqual(prov.get("method"), "VisualizationEngine.generate_qc_plot")
+            if res.status != "success":
+                print(f"\nQC TOOL ERROR: {res.error}")
+            self.assertEqual(res.status, "success")
+            self.assertTrue(out_file.exists())
+            self.assertEqual(len(res.artifacts), 1)
+            self.assertEqual(res.artifacts[0].artifact_type, "image")
+
+            prov = res.provenance
+            self.assertEqual(prov.get("project_id"), "TEST_PROJECT_001")
+            self.assertEqual(prov.get("tool"), "generate_qc_plot")
+            self.assertEqual(prov.get("method"), "VisualizationEngine.generate_qc_plot")
+        finally:
+            if dummy_fq.exists():
+                dummy_fq.unlink()
 
     def test_missing_de_prerequisites_structured_failure(self):
         """Verify requesting a volcano plot when DE results are missing produces a structured error explanation."""

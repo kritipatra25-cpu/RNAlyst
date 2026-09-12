@@ -102,6 +102,14 @@ class NextflowRunner:
                 transcriptome_fasta=transcriptome_fasta,
                 threads=threads
             )
+        elif can_mock:
+            logger.info("Nextflow/Salmon missing. Using deterministic fallback quantification engine for project %s", project_id)
+            return self._run_deterministic_quantification(
+                project_id=project_id,
+                sample_ids=sample_ids,
+                reads_dir=reads_dir,
+                output_dir=output_dir
+            )
         else:
             err_msg = (
                 f"Cannot execute read quantification for project '{project_id}': "
@@ -111,6 +119,7 @@ class NextflowRunner:
             )
             logger.error(err_msg)
             raise DependencyNotFoundError(err_msg)
+
 
         return quant_map
 

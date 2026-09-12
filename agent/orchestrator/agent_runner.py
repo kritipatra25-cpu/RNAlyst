@@ -70,7 +70,7 @@ class AgentOrchestrator:
         backend_api: Optional[RNASeqBackendAPI] = None,
         llm_provider: Optional[BaseLLMProvider] = None,
         tool_registry: Optional[ToolRegistry] = None,
-        model_name: str = "gemini-3.6-flash"
+        model_name: Optional[str] = None
     ):
         self.api = backend_api or RNASeqBackendAPI()
         self.model_name = model_name
@@ -109,12 +109,8 @@ class AgentOrchestrator:
         if llm_provider:
             self.provider = llm_provider
         else:
-            try:
-                from agent.llm.providers import GeminiLLMProvider
-                self.provider = GeminiLLMProvider(model_name=self.model_name)
-            except Exception as err:
-                from agent.llm.providers import UnavailableLLMProvider
-                self.provider = UnavailableLLMProvider(str(err))
+            from agent.llm.factory import get_llm_provider
+            self.provider = get_llm_provider(model_name=self.model_name)
         self.llm_client = LLMClient(provider=self.provider, tool_registry=self.tool_registry)
 
 
@@ -235,6 +231,11 @@ class AgentOrchestrator:
         """Full natural-language query handler (delegates to agentic tool loop)."""
         return self.agentic_query(user_query=user_query, session_id=session_id, dataset_id=dataset_id)
 
+
+
+
+
+
     def agentic_query(
         self,
         user_query: str,
@@ -262,7 +263,26 @@ class AgentOrchestrator:
         active_id = session.active_dataset_id or getattr(self.api, "active_dataset_id", None)
         if active_id:
             try:
-                proj = self.project_manager.get_project(active_id)
+                proj = None
+                try:
+                    proj = self.project_manager.get_project(active_id)
+                except Exception:
+                    proj = None
+
+                if not proj:
+                    from api.routes.qc import find_all_uploaded_files
+                    resolved_files = find_all_uploaded_files(active_id)
+                    if resolved_files:
+                        parts = resolved_files[0].name.split("_", 1)
+                        if len(parts) > 1 and len(parts[0]) >= 8:
+                            real_pid = parts[0]
+                            try:
+                                proj = self.project_manager.get_project(real_pid)
+                                active_id = real_pid
+                                session.active_dataset_id = real_pid
+                            except Exception:
+                                pass
+
                 if proj and hasattr(proj, "manifest") and proj.manifest.samples:
                     samples_desc = []
                     for s in proj.manifest.samples:
@@ -288,17 +308,27 @@ class AgentOrchestrator:
                     # Collect real FASTQ QC metrics for project files if present
                     try:
                         from pathlib import Path
-                        from api.routes.qc import find_uploaded_file, calculate_fastq_qc
-                        uploaded_f = find_uploaded_file(active_id)
-                        qc_data = calculate_fastq_qc(uploaded_f)
-                        exp_context += (
-                            f"FASTQ Quality Control Metrics ({uploaded_f.name}):\n"
-                            f"  - Total Reads Sampled: {qc_data.get('total_reads')}\n"
-                            f"  - Total Bases: {qc_data.get('total_bases')}\n"
-                            f"  - Mean Read Length: {qc_data.get('mean_read_length')} bp\n"
-                            f"  - Mean Phred Quality Score: {qc_data.get('mean_phred_quality')}\n"
-                            f"  - GC Content: {qc_data.get('gc_content_percent')}%\n"
-                        )
+                        from api.routes.qc import find_all_uploaded_files, find_uploaded_file, calculate_project_qc
+                        all_files = find_all_uploaded_files(active_id)
+                        if not all_files:
+                            all_files = [find_uploaded_file(active_id)]
+                        qc_data = calculate_project_qc(all_files)
+                        samples_qc = qc_data.get("samples_qc", [])
+                        exp_context += f"FASTQ Quality Control Metrics ({len(samples_qc)} Biological Sample(s)):\n"
+                        exp_context += f"  - Total Project Reads (Sum across samples): {qc_data.get('total_reads')}\n"
+                        exp_context += f"  - Average GC Content: {qc_data.get('gc_content_percent')}%\n"
+                        exp_context += f"  - Average Phred Quality Score: {qc_data.get('mean_phred_quality')}\n"
+                        if samples_qc:
+                            exp_context += "Per-Sample Quality Control Breakdown:\n"
+                            for sqc in samples_qc:
+                                sid = sqc.get("sample_id")
+                                s_metrics = sqc.get("qc", {})
+                                exp_context += (
+                                    f"  * Sample '{sid}': Total Reads = {s_metrics.get('total_reads')}, "
+                                    f"Mean Read Length = {s_metrics.get('mean_read_length')} bp, "
+                                    f"Phred Quality = {s_metrics.get('mean_phred_quality')}, "
+                                    f"GC Content = {s_metrics.get('gc_content_percent')}%\n"
+                                )
                     except Exception as qc_ctx_err:
                         logger.debug("QC context retrieval notice for %s: %s", active_id, qc_ctx_err)
 

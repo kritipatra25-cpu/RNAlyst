@@ -1,8 +1,8 @@
 # OSD-120 / OSD-678 Cross-Dataset Biological Interpretation & Regulatory Program Reconstruction
 
-> **DOCUMENT TYPE**: Biological Interpretation & Regulatory Reconstruction Report  
-> **DATASETS ANALYZED**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light roots) & OSD-678 (whole seedlings)  
-> **EVIDENCE GOVERNANCE**: Strictly Evidence-Graded (`[OBSERVED]`, `[LITERATURE]`, `[INFERENCE]`, `[HYPOTHESIS]`) under the Prompt 3 Evidence Contract  
+> **DOCUMENT TYPE**: Biological Interpretation & Regulatory Reconstruction Report
+> **DATASETS ANALYZED**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light roots) & OSD-678 (whole seedlings)
+> **EVIDENCE GOVERNANCE**: Strictly Evidence-Graded (`[OBSERVED]`, `[LITERATURE]`, `[INFERENCE]`, `[HYPOTHESIS]`) under the Prompt 3 Evidence Contract
 > **RELEASE STATUS**: **`PROMPT_3_COMPLETE`**
 
 ---

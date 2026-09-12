@@ -12,7 +12,7 @@ class ScientificGuardrailError(Exception):
 
 def run_pre_analysis_guardrails(sample_sheet: SampleSheetInput) -> Tuple[str, List[str]]:
     """Runs all pre-analysis scientific validation checks.
-    
+
     Returns:
         (validity_status, warnings)
         where validity_status is VALID | VALID_WITH_WARNINGS | EXPLORATORY | NOT_VALID

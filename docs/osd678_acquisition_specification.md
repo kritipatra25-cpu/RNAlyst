@@ -1,8 +1,8 @@
 # OSD-678 Acquisition Specification & Reprocessing Plan
 
-> **DOCUMENT TYPE**: Pre-Acquisition Specification & Reprocessing Protocol (Read-Only)  
-> **TARGET DATASET**: NASA OSDR OSD-678 / GLDS-678 (*Arabidopsis thaliana* spaceflight experiment)  
-> **METHODOLOGY**: Independent DESeq2 Processing (apeglm Shrinkage) $\to$ Candidate Verification $\to$ Summary-Statistic Integration  
+> **DOCUMENT TYPE**: Pre-Acquisition Specification & Reprocessing Protocol (Read-Only)
+> **TARGET DATASET**: NASA OSDR OSD-678 / GLDS-678 (*Arabidopsis thaliana* spaceflight experiment)
+> **METHODOLOGY**: Independent DESeq2 Processing (apeglm Shrinkage) $\to$ Candidate Verification $\to$ Summary-Statistic Integration
 > **RELEASE STATUS**: **`DESIGN_REVIEW_ONLY` — DATA ACQUISITION PENDING**
 
 ---

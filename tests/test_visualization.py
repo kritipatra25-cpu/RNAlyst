@@ -91,6 +91,8 @@ class TestVisualizationEngine(unittest.TestCase):
         })
 
         out_path = self.output_dir / "test_nonsig_heatmap.png"
+        if out_path.exists():
+            out_path.unlink()
         res_path = generate_heatmap_plot(df_counts, df_nonsig_de, output_path=out_path)
 
         self.assertIsNone(res_path)

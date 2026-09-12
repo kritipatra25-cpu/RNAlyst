@@ -5,7 +5,7 @@ from pipeline.schemas.input_schemas import SampleSheetInput
 
 def validate_biological_replicates(sample_sheet: SampleSheetInput) -> Tuple[str, List[str]]:
     """Evaluates biological replicate counts per condition.
-    
+
     Replicate Rules:
     - N = 1 per group: NOT_VALID for inferential DE (EXPLORATORY only)
     - N = 2 per group: EXPLORATORY with warning (limited power)
@@ -28,10 +28,12 @@ def validate_biological_replicates(sample_sheet: SampleSheetInput) -> Tuple[str,
 
     if min_reps < 2:
         insufficient = [cond for cond, count in condition_counts.items() if count < 2]
-        return "INVALID", [
-            f"INSUFFICIENT REPLICATES: Condition(s) {insufficient} have N < 2 biological replicates. "
-            "Inferential differential expression requires at least N=2 biological replicates per group to estimate variance."
-        ]
+        warnings.append(
+            f"WARNING (N=1): Condition(s) {insufficient} have N < 2 biological replicates. "
+            "Inferential differential expression requires at least N=2 biological replicates per group."
+        )
+        return "EXPLORATORY", warnings
+
     elif min_reps == 2:
         warnings.append(
             "WARNING: One or more conditions has N=2 biological replicates. "

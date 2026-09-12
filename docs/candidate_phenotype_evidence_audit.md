@@ -1,14 +1,14 @@
 # Candidate-to-Phenotype Evidence Audit: OSD-120 RNA-Seq Analysis
 
-> **DOCUMENT TYPE**: Candidate-to-Phenotype Evidence Audit (Read-Only)  
-> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)  
+> **DOCUMENT TYPE**: Candidate-to-Phenotype Evidence Audit (Read-Only)
+> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---
 
 ## 1. Executive Summary & Evidence Framework
 
-This audit systematically evaluates the chain of evidence connecting the 8 OSD-120 candidate genes to observable spaceflight phenotypes. 
+This audit systematically evaluates the chain of evidence connecting the 8 OSD-120 candidate genes to observable spaceflight phenotypes.
 
 ### Evidence Classification Legend
 1. **DIRECTLY SUPPORTED**: Evidence directly demonstrated by the Phase 1 quantitative dataset or verified database annotations.

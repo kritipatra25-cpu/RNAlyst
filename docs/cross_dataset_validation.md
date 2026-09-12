@@ -1,8 +1,8 @@
 # Cross-Dataset Validation Report: OSD-120 RNA-Seq Analysis
 
-> **DOCUMENT TYPE**: Cross-Dataset Validation Report (Read-Only)  
-> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)  
-> **COMPARISON DATASETS**: GSE94983 series (OSD-658 dark-grown roots, WS ecotype, phyD mutants)  
+> **DOCUMENT TYPE**: Cross-Dataset Validation Report (Read-Only)
+> **DATASET**: NASA OSDR OSD-120 (*Arabidopsis thaliana* light-grown roots: Spaceflight vs Ground Control)
+> **COMPARISON DATASETS**: GSE94983 series (OSD-658 dark-grown roots, WS ecotype, phyD mutants)
 > **RELEASE STATUS**: **`PENDING_HUMAN_REVIEW`** (No automated scientific approval granted)
 
 ---
@@ -137,11 +137,11 @@ OSD-658 evaluated *Arabidopsis* roots grown in **complete darkness** under space
 
 ## 10. Most Valuable Next Computational Analysis
 
-> **SINGLE MOST INFORMATIVE COMPUTATIONAL ANALYSIS**:  
+> **SINGLE MOST INFORMATIVE COMPUTATIONAL ANALYSIS**:
 > **Unified Multi-Dataset Re-Quantification & DESeq2 Meta-Analysis of OSD-120 + OSD-658**
 
 ### Rationale
-Currently, OSD-120 primary analysis uses DESeq2 (with apeglm shrinkage), whereas GSE94983 uses Cuffdiff. This pipeline mismatch creates artificial filtering discrepancies (e.g., *HYH* missing from Cuffdiff tables). 
+Currently, OSD-120 primary analysis uses DESeq2 (with apeglm shrinkage), whereas GSE94983 uses Cuffdiff. This pipeline mismatch creates artificial filtering discrepancies (e.g., *HYH* missing from Cuffdiff tables).
 
 Running a **single, standardized DESeq2 workflow** across raw count matrices of OSD-120 ($N=3$ light flight vs $N=3$ light ground) and OSD-658 ($N=3$ dark flight vs $N=3$ dark ground) using a multi-factor model (`~ Light_Condition + Spaceflight`) will:
 1. Provide unified, un-filtered FDR statistical power ($N=6$ spaceflight samples total).

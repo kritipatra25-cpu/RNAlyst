@@ -1,8 +1,8 @@
 # OSD-120 / OSD-678 Final Evidence-Graph & Literature Audit (Prompt 3.5)
 
-> **DOCUMENT TYPE**: Formal Scientific Audit & Evidence-Graph Refinement  
-> **TARGET REPORT**: `docs/osd120_osd678_biological_interpretation.md`  
-> **AUDIT PURPOSE**: Eliminate unproven causal language, re-classify network edges, verify literature citations, enforce CRY falsification, and upgrade the network diagram to a strictly evidence-graded architecture.  
+> **DOCUMENT TYPE**: Formal Scientific Audit & Evidence-Graph Refinement
+> **TARGET REPORT**: `docs/osd120_osd678_biological_interpretation.md`
+> **AUDIT PURPOSE**: Eliminate unproven causal language, re-classify network edges, verify literature citations, enforce CRY falsification, and upgrade the network diagram to a strictly evidence-graded architecture.
 > **RELEASE STATUS**: **`PROMPT_3_5_COMPLETE`**
 
 ---

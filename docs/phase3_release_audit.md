@@ -2,14 +2,14 @@
 
 > [!IMPORTANT]
 > **FINAL RELEASE CLASSIFICATION**: **`READY_FOR_HUMAN_REVIEW`**
-> 
+>
 > *Software test validation success does NOT constitute automated scientific approval. The release is submitted to the mandatory Human Review Gate in `PENDING_HUMAN_REVIEW` status.*
 
 ---
 
 ## 1. Audit Scope & Executive Summary
 
-This release audit evaluates the **Phase 3 Constrained LLM Interpretation Layer** built downstream of the locked Phase 1 bioinformatics pipeline (`results/osd120_primary_analysis/differential_expression.csv`) and Phase 2 RAG evidence packages (`results/osd120_phase2_interpretation/rag_retrieval_report.json`). 
+This release audit evaluates the **Phase 3 Constrained LLM Interpretation Layer** built downstream of the locked Phase 1 bioinformatics pipeline (`results/osd120_primary_analysis/differential_expression.csv`) and Phase 2 RAG evidence packages (`results/osd120_phase2_interpretation/rag_retrieval_report.json`).
 
 The audit was conducted strictly programmatically without calling external production LLMs or modifying Phase 1 / Phase 2 artifacts.
 

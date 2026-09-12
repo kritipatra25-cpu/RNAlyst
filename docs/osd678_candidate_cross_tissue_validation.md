@@ -1,9 +1,9 @@
 # OSD-678 Cross-Tissue Candidate Gene Validation Report
 
-> **DOCUMENT TYPE**: Cross-Dataset / Cross-Tissue Validation Report  
-> **PRIMARY DATASET**: OSD-120 (*Arabidopsis thaliana* light-grown roots: Flight vs Ground Control)  
-> **VALIDATION DATASET**: OSD-678 (*Arabidopsis thaliana* light-grown whole seedlings: Col-0 Flight vs Ground Control)  
-> **DISTINCTION**: **CROSS-TISSUE VALIDATION** (Roots in OSD-120 vs Whole Seedlings in OSD-678; NOT 100% direct biological replication)  
+> **DOCUMENT TYPE**: Cross-Dataset / Cross-Tissue Validation Report
+> **PRIMARY DATASET**: OSD-120 (*Arabidopsis thaliana* light-grown roots: Flight vs Ground Control)
+> **VALIDATION DATASET**: OSD-678 (*Arabidopsis thaliana* light-grown whole seedlings: Col-0 Flight vs Ground Control)
+> **DISTINCTION**: **CROSS-TISSUE VALIDATION** (Roots in OSD-120 vs Whole Seedlings in OSD-678; NOT 100% direct biological replication)
 > **RELEASE STATUS**: **`VALIDATION_COMPLETE` — PENDING HUMAN REVIEW**
 
 ---

@@ -34,7 +34,7 @@ class DirectionalBenchmarkValidator:
         lfc_thresh: float = 1.0
     ) -> Dict[str, Any]:
         """Calculate complete directional agreement metrics between pipeline and reference."""
-        
+
         pipe_clean = pipeline_de.dropna(subset=[gene_col, lfc_col_pipeline]).copy()
         ref_clean = reference_de.dropna(subset=[gene_col, lfc_col_ref]).copy()
 
@@ -78,13 +78,13 @@ class DirectionalBenchmarkValidator:
         # 3. DEG Overlap (Jaccard Index)
         pipe_deg = set(
             merged[
-                (merged[pipe_padj_key] < fdr_thresh) & 
+                (merged[pipe_padj_key] < fdr_thresh) &
                 (merged[pipe_lfc_key].abs() >= lfc_thresh)
             ][gene_col]
         )
         ref_deg = set(
             merged[
-                (merged[ref_padj_key] < fdr_thresh) & 
+                (merged[ref_padj_key] < fdr_thresh) &
                 (merged[ref_lfc_key].abs() >= lfc_thresh)
             ][gene_col]
         )

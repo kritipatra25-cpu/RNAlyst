@@ -1,9 +1,9 @@
 # OSD-678 Feasibility Audit for Cross-Dataset Validation
 
-> **DOCUMENT TYPE**: Pre-Implementation Feasibility Audit (Read-Only)  
-> **DATASET UNDER AUDIT**: NASA OSDR OSD-678 / GLDS-678 (*Arabidopsis thaliana* spaceflight experiment)  
-> **AUDIT PURPOSE**: Evaluate biological compatibility, data availability, statistical identifiability, and confounding risks of OSD-678 prior to any re-processing or meta-analysis integration.  
-> **FEASIBILITY CLASSIFICATION**: **`B. POTENTIALLY USEFUL BUT REQUIRES REPROCESSING`**  
+> **DOCUMENT TYPE**: Pre-Implementation Feasibility Audit (Read-Only)
+> **DATASET UNDER AUDIT**: NASA OSDR OSD-678 / GLDS-678 (*Arabidopsis thaliana* spaceflight experiment)
+> **AUDIT PURPOSE**: Evaluate biological compatibility, data availability, statistical identifiability, and confounding risks of OSD-678 prior to any re-processing or meta-analysis integration.
+> **FEASIBILITY CLASSIFICATION**: **`B. POTENTIALLY USEFUL BUT REQUIRES REPROCESSING`**
 > **RELEASE STATUS**: **`DESIGN_REVIEW_ONLY` — IMPLEMENTATION NOT AUTHORIZED**
 
 ---

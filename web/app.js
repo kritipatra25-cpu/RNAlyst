@@ -174,6 +174,12 @@ async function loadActiveProjects() {
       listEl.innerHTML = '<div style="font-size: 11px; color: var(--muted); font-style: italic;">No active projects loaded.</div>';
       return;
     }
+    // Auto-select most recent active project ONLY if currentProjectId is not set or not valid
+    const hasCurrent = currentProjectId && projects.some(p => p.project_id === currentProjectId);
+    if (!hasCurrent) {
+      currentProjectId = projects[0].project_id;
+    }
+
     listEl.innerHTML = projects.map(p => `
       <div class="project-card ${p.project_id === currentProjectId ? 'active' : ''}" data-project-id="${p.project_id}">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
@@ -338,7 +344,7 @@ async function submitQuery(queryString) {
   document.getElementById("landing-query-input").value = "";
   document.getElementById("bottom-query-input").value = "";
   document.getElementById("res-analysis-title").textContent = `Query: "${q.length > 35 ? q.substring(0, 35) + '…' : q}"`;
-  
+
   const statusBarBadges = document.getElementById("status-badges");
   statusBarBadges.innerHTML = '<span>● Dispatching Gemini LLM request…</span>';
   document.getElementById("status-dot").style.background = "#D95F02";
@@ -394,7 +400,7 @@ function renderErrorState(errorMsg) {
   document.getElementById("status-dot").style.background = "#D95F02";
   document.getElementById("status-text").textContent = "Execution Failed";
   document.getElementById("status-badges").innerHTML = `<span style="color: #D95F02;">✖ ${escapeHtml(displayMsg)}</span>`;
-  
+
   const interpSection = document.getElementById("interpretation-section");
   interpSection.style.display = "block";
   document.getElementById("interpretation-text").innerHTML = `
@@ -415,7 +421,7 @@ function renderAgentResponse(resp) {
   // Status Bar
   document.getElementById("status-dot").style.background = "#6F887C";
   document.getElementById("status-text").textContent = "Analysis Complete";
-  
+
   const steps = resp.requested_outputs || ["QC", "Differential Expression", "Synthesis"];
   document.getElementById("status-badges").innerHTML = steps.map(s => `<span>✓ ${escapeHtml(s)}</span>`).join("");
 
@@ -577,7 +583,7 @@ function openLightboxAtIndex(index) {
 
   const img = document.getElementById("modal-image");
   const errBlock = document.getElementById("modal-error-block");
-  
+
   img.style.display = "block";
   errBlock.style.display = "none";
 

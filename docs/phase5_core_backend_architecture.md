@@ -1,8 +1,8 @@
 # Phase 5 — Core Backend Architecture Mapping
 
-> **DOCUMENT TYPE**: Read-Only Architectural Audit & Generalization Specification  
-> **EVALUATED ARTIFACTS**: `docs/phase4_backend_reproducibility_audit.md`, `results/phase4_backend/*`, `pipeline/`, `analysis/`, `scientific_guardrails/`, `provenance/`  
-> **GOAL**: Map actual reusable core backend components, isolate OSD-specific logic, define component contracts, and evaluate generalization readiness for non-OSD bulk RNA-seq datasets.  
+> **DOCUMENT TYPE**: Read-Only Architectural Audit & Generalization Specification
+> **EVALUATED ARTIFACTS**: `docs/phase4_backend_reproducibility_audit.md`, `results/phase4_backend/*`, `pipeline/`, `analysis/`, `scientific_guardrails/`, `provenance/`
+> **GOAL**: Map actual reusable core backend components, isolate OSD-specific logic, define component contracts, and evaluate generalization readiness for non-OSD bulk RNA-seq datasets.
 > **FINAL ARCHITECTURAL VERDICT**: **`B. READY AFTER REFACTORING`**
 
 ---
@@ -164,9 +164,9 @@ Mapping of evidence labels (`[OBSERVED]`, `[LITERATURE]`, `[INFERENCE]`, `[HYPOT
 
 Tracing data transformations from source to report:
 
-`Raw STAR Counts (SHA-256)`  
-$\rightarrow$ `PyDESeq2 Contrast Execution (SHA-256)`  
-$\rightarrow$ `Candidate Summary JSON (SHA-256)`  
+`Raw STAR Counts (SHA-256)`
+$\rightarrow$ `PyDESeq2 Contrast Execution (SHA-256)`
+$\rightarrow$ `Candidate Summary JSON (SHA-256)`
 $\rightarrow$ `Evidence-Graded Markdown Report (SHA-256)`
 
 - **Traceability Status**: Fully traceable via `provenance/manifest.py`.

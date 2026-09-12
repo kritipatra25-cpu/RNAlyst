@@ -13,6 +13,7 @@ htmlcov/
 # Secrets & Credentials
 .env
 .env.*
+!.env.example
 *.env
 *.pem
 *.key
@@ -44,7 +45,7 @@ projects/*/data/uploads/
 projects/*/data/salmon_index/
 projects/*/data/references/
 tmp/
-workflows/
+workflows/work/
 .nextflow/
 .nextflow.log*
 
@@ -55,3 +56,22 @@ node_modules/
 build/
 dist/
 *.egg-info/
+
+# Runtime analysis projects and generated results
+projects/
+results/
+
+# Runtime-generated per-project configs
+configs/[0-9a-fA-F]*.yaml
+
+# Runtime-generated RNAlyst state
+/projects/
+/results/
+/data/artifacts/
+/data/jobs/
+data/uploads
+/data/uploads/
+data/analyses_db.json
+/data/analyses_db.json
+/configs/*.yaml
+configs/[0-9a-fA-F]*.yaml

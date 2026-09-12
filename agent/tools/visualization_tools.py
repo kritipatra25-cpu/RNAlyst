@@ -1,16 +1,20 @@
 """
 Visualization Agent Tool Contracts.
 
-Wraps deterministic VisualizationEngine figure generation capabilities (Volcano plot, 
-PCA plot, Row Z-score Heatmap, QC Plot) as BaseTool contracts with typed schemas, argument 
+Wraps deterministic VisualizationEngine figure generation capabilities (Volcano plot,
+PCA plot, Row Z-score Heatmap, QC Plot) as BaseTool contracts with typed schemas, argument
 validation, dynamic project path auto-resolution, structured ToolResult output, and provenance tracking.
 """
 
+import logging
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 import time
 import pandas as pd
 from pydantic import BaseModel, Field, validator
+
+logger = logging.getLogger(__name__)
+
 
 from agent.tools.base_tool import BaseTool, ToolResult, ToolArtifact
 from visualization.plots_engine import VisualizationEngine
@@ -274,12 +278,15 @@ class PCAPlotTool(BaseTool):
                 }
             }
 
+            pc1_var = pca_data.get("pc1_var") if isinstance(pca_data, dict) else None
+            pc2_var = pca_data.get("pc2_var") if isinstance(pca_data, dict) else None
+
             return ToolResult.success_result(
                 tool_name=self.name,
                 result={
                     "output_path": out_str,
-                    "pc1_var": pca_data.get("pc1_var"),
-                    "pc2_var": pca_data.get("pc2_var"),
+                    "pc1_var": pc1_var,
+                    "pc2_var": pc2_var,
                     "group_col": group_col,
                     "top_n_genes": args.top_n_genes,
                     "sample_count": len(sample_meta) if sample_meta is not None else len(vst_df.columns),
@@ -442,19 +449,60 @@ class QCPlotTool(BaseTool):
         qc_metrics = None
         source_file = "FASTQ QC Output"
         try:
-            from api.routes.qc import find_uploaded_file, calculate_fastq_qc
-            uploaded_f = find_uploaded_file(proj_id)
-            source_file = uploaded_f.name
-            qc_metrics = calculate_fastq_qc(uploaded_f)
+            from api.routes.qc import find_all_uploaded_files, find_uploaded_file, calculate_project_qc
+            from pipeline.project_manager import ProjectManager
+
+            pm = ProjectManager()
+            all_files = find_all_uploaded_files(proj_id)
+
+            # If no files found directly for proj_id and proj_id was not explicitly specified, try resolving from active projects
+            if not all_files and (not args.project_id or args.project_id == "CURRENT_PROJECT"):
+                active_projects = pm.list_projects()
+                active_projects.sort(
+                    key=lambda p: (pm.projects_dir / p.project_id).stat().st_mtime if (pm.projects_dir / p.project_id).exists() else 0,
+                    reverse=True
+                )
+                for p in active_projects:
+                    candidate_files = find_all_uploaded_files(p.project_id)
+                    if candidate_files:
+                        all_files = candidate_files
+                        proj_id = p.project_id
+                        break
+
+            if not all_files:
+                return ToolResult.error_result(
+                    tool_name=self.name,
+                    error_type="FileNotFoundError",
+                    message=f"No uploaded FASTQ files found for project '{proj_id}'. Upload FASTQ files before running QC.",
+                    provenance={"project_id": proj_id, "source_artifact": source_file}
+                )
+
+            source_file = f"{len(all_files)} FASTQ file(s)"
+            qc_metrics = calculate_project_qc(all_files)
         except Exception as e:
+            logger.exception("QC metrics computation failed for project %s: %s", proj_id, e)
             return ToolResult.error_result(
                 tool_name=self.name,
-                error_type="MissingPrerequisitesError",
-                message=f"FASTQ Quality Control metrics missing or unavailable for project '{proj_id}': {str(e)}",
-                provenance={"project_id": proj_id}
+                error_type=type(e).__name__,
+                message=f"QC metrics computation failed for project '{proj_id}': {str(e)}",
+                provenance={"project_id": proj_id, "source_artifact": source_file}
             )
 
-        out_path = Path(args.output_path) if args.output_path else Path("results/qc_plot.png")
+
+        # Resolve project-specific output path: projects/<project_id>/results/qc_plot.png
+        res_dir = Path("projects") / proj_id / "results"
+        res_dir.mkdir(parents=True, exist_ok=True)
+
+        if not args.output_path or args.output_path == "results/qc_plot.png":
+            out_path = res_dir / "qc_plot.png"
+        else:
+            p_arg = Path(args.output_path)
+            if not p_arg.is_absolute() and not str(p_arg).startswith("projects/"):
+                out_path = res_dir / p_arg.name
+            else:
+                out_path = p_arg
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+
         analysis_id = f"analysis_qc_{int(time.time())}"
 
         try:
@@ -463,7 +511,42 @@ class QCPlotTool(BaseTool):
                 output_path=out_path
             )
 
-            out_str = str(res_path)
+            # Explicit Post-Generation Artifact Validation
+            if not out_path.exists():
+                return ToolResult.error_result(
+                    tool_name=self.name,
+                    error_type="ArtifactGenerationError",
+                    message=f"QC plot generation failed: output file '{out_path}' was not created on disk.",
+                    provenance={"project_id": proj_id, "expected_path": str(out_path)}
+                )
+
+            if out_path.stat().st_size == 0:
+                return ToolResult.error_result(
+                    tool_name=self.name,
+                    error_type="ArtifactGenerationError",
+                    message=f"QC plot generation failed: output file '{out_path}' is 0 bytes (empty).",
+                    provenance={"project_id": proj_id, "expected_path": str(out_path)}
+                )
+
+            try:
+                with open(out_path, "rb") as f_img:
+                    header = f_img.read(8)
+                if header != b"\x89PNG\r\n\x1a\n":
+                    return ToolResult.error_result(
+                        tool_name=self.name,
+                        error_type="InvalidArtifactError",
+                        message=f"QC plot generation failed: output file '{out_path}' is not a valid PNG image.",
+                        provenance={"project_id": proj_id, "expected_path": str(out_path)}
+                    )
+            except Exception as img_err:
+                return ToolResult.error_result(
+                    tool_name=self.name,
+                    error_type="InvalidArtifactError",
+                    message=f"QC plot generation validation failed: {str(img_err)}",
+                    provenance={"project_id": proj_id, "expected_path": str(out_path)}
+                )
+
+            out_str = str(out_path)
             prov = {
                 "project_id": proj_id,
                 "analysis_id": analysis_id,
@@ -490,9 +573,10 @@ class QCPlotTool(BaseTool):
                 provenance=prov
             )
         except Exception as e:
+            logger.exception("QC plot generation failed for project %s: %s", proj_id, e)
             return ToolResult.error_result(
                 tool_name=self.name,
                 error_type=type(e).__name__,
-                message=f"QC plot generation failed: {str(e)}",
+                message=f"QC plot generation failed for project '{proj_id}': {str(e)}",
                 provenance={"project_id": proj_id, "source_artifact": source_file}
             )

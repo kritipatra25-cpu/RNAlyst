@@ -5,7 +5,7 @@ import hashlib
 def generate_provenance_graph_and_reproducibility():
     out_dir = "results/phase4_backend"
     os.makedirs(out_dir, exist_ok=True)
-    
+
     # Task 2 — Explicit Provenance Execution Graph
     provenance_graph = {
         "workflow_title": "OSD-120 / OSD-678 Bulk RNA-seq Analysis & Biological Interpretation Workflow",
@@ -68,10 +68,10 @@ def generate_provenance_graph_and_reproducibility():
             {"from": "RAG_RETRIEVAL", "to": "BIOLOGICAL_REPORTING", "status": "EXECUTED"}
         ]
     }
-    
+
     with open(os.path.join(out_dir, "provenance_graph.json"), "w") as f:
         json.dump(provenance_graph, f, indent=2)
-        
+
     # Task 3 — Reproducibility Manifest
     def get_hash(path):
         if not os.path.exists(path):
@@ -81,7 +81,7 @@ def generate_provenance_graph_and_reproducibility():
             while chunk := f.read(8192):
                 h.update(chunk)
         return h.hexdigest()
-        
+
     reproducibility_manifest = {
         "manifest_title": "OSD-120 / OSD-678 Workflow Reproducibility Manifest",
         "artifacts": [
@@ -136,10 +136,10 @@ def generate_provenance_graph_and_reproducibility():
         ],
         "readiness_status": "BACKEND_REPRODUCIBLE"
     }
-    
+
     with open(os.path.join(out_dir, "reproducibility_manifest.json"), "w") as f:
         json.dump(reproducibility_manifest, f, indent=2)
-        
+
     print("Provenance graph and reproducibility manifest generated successfully.")
 
 if __name__ == '__main__':

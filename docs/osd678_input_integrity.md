@@ -1,8 +1,8 @@
 # OSD-678 Input Integrity Audit Report
 
-> **DOCUMENT TYPE**: Read-Only Input Integrity Audit  
-> **DATASET**: NASA OSDR OSD-678 (GLDS-612) STAR Unnormalized Integer Count Matrix & Sample Metadata  
-> **AUDIT STATUS**: **`PASSED`** (10/10 Integrity Checks Verified)  
+> **DOCUMENT TYPE**: Read-Only Input Integrity Audit
+> **DATASET**: NASA OSDR OSD-678 (GLDS-612) STAR Unnormalized Integer Count Matrix & Sample Metadata
+> **AUDIT STATUS**: **`PASSED`** (10/10 Integrity Checks Verified)
 > **RELEASE STATUS**: **`VERIFIED_FOR_DESEQ2`**
 
 ---

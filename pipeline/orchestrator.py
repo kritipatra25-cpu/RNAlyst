@@ -16,7 +16,7 @@ from pipeline.job_models import (
 )
 from pipeline.llm_provider import BaseLLMProvider
 from pipeline.planner import AnalysisPlanner
-from api.routes.qc import find_uploaded_file, calculate_fastq_qc
+from api.routes.qc import find_uploaded_file, find_all_uploaded_files, calculate_fastq_qc, calculate_project_qc
 from analysis.statistics.pca_engine import perform_pca, load_expression_matrix
 from analysis.statistics.de_engine import perform_differential_expression, load_sample_metadata
 from visualization.plots_engine import (
@@ -24,6 +24,7 @@ from visualization.plots_engine import (
 )
 
 logger = logging.getLogger(__name__)
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 JOBS_DIR = PROJECT_ROOT / "data" / "jobs"
@@ -109,7 +110,7 @@ class AnalysisOrchestrator:
 
     def _find_sample_metadata(self, file_id: str) -> Optional[Path]:
         requested_id = str(file_id).strip().lower()
-        
+
         for path in self.uploads_dir.rglob("*"):
             if not path.is_file():
                 continue
@@ -131,7 +132,7 @@ class AnalysisOrchestrator:
         llm_provider: Optional[BaseLLMProvider] = None
     ) -> AnalysisJob:
         analysis_id = f"analysis_{uuid.uuid4().hex[:12]}"
-        
+
         effective_planner = self.planner
         if llm_provider is not None:
             effective_planner = AnalysisPlanner(uploads_dir=self.uploads_dir, llm_provider=llm_provider)
@@ -215,8 +216,11 @@ class AnalysisOrchestrator:
 
             try:
                 if step_name in ["qc", "validating_dataset"]:
-                    file_path = find_uploaded_file(job.file_id)
-                    qc_results = calculate_fastq_qc(file_path)
+                    all_files = find_all_uploaded_files(job.file_id)
+                    if not all_files:
+                        all_files = [find_uploaded_file(job.file_id)]
+                    qc_results = calculate_project_qc(all_files)
+
 
                     artifact_filename = f"{job.analysis_id}_{step_name}_summary.json"
                     artifact_path = self.artifacts_dir / artifact_filename

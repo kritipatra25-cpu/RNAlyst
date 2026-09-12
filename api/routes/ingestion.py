@@ -59,7 +59,7 @@ def create_project_endpoint(req: CreateProjectRequest):
 
 @router.post("/upload")
 @router.post("/ingestion/upload")
-def upload_fastq_standalone(
+async def upload_fastq_standalone(
     file: UploadFile = File(...),
     paired_file: Optional[UploadFile] = File(None),
     sample_id: Optional[str] = Form(None)
@@ -110,6 +110,9 @@ def upload_fastq_standalone(
         "sample_id": sample_id,
         "validation": val_res
     }
+
+
+upload_file = upload_fastq_standalone
 
 
 @router.post("/{project_id}/upload")
@@ -310,7 +313,7 @@ def assign_metadata_csv_endpoint(project_id: str, file: UploadFile = File(...)):
         import io
         contents = file.file.read()
         df = pd.read_csv(io.BytesIO(contents))
-        
+
         # Lowercase column names normalization
         col_map = {str(c).lower().strip(): c for c in df.columns}
         if "sample_id" not in col_map and "sample" in col_map:

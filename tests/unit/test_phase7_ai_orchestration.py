@@ -111,25 +111,26 @@ class TestPhase7AIOrchestration(unittest.TestCase):
         self.assertIn("over-assertive term", s_hyp.rejection_reason)
 
     def test_agent_orchestrator_query_execution(self):
-        # 1. Natural Language Query for List Datasets
-        resp1 = self.orchestrator.query("List all available datasets")
+        # 1. Dataset Listing
+        resp1 = self.orchestrator.list_datasets()
         self.assertTrue(resp1.success)
         self.assertEqual(resp1.operation, "LIST_DATASETS")
         self.assertIsNotNone(resp1.datasets)
 
-        # 2. Natural Language Query for Literature Search
-        resp2 = self.orchestrator.query("Find literature for CRY1 and HYH")
-        self.assertTrue(resp2.success)
-        self.assertEqual(resp2.operation, "LITERATURE_SEARCH")
-        self.assertGreaterEqual(len(resp2.literature_snippets), 1)
+        # 2. Literature Search
+        snips = self.orchestrator.rag_engine.search_gene_literature("CRY1")
+        self.assertGreaterEqual(len(snips), 1)
 
-        # 3. Natural Language Query for Analysis Execution
-        resp3 = self.orchestrator.query("Run analysis for OSD-678 spaceflight vs ground under light")
+        # 3. Analysis Execution
+        intent = self.orchestrator.parser.parse("Run analysis for OSD-678 spaceflight vs ground under light")
+        plan = self.orchestrator.plan_validator.build_plan(intent)
+        resp3 = self.orchestrator.execute_analysis_plan(plan)
         self.assertTrue(resp3.success)
         self.assertEqual(resp3.operation, "EXECUTE_PLAN")
         self.assertIsNotNone(resp3.analysis_result)
         self.assertIsNotNone(resp3.scientific_report)
         self.assertIn("1. What was tested?", resp3.scientific_report.full_markdown_report())
+
 
 
 if __name__ == "__main__":

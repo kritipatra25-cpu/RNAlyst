@@ -126,13 +126,13 @@ def main():
     out_dir = Path("data")
     out_dir.mkdir(exist_ok=True)
     manifest_path = out_dir / "osd120_primary_benchmark_manifest.json"
-    
+
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(BENCHMARK_SAMPLES, f, indent=2)
 
     total_bytes = sum(s["file_size_bytes_r1"] + s["file_size_bytes_r2"] for s in BENCHMARK_SAMPLES)
     total_gb = total_bytes / (1024 ** 3)
-    
+
     print(f"Saved benchmark manifest to {manifest_path}")
     print(f"Total biological samples: {len(BENCHMARK_SAMPLES)}")
     print(f"Total FASTQ files: {len(BENCHMARK_SAMPLES) * 2}")

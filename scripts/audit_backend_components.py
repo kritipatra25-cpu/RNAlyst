@@ -21,9 +21,9 @@ def test_backend_components():
         ("scientific_guardrails.design_checker", "validate_experimental_design_matrix", "Experimental Design Checker"),
         ("scientific_guardrails.replicate_rules", "validate_biological_replicates", "Biological Replicate Checker")
     ]
-    
+
     inventory = []
-    
+
     for mod_name, obj_name, desc in components:
         try:
             mod = importlib.import_module(mod_name)
@@ -62,13 +62,13 @@ def test_backend_components():
                 "invoked_in_workflow": False,
                 "downstream_consumed": False
             })
-            
+
     out_dir = "results/phase4_backend"
     os.makedirs(out_dir, exist_ok=True)
     out_file = os.path.join(out_dir, "backend_component_inventory.json")
     with open(out_file, "w") as f:
         json.dump(inventory, f, indent=2)
-        
+
     print(f"Inventory saved to {out_file}")
 
 if __name__ == '__main__':

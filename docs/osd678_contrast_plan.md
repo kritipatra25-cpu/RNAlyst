@@ -1,8 +1,8 @@
 # OSD-678 Predefined Contrast Plan & Statistical Specification
 
-> **DOCUMENT TYPE**: Experimental Contrast Specification & Model Design  
-> **DATASET**: NASA OSDR OSD-678 (GLDS-612) *Arabidopsis thaliana* BRIC-23 Spaceflight Experiment  
-> **MODEL FORMULA**: `~ group` (3 × 2 × 2 Full Factorial Design)  
+> **DOCUMENT TYPE**: Experimental Contrast Specification & Model Design
+> **DATASET**: NASA OSDR OSD-678 (GLDS-612) *Arabidopsis thaliana* BRIC-23 Spaceflight Experiment
+> **MODEL FORMULA**: `~ group` (3 × 2 × 2 Full Factorial Design)
 > **RELEASE STATUS**: **`VERIFIED_FOR_VALIDATION`**
 
 ---

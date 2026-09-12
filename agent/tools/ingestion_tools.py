@@ -59,7 +59,7 @@ class CreateProjectTool(BaseTool):
 
     def _execute(self, arguments: Dict[str, Any], validated_args: Optional[BaseModel] = None) -> ToolResult:
         inp: CreateProjectInput = validated_args or CreateProjectInput(**arguments)
-        
+
         sample_ids = inp.sample_ids or []
         conditions = inp.conditions or []
 

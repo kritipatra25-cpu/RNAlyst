@@ -8,8 +8,8 @@
         "ISF"
     ],
     "frag_dist_length": 1001,
-    "frag_length_mean": 35.4934062342691,
-    "frag_length_sd": 1.1875535244934912,
+    "frag_length_mean": 35.4965463864276,
+    "frag_length_sd": 1.1870988892701798,
     "seq_bias_correct": false,
     "gc_bias_correct": false,
     "num_bias_bins": 4096,
@@ -45,6 +45,6 @@
     "num_alignments_below_threshold_for_mapped_fragments_vm": 73044482,
     "percent_mapped": 26.441194043426436,
     "call": "quant",
-    "start_time": "Sat Sep 12 00:21:35 2026",
-    "end_time": "Sat Sep 12 00:26:42 2026"
+    "start_time": "Sat Sep 12 20:24:55 2026",
+    "end_time": "Sat Sep 12 20:28:50 2026"
 }

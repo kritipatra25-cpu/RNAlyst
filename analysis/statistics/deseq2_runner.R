@@ -20,7 +20,7 @@ parse_args_dict <- function(args_list) {
     output_dir = "./results",
     seed = 42
   )
-  
+
   i <- 1
   while (i <= length(args_list)) {
     arg <- args_list[i]

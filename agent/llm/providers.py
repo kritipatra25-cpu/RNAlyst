@@ -327,3 +327,222 @@ class MockLLMProvider(BaseLLMProvider):
             tool_calls=[],
             finish_reason="stop"
         )
+
+
+def sanitize_openai_schema(schema: Any) -> Any:
+    """
+    Sanitize JSON schema dictionary for OpenAI / Groq tool function parameter definitions.
+    """
+    if not isinstance(schema, dict):
+        return schema
+
+    s = dict(schema)
+
+    # Expand anyOf / oneOf / allOf
+    for combinator in ("anyOf", "oneOf", "allOf"):
+        if combinator in s:
+            options = s.pop(combinator)
+            if isinstance(options, list) and options:
+                non_null_options = [
+                    opt for opt in options
+                    if isinstance(opt, dict) and opt.get("type") != "null"
+                ]
+                if non_null_options:
+                    chosen = sanitize_openai_schema(non_null_options[0])
+                    for k, v in chosen.items():
+                        if k not in s:
+                            s[k] = v
+
+    if "properties" in s and isinstance(s["properties"], dict):
+        clean_props = {}
+        for prop_name, prop_schema in s["properties"].items():
+            clean_props[prop_name] = sanitize_openai_schema(prop_schema)
+        s["properties"] = clean_props
+
+    if "items" in s and isinstance(s["items"], dict):
+        s["items"] = sanitize_openai_schema(s["items"])
+
+    disallowed_keys = {
+        "title",
+        "default",
+        "additionalProperties",
+        "additional_properties",
+        "$defs",
+        "definitions",
+        "$schema",
+        "prefixItems",
+        "unevaluatedProperties"
+    }
+    cleaned = {k: v for k, v in s.items() if k not in disallowed_keys}
+
+    if "type" not in cleaned and "properties" in cleaned:
+        cleaned["type"] = "object"
+
+    return cleaned
+
+
+class GroqLLMProvider(BaseLLMProvider):
+    """
+    LLM Provider integration for Groq API using OpenAI-compatible REST endpoint.
+    Supports chat completion, system/user/assistant turns, and tool-calling function execution.
+    """
+
+    def __init__(self, api_key: Optional[str] = None, model_name: Optional[str] = None):
+        self.api_key = api_key or os.getenv("GROQ_API_KEY")
+        if not self.api_key:
+            raise ConfigurationError(
+                "GROQ_API_KEY is not set. Please set GROQ_API_KEY in environment or configuration."
+            )
+        resolved_model = model_name
+        if not resolved_model or resolved_model.lower().startswith("gemini"):
+            resolved_model = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+        self.model_name = resolved_model
+        self.api_url = "https://api.groq.com/openai/v1/chat/completions"
+
+    def generate(
+        self,
+        messages: List[LLMMessage],
+        tools_schema: Optional[List[Dict[str, Any]]] = None
+    ) -> LLMResponse:
+        """Call Groq OpenAI-compatible chat API with messages and tools."""
+        import json
+        import urllib.request
+        import urllib.error
+
+        # Format OpenAI-compatible tools
+        tools_payload = None
+        if tools_schema:
+            tools_payload = []
+            for schema in tools_schema:
+                raw_params = schema.get("parameters")
+                clean_params = sanitize_openai_schema(raw_params) if raw_params else {"type": "object", "properties": {}}
+                tools_payload.append({
+                    "type": "function",
+                    "function": {
+                        "name": schema["name"],
+                        "description": schema.get("description", ""),
+                        "parameters": clean_params
+                    }
+                })
+
+        # Format OpenAI-compatible messages
+        formatted_messages = []
+        for msg in messages:
+            content = msg.content or ""
+            if len(content) > 3500:
+                content = content[:3500] + "\n...[truncated for token limit]..."
+
+            if msg.role == "tool":
+                formatted_messages.append({
+                    "role": "tool",
+                    "tool_call_id": msg.tool_call_id or "call_default",
+                    "content": content or "{}"
+                })
+            elif msg.role in ("assistant", "model"):
+                asst_msg = {"role": "assistant"}
+                if content:
+                    asst_msg["content"] = content
+                if msg.tool_calls:
+                    asst_msg["tool_calls"] = [
+                        {
+                            "id": tc.call_id,
+                            "type": "function",
+                            "function": {
+                                "name": tc.tool_name,
+                                "arguments": json.dumps(tc.arguments) if isinstance(tc.arguments, dict) else str(tc.arguments)
+                            }
+                        } for tc in msg.tool_calls
+                    ]
+                formatted_messages.append(asst_msg)
+            else:
+                role = "system" if msg.role == "system" else "user"
+                formatted_messages.append({
+                    "role": role,
+                    "content": content
+                })
+
+
+        if not formatted_messages:
+            formatted_messages = [{"role": "user", "content": "Analyze input."}]
+
+        payload = {
+            "model": self.model_name,
+            "messages": formatted_messages,
+            "temperature": 0.1
+        }
+        if tools_payload:
+            payload["tools"] = tools_payload
+
+        req_body = json.dumps(payload).encode("utf-8")
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": "RNAlyst-AI-Agent/1.0"
+        }
+
+        req = urllib.request.Request(self.api_url, data=req_body, headers=headers, method="POST")
+
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                resp_data = json.loads(resp.read().decode("utf-8"))
+
+            choices = resp_data.get("choices", [])
+            if not choices:
+                return LLMResponse(
+                    content=None,
+                    tool_calls=[],
+                    finish_reason="error",
+                    raw_response={"error": "Groq API returned an empty choices list."}
+                )
+
+            choice = choices[0]
+            msg_obj = choice.get("message", {})
+            content_text = msg_obj.get("content")
+
+            tool_calls = []
+            if msg_obj.get("tool_calls"):
+                for tc in msg_obj["tool_calls"]:
+                    func = tc.get("function", {})
+                    t_name = func.get("name", "")
+                    raw_args = func.get("arguments", "{}")
+                    try:
+                        args_dict = json.loads(raw_args) if isinstance(raw_args, str) else raw_args
+                    except Exception:
+                        args_dict = {}
+                    call_id = tc.get("id") or f"call_{t_name}"
+                    tool_calls.append(ToolCallRequest(
+                        call_id=call_id,
+                        tool_name=t_name,
+                        arguments=args_dict
+                    ))
+
+            finish_reason = "tool_calls" if tool_calls else choice.get("finish_reason", "stop")
+
+            return LLMResponse(
+                content=content_text,
+                tool_calls=tool_calls,
+                finish_reason=finish_reason,
+                raw_response=resp_data
+            )
+
+        except urllib.error.HTTPError as e:
+            try:
+                err_body = json.loads(e.read().decode("utf-8"))
+                err_msg = err_body.get("error", {}).get("message") or str(err_body)
+            except Exception:
+                err_msg = str(e)
+            logger.error("Groq API HTTP error (%s): %s", e.code, err_msg)
+            return LLMResponse(
+                content=None,
+                tool_calls=[],
+                finish_reason="error",
+                raw_response={"error": f"Groq API HTTP error ({e.code}): {err_msg}"}
+            )
+        except Exception as e:
+            logger.error("Groq API unexpected error: %s", e)
+            return LLMResponse(
+                content=None,
+                tool_calls=[],
+                finish_reason="error",
+                raw_response={"error": f"Groq API error: {str(e)}"}
+            )

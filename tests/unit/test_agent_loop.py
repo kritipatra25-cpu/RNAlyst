@@ -68,8 +68,8 @@ def test_3_multi_step_tool_calling():
     assert res.success is True
     assert res.iterations_count == 3
     assert len(res.tool_results) == 2
-    assert res.tool_results[0].result["snippets"][0]["gene_id"] == "CRY1"
-    assert res.tool_results[1].result["snippets"][0]["gene_id"] == "HYH"
+    assert res.tool_results[0].result["snippets"][0]["symbol"] == "CRY1"
+    assert res.tool_results[1].result["snippets"][0]["symbol"] == "HYH"
     assert "Integrated multi-gene" in res.message
 
 

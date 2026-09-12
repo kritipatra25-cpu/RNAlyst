@@ -80,10 +80,11 @@ class VisualizationEngine:
             ax.set_xlabel(f"PC1 ({pc1_var:.1f}% Variance)", fontsize=11, fontweight="bold")
             ax.set_ylabel(f"PC2 ({pc2_var:.1f}% Variance)", fontsize=11, fontweight="bold")
             ax.set_title("Principal Component Analysis (PCA)", fontsize=13, fontweight="bold", pad=12)
+            plt.suptitle(title, fontsize=13, fontweight="bold", y=1.02) if 'title' in locals() else None
             plt.tight_layout()
             plt.savefig(output_path, bbox_inches="tight")
             plt.close()
-            return {"pc1_var": pc1_var, "pc2_var": pc2_var}
+            return output_path
 
         if isinstance(pca_data, (str, Path)):
             vst_df = pd.read_csv(pca_data, index_col=0)
@@ -99,7 +100,7 @@ class VisualizationEngine:
         var_explained = pca.explained_variance_ratio_ * 100
 
         pca_df = pd.DataFrame(pcs, index=sub_vst.index, columns=["PC1", "PC2"])
-        
+
         if sample_meta is not None and isinstance(sample_meta, pd.DataFrame) and group_col in sample_meta.columns:
             pca_df[group_col] = sample_meta.loc[pca_df.index, group_col].values
         else:
@@ -136,12 +137,7 @@ class VisualizationEngine:
         plt.close()
 
         logger.info("Saved PCA plot to %s", output_path)
-
-        return {
-            "pc1_var": float(var_explained[0]),
-            "pc2_var": float(var_explained[1]),
-            "coordinates": pca_df.to_dict(orient="index")
-        }
+        return output_path
 
     @staticmethod
     def plot_volcano(
@@ -248,14 +244,15 @@ class VisualizationEngine:
         p_col = "padj" if "padj" in de_df.columns else "pvalue"
         if p_col not in de_df.columns or "gene_id" not in de_df.columns:
             logger.warning("Required columns missing for heatmap plot.")
-            return output_path
+            return None
 
-        sig_genes = de_df.dropna(subset=[p_col]).nsmallest(top_n, p_col)["gene_id"].tolist()
+        sig_df = de_df[de_df[p_col] < 0.05]
+        sig_genes = sig_df.dropna(subset=[p_col]).nsmallest(top_n, p_col)["gene_id"].tolist() if not sig_df.empty else []
         sub_vst = vst_df.loc[vst_df.index.isin(sig_genes)]
 
         if sub_vst.empty:
             logger.warning("No significant genes found to plot heatmap.")
-            return output_path
+            return None
 
         # Keep only numeric columns
         sub_vst = sub_vst.select_dtypes(include=[np.number])
@@ -308,12 +305,44 @@ def generate_heatmap_plot(vst_df=None, de_data=None, sample_meta=None, output_pa
 def generate_qc_plot(qc_metrics, output_path):
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
-    metrics = ["total_reads", "gc_content_percent", "mean_phred_quality"]
-    vals = [qc_metrics.get(m, 0) if isinstance(qc_metrics, dict) else 0 for m in metrics]
-    ax.bar(metrics, vals, color="#3182bd")
-    ax.set_title("QC Summary Metrics")
-    plt.tight_layout()
-    plt.savefig(output_path, bbox_inches="tight")
-    plt.close()
+
+    samples_qc = qc_metrics.get("samples_qc", []) if isinstance(qc_metrics, dict) else []
+
+    if samples_qc and len(samples_qc) > 1:
+        # Multi-sample per-sample quality metrics bar subplots
+        fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(14, 4.5), dpi=300)
+        sample_ids = [s.get("sample_id", f"S{i+1}") for i, s in enumerate(samples_qc)]
+        reads = [s.get("qc", {}).get("total_reads", 0) for s in samples_qc]
+        gc_pcts = [s.get("qc", {}).get("gc_content_percent", 0.0) for s in samples_qc]
+        phreds = [s.get("qc", {}).get("mean_phred_quality", 0.0) for s in samples_qc]
+
+        ax1.bar(sample_ids, reads, color="#3182bd")
+        ax1.set_title("Total Reads per Sample", fontsize=11, fontweight="bold")
+        ax1.set_ylabel("Reads", fontsize=10)
+        ax1.tick_params(axis="x", rotation=30)
+
+        ax2.bar(sample_ids, gc_pcts, color="#e6550d")
+        ax2.set_title("GC Content (%)", fontsize=11, fontweight="bold")
+        ax2.set_ylabel("GC %", fontsize=10)
+        ax2.tick_params(axis="x", rotation=30)
+
+        ax3.bar(sample_ids, phreds, color="#31a354")
+        ax3.set_title("Mean Phred Quality", fontsize=11, fontweight="bold")
+        ax3.set_ylabel("Phred Score", fontsize=10)
+        ax3.tick_params(axis="x", rotation=30)
+
+        plt.suptitle(f"Multi-Sample Quality Control Summary ({len(samples_qc)} Samples)", fontsize=13, fontweight="bold", y=1.02)
+        plt.tight_layout()
+        plt.savefig(output_path, bbox_inches="tight")
+        plt.close()
+    else:
+        fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
+        metrics = ["total_reads", "gc_content_percent", "mean_phred_quality"]
+        vals = [qc_metrics.get(m, 0) if isinstance(qc_metrics, dict) else 0 for m in metrics]
+        ax.bar(metrics, vals, color="#3182bd")
+        ax.set_title("QC Summary Metrics")
+        plt.tight_layout()
+        plt.savefig(output_path, bbox_inches="tight")
+        plt.close()
+
     return output_path

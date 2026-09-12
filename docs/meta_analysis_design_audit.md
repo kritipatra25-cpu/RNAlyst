@@ -1,8 +1,8 @@
 # Meta-Analysis Design Audit: OSD-120 & OSD-658 Integration
 
-> **DOCUMENT TYPE**: Pre-Implementation Meta-Analysis Design Audit (Read-Only)  
-> **DATASETS UNDER AUDIT**: NASA OSDR OSD-120 (*Arabidopsis* light-grown roots) & OSD-658 (*Arabidopsis* dark-grown roots)  
-> **AUDIT PURPOSE**: Evaluate statistical identifiability, experimental comparability, and confounding risks before any re-quantification or meta-analysis implementation.  
+> **DOCUMENT TYPE**: Pre-Implementation Meta-Analysis Design Audit (Read-Only)
+> **DATASETS UNDER AUDIT**: NASA OSDR OSD-120 (*Arabidopsis* light-grown roots) & OSD-658 (*Arabidopsis* dark-grown roots)
+> **AUDIT PURPOSE**: Evaluate statistical identifiability, experimental comparability, and confounding risks before any re-quantification or meta-analysis implementation.
 > **RELEASE STATUS**: **`DESIGN_REVIEW_ONLY` — IMPLEMENTATION NOT YET AUTHORIZED**
 
 ---
@@ -67,7 +67,7 @@ In the current project structure:
 $$\text{Study\_OSD120} \equiv \text{Light\_Grown}$$
 $$\text{Study\_OSD658} \equiv \text{Dark\_Grown}$$
 
-Because `Study ID` and `Light Treatment` are 100% collinear, **no statistical software (including DESeq2) can estimate a Study Batch Effect and a Light Effect simultaneously from pooled raw counts**. 
+Because `Study ID` and `Light Treatment` are 100% collinear, **no statistical software (including DESeq2) can estimate a Study Batch Effect and a Light Effect simultaneously from pooled raw counts**.
 
 If raw count matrices of OSD-120 and OSD-658 are pooled into a single DESeq2 design matrix, any difference attributed to "Light" could equally be an artifact of sequencing run, RNA extraction kit, hardware lot, or temperature drift.
 
@@ -117,10 +117,10 @@ If raw count matrices of OSD-120 and OSD-658 are pooled into a single DESeq2 des
 If meta-analysis implementation is authorized in a future turn, it MUST follow this pre-registered specification:
 
 ### Specification Outline
-- **Input Datasets**: 
+- **Input Datasets**:
   - OSD-120 raw count matrix ($N=3$ FLT, $N=3$ GC, Col-0 light roots).
   - OSD-658 raw count matrix ($N=3$ FLT, $N=3$ GC, Col-0 dark roots).
-- **Primary Pipeline per Dataset**: 
+- **Primary Pipeline per Dataset**:
   - DESeq2 (v1.40+) fit independently per study using design formula `~ Spaceflight`.
   - Effect size shrinkage applied via `lfcShrink(type="apeglm")`.
 - **Meta-Analytic Integration**:

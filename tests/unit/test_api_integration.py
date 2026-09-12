@@ -24,6 +24,8 @@ class TestAPIIntegration(unittest.TestCase):
         data = response.json()
 
         self.assertEqual(data["operation"], "AGENTIC_QUERY")
+
+
         self.assertEqual(data["session_id"], "session_test_integration_001")
         self.assertIn("message", data)
         self.assertIn("iterations_count", data)

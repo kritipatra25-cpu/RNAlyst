@@ -1,7 +1,7 @@
 # AnalysisJob & Analysis Orchestration Architecture
 
 ## Overview
-This document specifies the design and implementation of the **AnalysisJob** model and **AnalysisOrchestrator** engine in the `RNA-seq AI Agent` platform located at `/home/kriti/rna-seq-ai-agent`.
+This document specifies the design and implementation of the **AnalysisJob** model and **AnalysisOrchestrator** engine in the `RNA-seq AI Agent` platform located at `<PROJECT_ROOT>`.
 
 The orchestration layer acts as the deterministic backend backbone connecting high-level user questions and FASTQ datasets to validated, reproducible bioinformatics tool executions, structured artifact registrations, and transparent execution traces.
 
@@ -39,7 +39,7 @@ The orchestration layer acts as the deterministic backend backbone connecting hi
   "artifact_id": "art_1b9c04a2",
   "type": "qc_summary",
   "name": "analysis_2f42a1d7_qc_summary.json",
-  "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_2f42a1d7_qc_summary.json",
+  "path": "<PROJECT_ROOT>/data/artifacts/analysis_2f42a1d7_qc_summary.json",
   "step": "qc",
   "metadata": {
     "total_reads": 200,
@@ -91,7 +91,7 @@ The orchestration layer acts as the deterministic backend backbone connecting hi
 
 The `AnalysisOrchestrator` manages job creation, state persistence, step execution, and artifact registration:
 
-- **Persistence**: Jobs are persisted as JSON files under `/home/kriti/rna-seq-ai-agent/data/jobs/{analysis_id}.json`. Artifacts are stored under `/home/kriti/rna-seq-ai-agent/data/artifacts/`.
+- **Persistence**: Jobs are persisted as JSON files under `<PROJECT_ROOT>/data/jobs/{analysis_id}.json`. Artifacts are stored under `<PROJECT_ROOT>/data/artifacts/`.
 - **`create_job(...)`**: Initializes a new job in state `queued` with pending step traces matching `plan`.
 - **`get_job(analysis_id)`**: Loads stored job JSON.
 - **`execute_job(analysis_id)`**: Iterates sequentially through `job.plan`:

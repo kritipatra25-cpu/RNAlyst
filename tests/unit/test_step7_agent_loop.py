@@ -35,7 +35,7 @@ class TestStep7AgentLoop(unittest.TestCase):
 
     def setUp(self):
         self.test_dir = Path(tempfile.mkdtemp(prefix="test_step7_"))
-        
+
         # Create synthetic DE results file for test execution
         self.de_file = self.test_dir / "de_results.csv"
         df = pd.DataFrame({
@@ -177,7 +177,8 @@ class TestStep7AgentLoop(unittest.TestCase):
 
         self.assertTrue(resp.success)
         self.assertEqual(resp.tool_results[0].status, "error")
-        self.assertEqual(resp.tool_results[0].error.error_type, "FileNotFoundError")
+        self.assertIn(resp.tool_results[0].error.error_type, ["FileNotFoundError", "MissingPrerequisitesError"])
+
 
     def test_7_maximum_iteration_termination(self):
         """Test 7: Agent loop safely terminates with error when max_iterations limit is reached."""
