@@ -1,0 +1,22 @@
+dataset_id: 021870F4-5952-420D-A70F-AD7AA947028D
+organism: Custom Organism
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/021870F4-5952-420D-A70F-AD7AA947028D/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/021870F4-5952-420D-A70F-AD7AA947028D/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/021870F4-5952-420D-A70F-AD7AA947028D/results
+combined_group_column: condition
+factors:
+  condition:
+  - Treatment
+  - Control
+reference_levels:
+  condition: control
+contrasts:
+- id: Primary_Contrast
+  factor: condition
+  numerator: Treatment
+  denominator: Control
+  description: Primary treatment vs control
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

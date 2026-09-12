@@ -1,0 +1,777 @@
+{
+  "study_id": "OSD-120",
+  "contrast": "Space Flight vs Ground Control",
+  "causal_guardrail_statement": "The analysis and interpretation describe spaceflight-associated transcriptional differences relative to ground control under light-treated root conditions at Day 13. They do NOT establish pure microgravity causality or biological replication.",
+  "sample_size_warning": "Study limitation: Small sample size (N=3 vs N=3) limits statistical power under strict Benjamini-Hochberg FDR control (padj < 0.05). Unadjusted p-value candidate genes are retained strictly for exploratory hypothesis generation and must NOT be reported as FDR-significant.",
+  "verified_citations": [
+    {
+      "citation_id": "CIT_PUBMED_29122345",
+      "source_type": "PEER_REVIEWED_PAPER",
+      "osd_accession": "OSD-120",
+      "gse_accession": "GSE94983",
+      "pmid": "29122345",
+      "doi": "10.1038/s41598-017-16441-x",
+      "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+      "authors": "Kruse CPS, et al.",
+      "year": 2017,
+      "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+      "verification_status": "VERIFIED_EXTERNAL_RECORD"
+    },
+    {
+      "citation_id": "CIT_PATHWAY_KEGG_ATH04075",
+      "source_type": "PATHWAY_DATABASE",
+      "osd_accession": null,
+      "gse_accession": null,
+      "pmid": null,
+      "doi": "10.1093/nar/gkaa970",
+      "title": "KEGG Pathway ath04075: Plant hormone signal transduction",
+      "authors": "KEGG Pathways Database",
+      "year": 2021,
+      "retrieved_chunk_text": "Plant hormone signal transduction pathway coordinates root growth response to mechanical stress and gravity perception.",
+      "verification_status": "VERIFIED_EXTERNAL_RECORD"
+    },
+    {
+      "citation_id": "CIT_PATHWAY_REACTOME_PLANT_001",
+      "source_type": "PATHWAY_DATABASE",
+      "osd_accession": null,
+      "gse_accession": null,
+      "pmid": null,
+      "doi": "10.1093/nar/gkab1028",
+      "title": "Plant Reactome: A Resource for Plant Pathway Analysis",
+      "authors": "Plant Reactome Consortium",
+      "year": 2022,
+      "retrieved_chunk_text": "Auxin polar transport pathway (R-ATH-1119318) involves PIN-FORMED efflux carriers and AUX/IAA repressor proteins driving differential root cell elongation.",
+      "verification_status": "VERIFIED_EXTERNAL_RECORD"
+    },
+    {
+      "citation_id": "CIT_MAPMAN_CELL_WALL",
+      "source_type": "PATHWAY_DATABASE",
+      "osd_accession": null,
+      "gse_accession": null,
+      "pmid": null,
+      "doi": "10.1104/pp.103.023820",
+      "title": "MapMan Ontology: Cell Wall Organization and Dynamics",
+      "authors": "MapMan Ontology Team",
+      "year": 2019,
+      "retrieved_chunk_text": "MapMan Bin 10: Cell wall modification enzymes, xyloglucan endotransglucosylases/hydrolases (XTHs) and pectinesterases alter cell wall elasticity during stress.",
+      "verification_status": "VERIFIED_EXTERNAL_RECORD"
+    }
+  ],
+  "gene_interpretations": [
+    {
+      "gene_id": "AT4G04720",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 8.442608350029258e-06,
+          "padj": 0.1809166543327769
+        },
+        "effect_size_precision": {
+          "log2FC": 0.3391227171053598,
+          "shrunk_log2FC": 0.1068495671853853,
+          "lfcSE": 0.0112944262332749,
+          "effect_description": "moderate estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT4G04720"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT4G04720 (TAIR10, verified) exhibited a moderate estimated effect (shrunk log2 fold change = +0.107, lfcSE = 0.011) with raw p-value = 8.44e-06, but BH padj = 0.1809 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT4G04720",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 8.442608350029258e-06,
+          "padj": 0.1809166543327769
+        },
+        "effect_size_precision": {
+          "log2FC": 0.3391227171053598,
+          "shrunk_log2FC": 0.1068495671853853,
+          "lfcSE": 0.0112944262332749,
+          "effect_description": "moderate estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT4G04720"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT4G04720 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT3G17609",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 6.492926690501514e-05,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": -4.685631379839752,
+          "shrunk_log2FC": -4.632877478281773,
+          "lfcSE": 0.2558335558282988,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": false,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT3G17609"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT3G17609 (TAIR10, verified) exhibited a large estimated effect (shrunk log2 fold change = -4.633, lfcSE = 0.256) with raw p-value = 6.49e-05, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT3G17609",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 6.492926690501514e-05,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": -4.685631379839752,
+          "shrunk_log2FC": -4.632877478281773,
+          "lfcSE": 0.2558335558282988,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": false,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT3G17609"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT3G17609 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT2G04170",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 9.456300247594956e-05,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 1.4073782052268944,
+          "shrunk_log2FC": 1.2496508390275378,
+          "lfcSE": 0.0591535971592668,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT2G04170"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT2G04170 (TAIR10, verified) exhibited a large estimated effect (shrunk log2 fold change = +1.250, lfcSE = 0.059) with raw p-value = 9.46e-05, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT2G04170",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 9.456300247594956e-05,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 1.4073782052268944,
+          "shrunk_log2FC": 1.2496508390275378,
+          "lfcSE": 0.0591535971592668,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT2G04170"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT2G04170 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT5G57630",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0001318219248435,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 0.5196386325609246,
+          "shrunk_log2FC": 0.269824044993861,
+          "lfcSE": 0.0357316414095333,
+          "effect_description": "moderate estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT5G57630"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT5G57630 (TAIR10, verified) exhibited a moderate estimated effect (shrunk log2 fold change = +0.270, lfcSE = 0.036) with raw p-value = 1.32e-04, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT5G57630",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0001318219248435,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 0.5196386325609246,
+          "shrunk_log2FC": 0.269824044993861,
+          "lfcSE": 0.0357316414095333,
+          "effect_description": "moderate estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT5G57630"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT5G57630 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT5G13930",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0001469954104865,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": -10.680039305397525,
+          "shrunk_log2FC": -10.656682344851976,
+          "lfcSE": 0.5545366517038331,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": false,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT5G13930"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT5G13930 (TAIR10, verified) exhibited a large estimated effect (shrunk log2 fold change = -10.657, lfcSE = 0.555) with raw p-value = 1.47e-04, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT5G13930",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0001469954104865,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": -10.680039305397525,
+          "shrunk_log2FC": -10.656682344851976,
+          "lfcSE": 0.5545366517038331,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": false,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT5G13930"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT5G13930 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT3G46640",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0002382961868771,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 0.4285672045883118,
+          "shrunk_log2FC": 0.1815087534842491,
+          "lfcSE": 0.0322253381062754,
+          "effect_description": "moderate estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT3G46640"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT3G46640 (TAIR10, verified) exhibited a moderate estimated effect (shrunk log2 fold change = +0.182, lfcSE = 0.032) with raw p-value = 2.38e-04, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT3G46640",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0002382961868771,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 0.4285672045883118,
+          "shrunk_log2FC": 0.1815087534842491,
+          "lfcSE": 0.0322253381062754,
+          "effect_description": "moderate estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT3G46640"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT3G46640 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT5G07390",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0002774199151844,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 1.4754555683160198,
+          "shrunk_log2FC": 1.3234701611263937,
+          "lfcSE": 0.121352599538759,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT5G07390"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT5G07390 (TAIR10, verified) exhibited a large estimated effect (shrunk log2 fold change = +1.323, lfcSE = 0.121) with raw p-value = 2.77e-04, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT5G07390",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0002774199151844,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 1.4754555683160198,
+          "shrunk_log2FC": 1.3234701611263937,
+          "lfcSE": 0.121352599538759,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT5G07390"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT5G07390 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    },
+    {
+      "gene_id": "AT1G01010",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class A (Quantitative Result)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0003894261266177,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 1.1403918216955724,
+          "shrunk_log2FC": 0.9565162013601272,
+          "lfcSE": 0.1033227945027235,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT1G01010"
+      ],
+      "derived_from_class_c_citation_ids": [],
+      "verified_citation_ids": [],
+      "narrative_summary": "Gene AT1G01010 (TAIR10, verified) exhibited a large estimated effect (shrunk log2 fold change = +0.957, lfcSE = 0.103) with raw p-value = 3.89e-04, but BH padj = 0.5388 >= 0.05. It is classified as RAW_P_ONLY / EXPLORATORY, NOT statistically significant differential expression under FDR control."
+    },
+    {
+      "gene_id": "AT1G01010",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "gene_id_verified": true,
+      "statistical_status": "RAW_P_ONLY",
+      "evidence_class": "Class D (Traceable Hypothesis)",
+      "confidence_decomposition": {
+        "statistical_status": "RAW_P_ONLY",
+        "confidence_label": "EXPLORATORY",
+        "statistical_significance": {
+          "pvalue": 0.0003894261266177,
+          "padj": 0.5388276715237375
+        },
+        "effect_size_precision": {
+          "log2FC": 1.1403918216955724,
+          "shrunk_log2FC": 0.9565162013601272,
+          "lfcSE": 0.1033227945027235,
+          "effect_description": "large estimated effect"
+        },
+        "directional_concordance": {
+          "sign_match_ref": true,
+          "overall_benchmark_concordance_pct": 85.99202392821536
+        },
+        "literature_pathway_support": {
+          "retrieved_chunk_count": 4,
+          "verified_citation_ids": [
+            "CIT_PUBMED_29122345",
+            "CIT_PATHWAY_KEGG_ATH04075",
+            "CIT_PATHWAY_REACTOME_PLANT_001",
+            "CIT_MAPMAN_CELL_WALL"
+          ]
+        }
+      },
+      "derived_from_class_a_gene_ids": [
+        "AT1G01010"
+      ],
+      "derived_from_class_c_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "verified_citation_ids": [
+        "CIT_PUBMED_29122345"
+      ],
+      "narrative_summary": "Hypothesis: The observed estimated effect for AT1G01010 under spaceflight may reflect root cell wall dynamics and gravitropic signaling shifts in response to microgravity exposure."
+    }
+  ],
+  "provenance_manifest": {
+    "phase1_output_hashes": {
+      "differential_expression_csv": "6d7c8b73e30e3baac7c4880d6febef38c0b4cdba9f26cec7ed0b3d22c3ad833b",
+      "vst_counts_csv": "a34bc19241cf66c133187421b43aff401b1c64ad8e5ff5e30a20341f65578b6c",
+      "deseq2_summary_json": "3e4afa957c30da733bf5d8234e19dec643fa90e6d886c59a5abe6806c1723172",
+      "provenance_manifest_json": "bb659622028f9011c169a491ebba6f675950b8038b9c730d398287f59897decc",
+      "tier_c_concordance_report_json": "6113eb9a8695851a0f6cf64977472e81236e9baf54f027bb12e2864cef242114"
+    },
+    "synthesis_mode": "DETERMINISTIC_REFERENCE",
+    "provider_name": "DETERMINISTIC_TEMPLATE_GENERATOR",
+    "model_identifier": "rule_based_v1.0",
+    "api_version": "1.0.0",
+    "system_prompt_hash": "f6e7918ee1c42d0a80801b251a0b0e81d343126f00709255015c5dc04f4d722e",
+    "user_prompt_hash": "faae283659bea7292b725429be2c5a26ee697ae0768707e4244353eeb42089a5",
+    "retrieval_query_string": "auxin cell wall root spaceflight OSD-120",
+    "returned_chunk_ids": [
+      "CIT_PUBMED_29122345",
+      "CIT_PATHWAY_KEGG_ATH04075",
+      "CIT_PATHWAY_REACTOME_PLANT_001",
+      "CIT_MAPMAN_CELL_WALL"
+    ],
+    "temperature": null,
+    "seed": null,
+    "input_payload_hash": "ed35e142134ff11f5e60ec8a54f75d79dd85dedc55e733735fd360247eac412e",
+    "output_payload_hash": "f58df193c6f0e6b7e704e0386222080a721388562517f8d1fc1949115ab44d72",
+    "execution_timestamp": "2026-08-21T13:54:58.910563"
+  }
+}

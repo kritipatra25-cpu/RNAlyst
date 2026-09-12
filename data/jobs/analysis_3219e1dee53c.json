@@ -1,0 +1,41 @@
+{
+  "analysis_id": "analysis_3219e1dee53c",
+  "file_id": "c3d7aa1a-eb51-424c-b922-fe29c5830cee",
+  "user_question": "What is the GC content of this FASTQ file?",
+  "organism": "Arabidopsis thaliana",
+  "dataset_id": null,
+  "status": "queued",
+  "current_step": null,
+  "plan": [
+    "validating_dataset",
+    "qc"
+  ],
+  "steps": [
+    {
+      "step": "validating_dataset",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    },
+    {
+      "step": "qc",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T14:18:51.519999+00:00"
+  },
+  "created_at": "2026-08-30T14:18:51.520113+00:00",
+  "updated_at": "2026-08-30T14:18:51.520129+00:00"
+}

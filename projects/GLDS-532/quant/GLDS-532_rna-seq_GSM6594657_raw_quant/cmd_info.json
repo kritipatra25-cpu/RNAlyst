@@ -1,0 +1,11 @@
+{
+    "salmon_version": "1.4.0",
+    "index": "/home/kriti/rna-seq-ai-agent/projects/GLDS-532/salmon_index",
+    "libType": "A",
+    "output": "/home/kriti/rna-seq-ai-agent/projects/GLDS-532/quant/GLDS-532_rna-seq_GSM6594657_raw_quant",
+    "threads": "4",
+    "validateMappings": [],
+    "mates1": "/home/kriti/rna-seq-ai-agent/projects/GLDS-532/data/uploads/A19DBFE0-A5A2-43B7-8348-D0D06748B8E8_GLDS-532_rna-seq_GSM6594657_R1_raw.fastq.gz",
+    "mates2": "/home/kriti/rna-seq-ai-agent/projects/GLDS-532/data/uploads/A19DBFE0-A5A2-43B7-8348-D0D06748B8E8_GLDS-532_rna-seq_GSM6594657_R2_raw.fastq.gz",
+    "auxDir": "aux_info"
+}

@@ -1,0 +1,22 @@
+{
+    "read_files": "[ /home/kriti/rna-seq-ai-agent/projects/GLDS-532/data/uploads/A19DBFE0-A5A2-43B7-8348-D0D06748B8E8_GLDS-532_rna-seq_GSM6594657_R1_raw.fastq.gz, /home/kriti/rna-seq-ai-agent/projects/GLDS-532/data/uploads/A19DBFE0-A5A2-43B7-8348-D0D06748B8E8_GLDS-532_rna-seq_GSM6594657_R2_raw.fastq.gz]",
+    "expected_format": "ISF",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 3593046,
+    "num_assigned_fragments": 3593046,
+    "num_frags_with_concordant_consistent_mappings": 278374,
+    "num_frags_with_inconsistent_or_orphan_mappings": 3352251,
+    "strand_mapping_bias": 1.0,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 278374,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 0,
+    "SF": 3230756,
+    "SR": 121495,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

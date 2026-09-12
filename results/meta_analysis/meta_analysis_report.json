@@ -1,0 +1,85 @@
+{
+  "meta_analysis_summary": {
+    "total_genes_in_master": 35628,
+    "genes_meta_analyzed": 15558,
+    "concordant_genes": 7886,
+    "heterogeneous_genes": 167,
+    "discordant_genes": 7505,
+    "single_dataset_genes": 8044,
+    "meta_fdr_sig_genes": 2062
+  },
+  "candidate_gene_outcomes": [
+    {
+      "gene_id": "AT1G01010",
+      "osd120_lfc": 1.1403918216955724,
+      "osd658_lfc": -0.247927,
+      "meta_lfc": 1.1217812063598216,
+      "meta_padj": 0.0,
+      "i2_percent": 58.68170964682564,
+      "convergence_classification": "DISCORDANT"
+    },
+    {
+      "gene_id": "AT2G04170",
+      "osd120_lfc": 1.4073782052268944,
+      "osd658_lfc": 1.58527,
+      "meta_lfc": 1.4092834945227433,
+      "meta_padj": 0.0,
+      "i2_percent": 0.0,
+      "convergence_classification": "CONCORDANT"
+    },
+    {
+      "gene_id": "AT3G17609",
+      "osd120_lfc": -4.685631379839752,
+      "osd658_lfc": NaN,
+      "meta_lfc": NaN,
+      "meta_padj": NaN,
+      "i2_percent": NaN,
+      "convergence_classification": "SINGLE_DATASET_ONLY"
+    },
+    {
+      "gene_id": "AT3G46640",
+      "osd120_lfc": 0.4285672045883118,
+      "osd658_lfc": 0.51459,
+      "meta_lfc": 0.4289320638341186,
+      "meta_padj": 0.0,
+      "i2_percent": 0.0,
+      "convergence_classification": "CONCORDANT"
+    },
+    {
+      "gene_id": "AT4G04720",
+      "osd120_lfc": 0.3391227171053598,
+      "osd658_lfc": 0.0989011,
+      "meta_lfc": 0.33907643333371185,
+      "meta_padj": 0.0,
+      "i2_percent": 0.0,
+      "convergence_classification": "CONCORDANT"
+    },
+    {
+      "gene_id": "AT5G07390",
+      "osd120_lfc": 1.4754555683160198,
+      "osd658_lfc": -0.504525,
+      "meta_lfc": NaN,
+      "meta_padj": NaN,
+      "i2_percent": NaN,
+      "convergence_classification": "SINGLE_DATASET_ONLY"
+    },
+    {
+      "gene_id": "AT5G13930",
+      "osd120_lfc": -10.680039305397525,
+      "osd658_lfc": NaN,
+      "meta_lfc": NaN,
+      "meta_padj": NaN,
+      "i2_percent": NaN,
+      "convergence_classification": "SINGLE_DATASET_ONLY"
+    },
+    {
+      "gene_id": "AT5G57630",
+      "osd120_lfc": 0.5196386325609246,
+      "osd658_lfc": 0.463412,
+      "meta_lfc": 0.5194419232573955,
+      "meta_padj": 0.0,
+      "i2_percent": 0.0,
+      "convergence_classification": "CONCORDANT"
+    }
+  ]
+}

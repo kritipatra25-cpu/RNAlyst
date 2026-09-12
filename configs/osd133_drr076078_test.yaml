@@ -1,0 +1,22 @@
+dataset_id: OSD133_DRR076078_TEST
+organism: Mus musculus
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/OSD133_DRR076078_TEST/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/OSD133_DRR076078_TEST/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/OSD133_DRR076078_TEST/results
+combined_group_column: Spaceflight
+factors:
+  Spaceflight:
+  - Ground Control
+  - Space Flight
+reference_levels:
+  Spaceflight: Space Flight
+contrasts:
+- id: Ground Control_vs_Space Flight
+  factor: Spaceflight
+  numerator: Ground Control
+  denominator: Space Flight
+  description: Ground Control vs Space Flight
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

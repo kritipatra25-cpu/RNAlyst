@@ -1,0 +1,21 @@
+dataset_id: PROJ_ABC_1234
+organism: UNRESOLVED
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/PROJ_ABC_1234/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/PROJ_ABC_1234/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/PROJ_ABC_1234/results
+combined_group_column: condition
+factors:
+  condition:
+  - UNRESOLVED
+reference_levels:
+  condition: UNRESOLVED
+contrasts:
+- id: UNRESOLVED_vs_UNRESOLVED
+  factor: condition
+  numerator: UNRESOLVED
+  denominator: UNRESOLVED
+  description: UNRESOLVED vs UNRESOLVED
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

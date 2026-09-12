@@ -1,0 +1,15 @@
+{
+  "analysis_type": "OSD-120 CONFIGURATION-DRIVEN PYDESEQ2 FACTORIAL MODELING",
+  "input_file_hashes": {
+    "counts_matrix": "0af76414924106770db68016c10f355472014a8ebad03da2d034c776b8d0cdc1",
+    "metadata": "b913174d1509e09894d36f2ca593c65b15db647d75e8d8f119a95c2073c0ebc0"
+  },
+  "output_file_hashes": {
+    "candidate_comparison_csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  "software_environment": {
+    "python_version": "3.12.1 (tags/v3.12.1:2305ca5, Dec  7 2023, 22:03:25) [MSC v.1937 64 bit (AMD64)]",
+    "pydeseq2_version": "0.5.4"
+  },
+  "execution_timestamp": "2026-08-21T19:20:00Z"
+}

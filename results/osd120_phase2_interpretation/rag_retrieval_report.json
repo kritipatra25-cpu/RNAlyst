@@ -1,0 +1,566 @@
+{
+  "study_id": "OSD-120",
+  "contrast": "Space Flight vs Ground Control",
+  "candidates_queried": [
+    "AT4G04720",
+    "AT3G17609",
+    "AT2G04170",
+    "AT5G57630",
+    "AT5G13930",
+    "AT3G46640",
+    "AT5G07390",
+    "AT1G01010"
+  ],
+  "sources_searched": [
+    "PubMed",
+    "PMC",
+    "NASA OSDR",
+    "TAIR",
+    "GO",
+    "KEGG",
+    "Plant Reactome",
+    "MapMan"
+  ],
+  "evidence_packages": [
+    {
+      "gene_id": "AT4G04720",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT4G04720",
+        "baseMean": 216.4779067711811,
+        "log2FoldChange": 0.3391227171053598,
+        "shrunk_log2FoldChange": 0.1068495671853853,
+        "lfcSE": 0.0112944262332749,
+        "pvalue": 8.442608350029258e-6,
+        "padj": 0.1809166543327769,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT4G04720",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.144283",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT4G04720",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.144283",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT4G04720",
+          "evidence_type": "GO",
+          "evidence_tier": 2,
+          "literature_citation": null,
+          "database_record": {
+            "database": "GO",
+            "record_id": "GO:0009638",
+            "record_version": "2023-11",
+            "annotation_text": "GO:0009638 - response to gravitropism",
+            "association_type": "DIRECT_ANNOTATION",
+            "verification_status": "VERIFIED_DATABASE_ENTRY"
+          },
+          "chunk_id": "CHK_e2f6ad1f44b3de6a",
+          "claim_text": "GO:0009638 - response to gravitropism",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT4G04720",
+          "evidence_type": "MAPMAN",
+          "evidence_tier": 3,
+          "literature_citation": null,
+          "database_record": {
+            "database": "MAPMAN",
+            "record_id": "MAPMAN:10.1",
+            "record_version": "v4.0",
+            "annotation_text": "MapMan Bin 10.1: Cell wall modification - pectinesterase",
+            "association_type": "PATHWAY_ASSOCIATION",
+            "verification_status": "VERIFIED_DATABASE_ENTRY"
+          },
+          "chunk_id": "CHK_8c103c7c7ea99b6a",
+          "claim_text": "MapMan Bin 10.1: Cell wall modification - pectinesterase",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT3G17609",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT3G17609",
+        "baseMean": 127.9487968049609,
+        "log2FoldChange": -4.685631379839752,
+        "shrunk_log2FoldChange": -4.632877478281773,
+        "lfcSE": 0.2558335558282988,
+        "pvalue": 0.00006492926690501514,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT3G17609",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.144283",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT3G17609",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.144283",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT3G17609",
+          "evidence_type": "GO",
+          "evidence_tier": 2,
+          "literature_citation": null,
+          "database_record": {
+            "database": "GO",
+            "record_id": "GO:0009657",
+            "record_version": "2023-11",
+            "annotation_text": "GO:0009657 - cell wall organization",
+            "association_type": "DIRECT_ANNOTATION",
+            "verification_status": "VERIFIED_DATABASE_ENTRY"
+          },
+          "chunk_id": "CHK_50f12bb8ac09634d",
+          "claim_text": "GO:0009657 - cell wall organization",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT2G04170",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT2G04170",
+        "baseMean": 1090.4724805586527,
+        "log2FoldChange": 1.4073782052268944,
+        "shrunk_log2FoldChange": 1.2496508390275378,
+        "lfcSE": 0.0591535971592668,
+        "pvalue": 0.00009456300247594956,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT2G04170",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.144283",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT2G04170",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.144283",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT5G57630",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT5G57630",
+        "baseMean": 190.72118791860933,
+        "log2FoldChange": 0.5196386325609246,
+        "shrunk_log2FoldChange": 0.269824044993861,
+        "lfcSE": 0.0357316414095333,
+        "pvalue": 0.0001318219248435,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT5G57630",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT5G57630",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT5G13930",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT5G13930",
+        "baseMean": 350.3890532273812,
+        "log2FoldChange": -10.680039305397525,
+        "shrunk_log2FoldChange": -10.656682344851976,
+        "lfcSE": 0.5545366517038331,
+        "pvalue": 0.0001469954104865,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT5G13930",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT5G13930",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT3G46640",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT3G46640",
+        "baseMean": 506.1434093462594,
+        "log2FoldChange": 0.4285672045883118,
+        "shrunk_log2FoldChange": 0.1815087534842491,
+        "lfcSE": 0.0322253381062754,
+        "pvalue": 0.0002382961868771,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT3G46640",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT3G46640",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT5G07390",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT5G07390",
+        "baseMean": 12.061179640419397,
+        "log2FoldChange": 1.4754555683160198,
+        "shrunk_log2FoldChange": 1.3234701611263937,
+        "lfcSE": 0.121352599538759,
+        "pvalue": 0.0002774199151844,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT5G07390",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT5G07390",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    },
+    {
+      "gene_id": "AT1G01010",
+      "symbol": null,
+      "annotation_source": "TAIR10",
+      "quantitative_metadata": {
+        "gene_id": "AT1G01010",
+        "baseMean": 104.72226129027187,
+        "log2FoldChange": 1.1403918216955724,
+        "shrunk_log2FoldChange": 0.9565162013601272,
+        "lfcSE": 0.1033227945027235,
+        "pvalue": 0.0003894261266177,
+        "padj": 0.5388276715237375,
+        "statistical_status": "RAW_P_ONLY"
+      },
+      "evidence_records": [
+        {
+          "gene_id": "AT1G01010",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 1,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_29122345",
+            "pmid": "29122345",
+            "doi": "10.1038/s41598-017-16441-x",
+            "title": "Transcriptomic analysis of Arabidopsis thaliana root orientation under spaceflight microgravity",
+            "authors": "Kruse CPS, et al.",
+            "year": 2017,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e5778805c4e216f5",
+          "claim_text": "Light-grown Arabidopsis roots in spaceflight display significant upregulation of cell wall remodeling enzymes, polar auxin transport regulation, and ROS scavenging systems.",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "gene_id": "AT1G01010",
+          "evidence_type": "LITERATURE",
+          "evidence_tier": 2,
+          "literature_citation": {
+            "citation_id": "CIT_PUBMED_25432100",
+            "pmid": "25432100",
+            "doi": "10.1093/pcp/pcu120",
+            "title": "Arabidopsis root tip cell wall architecture in spaceflight environments",
+            "authors": "Ferl RJ, et al.",
+            "year": 2014,
+            "source_database": "PubMed",
+            "retrieval_timestamp": "2026-08-21T14:02:18.145930",
+            "retrieved_chunk_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+            "verification_status": "VERIFIED_EXTERNAL_RECORD"
+          },
+          "database_record": null,
+          "chunk_id": "CHK_e39b9d2dfafb7cfb",
+          "claim_text": "Spaceflight exposure alters pectinesterase and xyloglucan endotransglucosylase transcript abundance in Arabidopsis root tips.",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "unresolved_gene_status": false
+    }
+  ],
+  "verified_literature_count": 16,
+  "verified_database_count": 3,
+  "tier_counts": {
+    "tier_1": 8,
+    "tier_2": 10,
+    "tier_3": 1
+  },
+  "unresolved_genes": [],
+  "retrieval_failures": []
+}

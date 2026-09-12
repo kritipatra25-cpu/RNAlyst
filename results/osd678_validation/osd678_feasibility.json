@@ -1,0 +1,27 @@
+{
+  "dataset_id": "OSD-678",
+  "glds_id": "GLDS-678",
+  "feasibility_classification": "B. POTENTIALLY USEFUL BUT REQUIRES REPROCESSING",
+  "classification_code": "REQUIRES_REPROCESSING",
+  "data_availability_in_repository": false,
+  "biological_question": "Response of Arabidopsis thaliana seedlings to spaceflight in BRIC hardware",
+  "experimental_contrast": "Space Flight vs Ground Control",
+  "organism": "Arabidopsis thaliana",
+  "ecotype": "Col-0",
+  "replicate_count_per_condition": 3,
+  "independence_status": "FULLY_INDEPENDENT_MISSION",
+  "tair10_identifier_compatibility": true,
+  "directional_contrast_compatibility": true,
+  "major_confounders": [
+    "Potential tissue difference (whole seedling vs isolated roots)",
+    "Hardware atmospheric enclosure (BRIC vs APEX/CARA)",
+    "Illumination regime must be verified before integrating light-dependent genes"
+  ],
+  "required_pre_integration_steps": [
+    "Acquire raw count matrix / FASTQ from NASA OSDR",
+    "Run standardized Salmon + DESeq2 (apeglm shrinkage) pipeline",
+    "Verify light regime (light vs dark) and tissue type",
+    "Extract log2FC and lfcSE for summary-statistic meta-analysis"
+  ],
+  "implementation_authorized": false
+}

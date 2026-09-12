@@ -1,0 +1,52 @@
+{
+  "project_id": "5F0399F8-BF1D-4E7A-ABE4-15C868AF240C",
+  "name": "Upload Workspace (0 sample(s))",
+  "origin": "LOCAL_FASTQ",
+  "organism": "Custom Organism",
+  "manifest": {
+    "samples": [],
+    "layout": "SINGLE",
+    "organism": "Custom Organism",
+    "condition_column": "condition",
+    "total_samples": 0,
+    "min_replicates_per_group": 0,
+    "replicate_status": "INFERENTIAL"
+  },
+  "design": {
+    "design_formula": "~ condition",
+    "factors": {
+      "condition": [
+        "control",
+        "treatment"
+      ]
+    },
+    "reference_levels": {
+      "condition": "control"
+    },
+    "contrasts": []
+  },
+  "reference": {
+    "organism": "Custom Organism",
+    "transcriptome_fasta": "/home/kriti/rna-seq-ai-agent/projects/5F0399F8-BF1D-4E7A-ABE4-15C868AF240C/data/transcriptome.fasta",
+    "gtf_annotation": null,
+    "tx2gene_csv": "/home/kriti/rna-seq-ai-agent/projects/5F0399F8-BF1D-4E7A-ABE4-15C868AF240C/data/tx2gene.csv",
+    "salmon_index_dir": "/home/kriti/rna-seq-ai-agent/projects/5F0399F8-BF1D-4E7A-ABE4-15C868AF240C/data/salmon_index",
+    "version_build": "DEFAULT_BUILD",
+    "sha256_checksum": null
+  },
+  "reference_spec": null,
+  "workspace_state": {
+    "readiness_stage": "UNINITIALIZED",
+    "has_counts_matrix": false,
+    "has_de_results": false,
+    "active_contrast_id": null,
+    "total_samples": 0,
+    "replicate_status": "INFERENTIAL",
+    "is_ready_for_deseq2": true,
+    "unresolved_reason": null
+  },
+  "execution_history": [],
+  "active_run": null,
+  "artifacts": [],
+  "provenance": null
+}

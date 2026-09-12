@@ -1,0 +1,145 @@
+{
+  "analysis_id": "analysis_e4d450f87fcc",
+  "file_id": "9ffb5afa-3b78-4a3e-a917-3332cf149866",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "failed",
+  "current_step": "unimplemented_step",
+  "plan": [
+    "qc",
+    "unimplemented_step"
+  ],
+  "structured_plan": {
+    "user_question": "Unspecified user query",
+    "interpreted_intent": "QC",
+    "analysis_goal": "Perform dataset discovery and standard workflow",
+    "is_valid": true,
+    "validation_errors": [],
+    "required_inputs": [
+      {
+        "input_type": "fastq",
+        "required_for_steps": [
+          "qc"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/9ffb5afa-3b78-4a3e-a917-3332cf149866_test_job_fixture.fastq",
+        "resolution_message": "FASTQ file resolved at /home/kriti/rna-seq-ai-agent/data/uploads/9ffb5afa-3b78-4a3e-a917-3332cf149866_test_job_fixture.fastq"
+      }
+    ],
+    "selected_steps": [
+      "qc",
+      "unimplemented_step"
+    ],
+    "step_rationales": [
+      {
+        "step": "qc",
+        "rationale": "Evaluates sequence quality, read count, GC content, and Phred quality scores.",
+        "required_inputs": [
+          "fastq"
+        ],
+        "expected_outputs": [
+          "qc_summary.json",
+          "qc_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "qc_summary",
+        "step": "qc",
+        "description": "FASTQ quality metrics summary JSON"
+      },
+      {
+        "artifact_type": "qc_plot",
+        "step": "qc",
+        "description": "Multi-panel FASTQ quality overview PNG plot"
+      }
+    ],
+    "created_at": "2026-08-30T15:57:20.295743+00:00"
+  },
+  "steps": [
+    {
+      "step": "qc",
+      "status": "completed",
+      "started_at": "2026-08-30T15:57:20.296340+00:00",
+      "completed_at": "2026-08-30T15:57:21.026786+00:00",
+      "message": "Step 'qc' executed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_12b527b7",
+          "type": "qc_summary",
+          "name": "analysis_e4d450f87fcc_qc_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_e4d450f87fcc_qc_summary.json",
+          "step": "qc",
+          "metadata": {
+            "total_reads": 2,
+            "gc_content_percent": 50.0
+          },
+          "created_at": "2026-08-30T15:57:20.299521+00:00"
+        },
+        {
+          "artifact_id": "art_7513e17f",
+          "type": "plot",
+          "name": "analysis_e4d450f87fcc_qc_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_e4d450f87fcc_qc_plot.png",
+          "step": "qc",
+          "metadata": {
+            "format": "png",
+            "dpi": 300,
+            "parent_artifact_id": "art_12b527b7",
+            "source_file": "analysis_e4d450f87fcc_qc_summary.json"
+          },
+          "created_at": "2026-08-30T15:57:21.026748+00:00"
+        }
+      ]
+    },
+    {
+      "step": "unimplemented_step",
+      "status": "failed",
+      "started_at": "2026-08-30T15:57:21.027226+00:00",
+      "completed_at": "2026-08-30T15:57:21.028214+00:00",
+      "message": "Step 'unimplemented_step' is currently not implemented.",
+      "artifacts": []
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_12b527b7",
+      "type": "qc_summary",
+      "name": "analysis_e4d450f87fcc_qc_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_e4d450f87fcc_qc_summary.json",
+      "step": "qc",
+      "metadata": {
+        "total_reads": 2,
+        "gc_content_percent": 50.0
+      },
+      "created_at": "2026-08-30T15:57:20.299521+00:00"
+    },
+    {
+      "artifact_id": "art_7513e17f",
+      "type": "plot",
+      "name": "analysis_e4d450f87fcc_qc_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_e4d450f87fcc_qc_plot.png",
+      "step": "qc",
+      "metadata": {
+        "format": "png",
+        "dpi": 300,
+        "parent_artifact_id": "art_12b527b7",
+        "source_file": "analysis_e4d450f87fcc_qc_summary.json"
+      },
+      "created_at": "2026-08-30T15:57:21.026748+00:00"
+    }
+  ],
+  "errors": [
+    "Step 'unimplemented_step' is currently not implemented."
+  ],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:57:20.295774+00:00"
+  },
+  "created_at": "2026-08-30T15:57:20.295787+00:00",
+  "updated_at": "2026-08-30T15:57:21.028238+00:00"
+}

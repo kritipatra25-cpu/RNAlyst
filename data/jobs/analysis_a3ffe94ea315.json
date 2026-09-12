@@ -1,0 +1,105 @@
+{
+  "analysis_id": "analysis_a3ffe94ea315",
+  "file_id": "missing_meta_de_uuid_11111",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "failed",
+  "current_step": "differential_expression",
+  "plan": [
+    "differential_expression"
+  ],
+  "structured_plan": {
+    "user_question": "Unspecified user query",
+    "interpreted_intent": "GENERAL_RNA_SEQ_ANALYSIS",
+    "analysis_goal": "Perform dataset discovery and standard workflow",
+    "is_valid": false,
+    "validation_errors": [
+      "Differential Expression requires sample metadata CSV/TSV defining experimental conditions for ID 'missing_meta_de_uuid_11111'."
+    ],
+    "required_inputs": [
+      {
+        "input_type": "count_matrix",
+        "required_for_steps": [
+          "differential_expression"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/missing_meta_de_uuid_11111_counts.csv",
+        "resolution_message": "Gene count matrix resolved at /home/kriti/rna-seq-ai-agent/data/uploads/missing_meta_de_uuid_11111_counts.csv"
+      },
+      {
+        "input_type": "sample_metadata",
+        "required_for_steps": [
+          "differential_expression"
+        ],
+        "is_available": false,
+        "resolved_path": null,
+        "resolution_message": "No sample metadata CSV/TSV found matching ID 'missing_meta_de_uuid_11111'."
+      }
+    ],
+    "selected_steps": [
+      "differential_expression"
+    ],
+    "step_rationales": [
+      {
+        "step": "differential_expression",
+        "rationale": "Performs PyDESeq2 / Welch DE analysis comparing experimental conditions to identify significant genes.",
+        "required_inputs": [
+          "count_matrix",
+          "sample_metadata"
+        ],
+        "expected_outputs": [
+          "de_summary.json",
+          "de_results.csv",
+          "volcano_plot.png",
+          "heatmap_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "de_summary",
+        "step": "differential_expression",
+        "description": "Differential expression statistics summary JSON"
+      },
+      {
+        "artifact_type": "de_table",
+        "step": "differential_expression",
+        "description": "Full gene-level differential expression results CSV"
+      },
+      {
+        "artifact_type": "volcano_plot",
+        "step": "differential_expression",
+        "description": "Differential expression volcano plot PNG"
+      },
+      {
+        "artifact_type": "heatmap_plot",
+        "step": "differential_expression",
+        "description": "Top DE genes expression z-score heatmap PNG"
+      }
+    ],
+    "created_at": "2026-08-30T15:37:20.015292+00:00"
+  },
+  "steps": [
+    {
+      "step": "differential_expression",
+      "status": "failed",
+      "started_at": null,
+      "completed_at": "2026-08-30T15:37:20.026165+00:00",
+      "message": "Differential Expression requires sample metadata CSV/TSV defining experimental conditions for ID 'missing_meta_de_uuid_11111'.",
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [
+    "Differential Expression requires sample metadata CSV/TSV defining experimental conditions for ID 'missing_meta_de_uuid_11111'."
+  ],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:37:20.015358+00:00"
+  },
+  "created_at": "2026-08-30T15:37:20.015385+00:00",
+  "updated_at": "2026-08-30T15:37:20.026210+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "total_genes": 10,
+  "significant_genes": 3,
+  "upregulated_genes": 3,
+  "downregulated_genes": 0,
+  "alpha": 0.05,
+  "lfc_threshold": 1.0,
+  "contrast": [
+    "condition",
+    "Treated",
+    "Control"
+  ],
+  "statistical_method": "PyDESeq2"
+}

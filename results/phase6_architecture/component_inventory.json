@@ -1,0 +1,151 @@
+{
+  "audit_version": "1.0",
+  "audit_timestamp": "2026-08-21T19:45:00Z",
+  "architectural_status": "ARCHITECTURE_BOUNDARY_CLEAN",
+  "component_inventory": [
+    {
+      "module_name": "pipeline.config_parser",
+      "file_path": "pipeline/config_parser.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Pydantic YAML dataset configuration parser and pre-flight schema validator."
+    },
+    {
+      "module_name": "pipeline.input_validation.MetadataValidator",
+      "file_path": "pipeline/input_validation.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Sample sheet structure validator and biological replicate auditor."
+    },
+    {
+      "module_name": "scientific_guardrails.design_checker",
+      "file_path": "scientific_guardrails/design_checker.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Experimental design matrix rank-deficiency checker and contrast validator."
+    },
+    {
+      "module_name": "scientific_guardrails.replicate_rules",
+      "file_path": "scientific_guardrails/replicate_rules.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Biological replicate minimum threshold auditor (N >= 3)."
+    },
+    {
+      "module_name": "analysis.statistics.deseq2_runner.DESeq2Runner",
+      "file_path": "analysis/statistics/deseq2_runner.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "PyDESeq2 negative binomial Wald test model fitting engine."
+    },
+    {
+      "module_name": "analysis.statistics.meta_analysis_engine",
+      "file_path": "analysis/statistics/meta_analysis_engine.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Fixed-effects inverse-variance cross-dataset meta-analysis engine."
+    },
+    {
+      "module_name": "provenance.manifest.ProvenanceManager",
+      "file_path": "provenance/manifest.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "SHA-256 file hash tracking and software environment provenance manifest builder."
+    },
+    {
+      "module_name": "pipeline.cli",
+      "file_path": "pipeline/cli.py",
+      "classification": "CORE_BACKEND",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Generic Command Line Interface runner for configuration-driven pipeline execution."
+    },
+    {
+      "module_name": "configs.osd678",
+      "file_path": "configs/osd678.yaml",
+      "classification": "DATASET_CONFIGURATION",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": false,
+      "description": "OSD-678 dataset paths, experimental factors, reference levels, contrasts, and candidate lists."
+    },
+    {
+      "module_name": "configs.osd120",
+      "file_path": "configs/osd120.yaml",
+      "classification": "DATASET_CONFIGURATION",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": false,
+      "description": "OSD-120 dataset paths, experimental factors, reference levels, and contrast definitions."
+    },
+    {
+      "module_name": "analysis.interpretation.candidate_prioritizer",
+      "file_path": "analysis/interpretation/candidate_prioritizer.py",
+      "classification": "BIOLOGICAL_INTERPRETATION",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Candidate gene extraction, locus symbol mapper, and directional concordance evaluator."
+    },
+    {
+      "module_name": "analysis.interpretation.gene_identity_verifier",
+      "file_path": "analysis/interpretation/gene_identity_verifier.py",
+      "classification": "BIOLOGICAL_INTERPRETATION",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "TAIR locus ID reconciliation against Arabidopsis database annotations."
+    },
+    {
+      "module_name": "scientific_guardrails.claim_guardrails",
+      "file_path": "scientific_guardrails/claim_guardrails.py",
+      "classification": "BIOLOGICAL_INTERPRETATION",
+      "deterministic": true,
+      "llm_permitted": false,
+      "reusable_across_datasets": true,
+      "description": "Causal claim keyword auditor enforcing evidence classification hierarchy."
+    },
+    {
+      "module_name": "analysis.interpretation.rag_engine",
+      "file_path": "analysis/interpretation/rag_engine.py",
+      "classification": "AI_LLM_LAYER",
+      "deterministic": false,
+      "llm_permitted": true,
+      "reusable_across_datasets": true,
+      "description": "Vector database scientific literature search engine."
+    },
+    {
+      "module_name": "analysis.interpretation.phase3_llm_adapter",
+      "file_path": "analysis/interpretation/phase3_llm_adapter.py",
+      "classification": "AI_LLM_LAYER",
+      "deterministic": false,
+      "llm_permitted": true,
+      "reusable_across_datasets": true,
+      "description": "Structured JSON payload formatter for constrained LLM prompts."
+    },
+    {
+      "module_name": "agent.orchestrator.agent_runner",
+      "file_path": "agent/orchestrator/agent_runner.py",
+      "classification": "AI_LLM_LAYER",
+      "deterministic": false,
+      "llm_permitted": true,
+      "reusable_across_datasets": true,
+      "description": "High-level AI agent user query interpreter and tool invocation orchestrator."
+    }
+  ]
+}

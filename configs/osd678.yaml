@@ -1,0 +1,83 @@
+dataset_id: "OSD-678"
+organism: "Arabidopsis thaliana"
+annotation_source: "TAIR10"
+
+counts_matrix_path: "data/osd678/GLDS-612_rna_seq_STAR_Unnormalized_Counts_GLbulkRNAseq.csv"
+sample_metadata_path: "data/osd678/osd678_sample_metadata.csv"
+sample_id_column: "sample_id"
+gene_id_column: "gene_id"
+
+design_formula: "~ group"
+combined_group_column: "group"
+
+factors:
+  spaceflight: ["Ground", "Flight"]
+  genotype: ["Col-0", "Ws", "phyD"]
+  light: ["Dark", "Light"]
+
+reference_levels:
+  spaceflight: "Ground"
+  genotype: "Col-0"
+  light: "Dark"
+
+contrasts:
+  - id: "A1_Col0_Light_Flight_vs_Ground"
+    factor: "group"
+    numerator: "Flight_Col-0_Light"
+    denominator: "Ground_Col-0_Light"
+    description: "Col-0 Wild-Type Flight vs Ground Response under Light"
+  - id: "A2_Ws_Light_Flight_vs_Ground"
+    factor: "group"
+    numerator: "Flight_Ws_Light"
+    denominator: "Ground_Ws_Light"
+    description: "WS Ecotype Flight vs Ground Response under Light"
+  - id: "A3_phyD_Light_Flight_vs_Ground"
+    factor: "group"
+    numerator: "Flight_phyD_Light"
+    denominator: "Ground_phyD_Light"
+    description: "phyD Mutant Flight vs Ground Response under Light"
+  - id: "B1_Col0_Dark_Flight_vs_Ground"
+    factor: "group"
+    numerator: "Flight_Col-0_Dark"
+    denominator: "Ground_Col-0_Dark"
+    description: "Col-0 Wild-Type Flight vs Ground Response under Dark"
+  - id: "B2_Ws_Dark_Flight_vs_Ground"
+    factor: "group"
+    numerator: "Flight_Ws_Dark"
+    denominator: "Ground_Ws_Dark"
+    description: "WS Ecotype Flight vs Ground Response under Dark"
+  - id: "B3_phyD_Dark_Flight_vs_Ground"
+    factor: "group"
+    numerator: "Flight_phyD_Dark"
+    denominator: "Ground_phyD_Dark"
+    description: "phyD Mutant Flight vs Ground Response under Dark"
+
+interaction_contrasts:
+  - id: "C_Col0_Flight_x_Light_Interaction"
+    contrast_a: "A1_Col0_Light_Flight_vs_Ground"
+    contrast_b: "B1_Col0_Dark_Flight_vs_Ground"
+    operation: "DIFFERENCE"
+  - id: "D_phyD_vs_Col0_Flight_Response_Light"
+    contrast_a: "A3_phyD_Light_Flight_vs_Ground"
+    contrast_b: "A1_Col0_Light_Flight_vs_Ground"
+    operation: "DIFFERENCE"
+
+candidate_selection:
+  mode: "SPECIFIED_LIST"
+  fdr_cutoff: 0.05
+  lfc_cutoff: 1.0
+  specified_genes:
+    - "AT3G17609" # HYH
+    - "AT4G04720" # CPK21
+    - "AT2G04170" # AT2G04170
+    - "AT1G01010" # ANAC001
+    - "AT5G57630" # CIPK21
+    - "AT3G46640" # LUX
+    - "AT5G07390" # RBOHA
+    - "AT5G13930" # CHS
+
+external_validation:
+  reference_dataset_id: "OSD-120"
+  reference_de_path: "results/osd120_primary_analysis/differential_expression.csv"
+
+output_dir: "results/osd678_validation"

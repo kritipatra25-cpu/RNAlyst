@@ -1,0 +1,69 @@
+{
+  "analysis_id": "analysis_a815a66251a4",
+  "file_id": "607a7256-ff12-4d0e-aafd-0aae1e4c240f",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "failed",
+  "current_step": "differential_expression",
+  "plan": [
+    "qc",
+    "differential_expression"
+  ],
+  "steps": [
+    {
+      "step": "qc",
+      "status": "completed",
+      "started_at": "2026-08-30T14:18:51.554733+00:00",
+      "completed_at": "2026-08-30T14:18:51.556398+00:00",
+      "message": "Step 'qc' executed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_a5ff6ce3",
+          "type": "qc_summary",
+          "name": "analysis_a815a66251a4_qc_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a815a66251a4_qc_summary.json",
+          "step": "qc",
+          "metadata": {
+            "total_reads": 2,
+            "gc_content_percent": 50.0
+          },
+          "created_at": "2026-08-30T14:18:51.556375+00:00"
+        }
+      ]
+    },
+    {
+      "step": "differential_expression",
+      "status": "failed",
+      "started_at": "2026-08-30T14:18:51.556593+00:00",
+      "completed_at": "2026-08-30T14:18:51.557204+00:00",
+      "message": "Step 'differential_expression' is currently not implemented for raw FASTQ inputs.",
+      "artifacts": []
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_a5ff6ce3",
+      "type": "qc_summary",
+      "name": "analysis_a815a66251a4_qc_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a815a66251a4_qc_summary.json",
+      "step": "qc",
+      "metadata": {
+        "total_reads": 2,
+        "gc_content_percent": 50.0
+      },
+      "created_at": "2026-08-30T14:18:51.556375+00:00"
+    }
+  ],
+  "errors": [
+    "Step 'differential_expression' is currently not implemented for raw FASTQ inputs."
+  ],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T14:18:51.554119+00:00"
+  },
+  "created_at": "2026-08-30T14:18:51.554151+00:00",
+  "updated_at": "2026-08-30T14:18:51.557224+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "analysis_id": "analysis_d69d146bcbf4",
+  "file_id": "audit_mat_fixture",
+  "user_question": "Analyze the weather.",
+  "organism": null,
+  "dataset_id": null,
+  "status": "failed",
+  "current_step": "unknown",
+  "plan": [],
+  "structured_plan": {
+    "user_question": "Analyze the weather.",
+    "interpreted_intent": "UNSUPPORTED_QUESTION",
+    "analysis_goal": "Question 'Analyze the weather.' is out of scope or unsupported for RNA-seq analysis.",
+    "is_valid": false,
+    "validation_errors": [
+      "User question 'Analyze the weather.' is not a recognized RNA-seq analysis request (supported: QC, PCA, Differential Expression, Heatmap/Volcano plots)."
+    ],
+    "required_inputs": [],
+    "selected_steps": [],
+    "step_rationales": [],
+    "expected_artifacts": [],
+    "created_at": "2026-08-30T15:42:00.692054+00:00"
+  },
+  "steps": [
+    {
+      "step": "unknown",
+      "status": "failed",
+      "started_at": null,
+      "completed_at": "2026-08-30T15:42:00.693811+00:00",
+      "message": "User question 'Analyze the weather.' is not a recognized RNA-seq analysis request (supported: QC, PCA, Differential Expression, Heatmap/Volcano plots).",
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [
+    "User question 'Analyze the weather.' is not a recognized RNA-seq analysis request (supported: QC, PCA, Differential Expression, Heatmap/Volcano plots)."
+  ],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:42:00.692083+00:00"
+  },
+  "created_at": "2026-08-30T15:42:00.692105+00:00",
+  "updated_at": "2026-08-30T15:42:00.693829+00:00"
+}

@@ -1,0 +1,22 @@
+dataset_id: C9AA1E00-AD91-4819-B28A-8711C436551B
+organism: Custom Organism
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/C9AA1E00-AD91-4819-B28A-8711C436551B/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/C9AA1E00-AD91-4819-B28A-8711C436551B/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/C9AA1E00-AD91-4819-B28A-8711C436551B/results
+combined_group_column: condition
+factors:
+  condition:
+  - Treatment
+  - Control
+reference_levels:
+  condition: control
+contrasts:
+- id: Primary_Contrast
+  factor: condition
+  numerator: Treatment
+  denominator: Control
+  description: Primary treatment vs control
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

@@ -1,0 +1,56 @@
+{
+  "dataset_id": "OSD-678",
+  "glds_id": "GLDS-678",
+  "feasibility_classification": "B. POTENTIALLY USEFUL BUT REQUIRES REPROCESSING",
+  "acquisition_status": "PENDING_DATA_ACQUISITION",
+  "expected_input_directory": "data/osd678/",
+  "required_inputs": {
+    "counts_matrix": "data/osd678/raw_counts_matrix.csv",
+    "sample_table": "data/osd678/sample_table.csv",
+    "checksum_file": "data/osd678/checksums.sha256"
+  },
+  "experimental_design": {
+    "organism": "Arabidopsis thaliana",
+    "ecotype": "Col-0",
+    "design_formula": "~ Spaceflight",
+    "reference_level": "Ground Control",
+    "treatment_level": "Spaceflight",
+    "minimum_biological_replicates": 3
+  },
+  "reprocessing_pipeline_specification": {
+    "tool": "DESeq2",
+    "version_requirement": ">=1.40.0",
+    "lfc_shrinkage_type": "apeglm",
+    "fdr_method": "Benjamini-Hochberg",
+    "fdr_threshold": 0.05
+  },
+  "candidate_validation_targets": [
+    "AT2G04170",
+    "AT4G04720",
+    "AT3G17609",
+    "AT3G46640",
+    "AT5G57630",
+    "AT1G01010",
+    "AT5G07390",
+    "AT5G13930"
+  ],
+  "prohibited_actions": [
+    "NO_RAW_COUNT_POOLING_WITH_OSD120",
+    "NO_UNHARMONIZED_PIPELINE_MIXING",
+    "NO_TECHNICAL_REPLICATE_INFLATION",
+    "NO_MISSING_VALUE_IMPUTATION",
+    "NO_SILENT_CONTRAST_SIGN_FLIPPING",
+    "NO_META_ANALYSIS_BEFORE_QC",
+    "NO_MUTATION_OF_LOCKED_OUTPUTS"
+  ],
+  "meta_analysis_integration_protocol": {
+    "method": "INVERSE_VARIANCE_SUMMARY_STATISTIC_META_ANALYSIS",
+    "required_columns_per_gene": [
+      "log2FoldChange",
+      "lfcSE",
+      "pvalue",
+      "padj"
+    ],
+    "heterogeneity_testing": "Cochran_Q_and_I2"
+  }
+}

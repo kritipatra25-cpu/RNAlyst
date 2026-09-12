@@ -1,0 +1,111 @@
+{
+  "analysis_id": "analysis_f2f1b1876521",
+  "file_id": "9c7bc825-6368-4874-8bde-60950bd611ae",
+  "user_question": "What is the GC content of this FASTQ file?",
+  "organism": "Arabidopsis thaliana",
+  "dataset_id": null,
+  "status": "queued",
+  "current_step": null,
+  "plan": [
+    "validating_dataset",
+    "qc"
+  ],
+  "structured_plan": {
+    "user_question": "What is the GC content of this FASTQ file?",
+    "interpreted_intent": "QC",
+    "analysis_goal": "Execute QC pipeline based on user query: 'What is the GC content of this FASTQ file?'",
+    "is_valid": true,
+    "validation_errors": [],
+    "required_inputs": [
+      {
+        "input_type": "fastq",
+        "required_for_steps": [
+          "validating_dataset",
+          "qc"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/9c7bc825-6368-4874-8bde-60950bd611ae_test_job_fixture.fastq",
+        "resolution_message": "FASTQ file resolved at /home/kriti/rna-seq-ai-agent/data/uploads/9c7bc825-6368-4874-8bde-60950bd611ae_test_job_fixture.fastq"
+      }
+    ],
+    "selected_steps": [
+      "validating_dataset",
+      "qc"
+    ],
+    "step_rationales": [
+      {
+        "step": "validating_dataset",
+        "rationale": "Evaluates sequence quality, read count, GC content, and Phred quality scores.",
+        "required_inputs": [
+          "fastq"
+        ],
+        "expected_outputs": [
+          "qc_summary.json",
+          "qc_plot.png"
+        ]
+      },
+      {
+        "step": "qc",
+        "rationale": "Evaluates sequence quality, read count, GC content, and Phred quality scores.",
+        "required_inputs": [
+          "fastq"
+        ],
+        "expected_outputs": [
+          "qc_summary.json",
+          "qc_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "qc_summary",
+        "step": "validating_dataset",
+        "description": "FASTQ quality metrics summary JSON"
+      },
+      {
+        "artifact_type": "qc_plot",
+        "step": "validating_dataset",
+        "description": "Multi-panel FASTQ quality overview PNG plot"
+      },
+      {
+        "artifact_type": "qc_summary",
+        "step": "qc",
+        "description": "FASTQ quality metrics summary JSON"
+      },
+      {
+        "artifact_type": "qc_plot",
+        "step": "qc",
+        "description": "Multi-panel FASTQ quality overview PNG plot"
+      }
+    ],
+    "created_at": "2026-08-30T15:43:05.706372+00:00"
+  },
+  "steps": [
+    {
+      "step": "validating_dataset",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    },
+    {
+      "step": "qc",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:43:05.706504+00:00"
+  },
+  "created_at": "2026-08-30T15:43:05.706580+00:00",
+  "updated_at": "2026-08-30T15:43:05.706596+00:00"
+}

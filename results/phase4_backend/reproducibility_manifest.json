@@ -1,0 +1,54 @@
+{
+  "manifest_title": "OSD-120 / OSD-678 Workflow Reproducibility Manifest",
+  "artifacts": [
+    {
+      "name": "OSD-120 Primary DE Output",
+      "file": "results/osd120_primary/differential_expression.csv",
+      "sha256": "MISSING",
+      "generating_script": "scripts/execute_osd120_downstream_validation.py",
+      "deterministic": true,
+      "provenance_recorded": true
+    },
+    {
+      "name": "OSD-678 Factorial DE Results",
+      "file": "results/osd678_validation/deseq2_analysis/deseq2_summary.json",
+      "sha256": "MISSING",
+      "generating_script": "scripts/osd678_deseq2_runner.py",
+      "deterministic": true,
+      "provenance_recorded": true
+    },
+    {
+      "name": "OSD-678 Candidate Comparison CSV",
+      "file": "results/osd678_validation/candidate_validation/osd678_candidate_comparison.csv",
+      "sha256": "35aac4791c0fdf4433015a9a926ed4b0bd42dc8c4643da212d710caa564a0ab0",
+      "generating_script": "scripts/osd678_deseq2_runner.py",
+      "deterministic": true,
+      "provenance_recorded": true
+    },
+    {
+      "name": "Biological Interpretation Summary JSON",
+      "file": "results/osd120_osd678_interpretation/biological_interpretation_summary.json",
+      "sha256": "31a3ae18428983ca0b88ca43757b0e7a724fd0610aa52a48eaa2ca2fd0bfc98b",
+      "generating_script": "scripts/osd120_osd678_interpretation_builder.py",
+      "deterministic": true,
+      "provenance_recorded": true
+    },
+    {
+      "name": "Biological Interpretation Report Markdown",
+      "file": "docs/osd120_osd678_biological_interpretation.md",
+      "sha256": "f62143a4f2515d5eed72f782d89dbdd0eb9ca4807376d795560bd5a8e9c46959",
+      "generating_script": "Prompt 3 Evidence-Graded Generator",
+      "deterministic": true,
+      "provenance_recorded": true
+    },
+    {
+      "name": "Biological Interpretation Audit Markdown",
+      "file": "docs/osd120_osd678_biological_interpretation_audit.md",
+      "sha256": "f9442eaea058c45be3ffabd180282e55ccc0e5941a1465e1f9af6c86c1efb053",
+      "generating_script": "Prompt 3.5 Evidence-Graph Auditor",
+      "deterministic": true,
+      "provenance_recorded": true
+    }
+  ],
+  "readiness_status": "BACKEND_REPRODUCIBLE"
+}

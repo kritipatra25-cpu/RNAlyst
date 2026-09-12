@@ -1,0 +1,66 @@
+{
+  "project_id": "389ABBFB-E167-4725-9141-36F06A5E8CE6",
+  "name": "Upload Workspace (1 sample(s))",
+  "origin": "LOCAL_FASTQ",
+  "organism": "Custom Organism",
+  "manifest": {
+    "samples": [
+      {
+        "sample_id": "corrupted",
+        "condition": "UNRESOLVED",
+        "replicate_id": null,
+        "layout": "SINGLE",
+        "batch": null,
+        "genotype": null,
+        "tissue": null,
+        "fastq_r1_path": "/home/kriti/rna-seq-ai-agent/projects/389ABBFB-E167-4725-9141-36F06A5E8CE6/data/uploads/389ABBFB-E167-4725-9141-36F06A5E8CE6_corrupted.fastq",
+        "fastq_r2_path": null,
+        "file_size_bytes": null,
+        "is_valid": true
+      }
+    ],
+    "layout": "SINGLE",
+    "organism": "Custom Organism",
+    "condition_column": "condition",
+    "total_samples": 1,
+    "min_replicates_per_group": 0,
+    "replicate_status": "INFERENTIAL"
+  },
+  "design": {
+    "design_formula": "~ condition",
+    "factors": {
+      "condition": [
+        "control",
+        "treatment"
+      ]
+    },
+    "reference_levels": {
+      "condition": "control"
+    },
+    "contrasts": []
+  },
+  "reference": {
+    "organism": "Custom Organism",
+    "transcriptome_fasta": "/home/kriti/rna-seq-ai-agent/projects/389ABBFB-E167-4725-9141-36F06A5E8CE6/data/transcriptome.fasta",
+    "gtf_annotation": null,
+    "tx2gene_csv": "/home/kriti/rna-seq-ai-agent/projects/389ABBFB-E167-4725-9141-36F06A5E8CE6/data/tx2gene.csv",
+    "salmon_index_dir": "/home/kriti/rna-seq-ai-agent/projects/389ABBFB-E167-4725-9141-36F06A5E8CE6/data/salmon_index",
+    "version_build": "DEFAULT_BUILD",
+    "sha256_checksum": null
+  },
+  "reference_spec": null,
+  "workspace_state": {
+    "readiness_stage": "UNINITIALIZED",
+    "has_counts_matrix": false,
+    "has_de_results": false,
+    "active_contrast_id": null,
+    "total_samples": 0,
+    "replicate_status": "INFERENTIAL",
+    "is_ready_for_deseq2": false,
+    "unresolved_reason": "Experimental contrast configuration required before differential expression"
+  },
+  "execution_history": [],
+  "active_run": null,
+  "artifacts": [],
+  "provenance": null
+}

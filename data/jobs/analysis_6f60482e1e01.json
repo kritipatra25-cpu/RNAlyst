@@ -1,0 +1,84 @@
+{
+  "analysis_id": "analysis_6f60482e1e01",
+  "file_id": "test_matrix_uuid_12345",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "pca"
+  ],
+  "steps": [
+    {
+      "step": "pca",
+      "status": "completed",
+      "started_at": "2026-08-30T15:15:46.813919+00:00",
+      "completed_at": "2026-08-30T15:15:47.550117+00:00",
+      "message": "PCA analysis and plot generation completed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_2619bd03",
+          "type": "json_data",
+          "name": "analysis_6f60482e1e01_pca_results.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_6f60482e1e01_pca_results.json",
+          "step": "pca",
+          "metadata": {
+            "n_samples": 4,
+            "n_genes": 10,
+            "total_explained_variance": 91.14
+          },
+          "created_at": "2026-08-30T15:15:46.828661+00:00"
+        },
+        {
+          "artifact_id": "art_b7a3001e",
+          "type": "plot",
+          "name": "analysis_6f60482e1e01_pca_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_6f60482e1e01_pca_plot.png",
+          "step": "pca",
+          "metadata": {
+            "format": "png",
+            "dpi": 300
+          },
+          "created_at": "2026-08-30T15:15:47.550069+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_2619bd03",
+      "type": "json_data",
+      "name": "analysis_6f60482e1e01_pca_results.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_6f60482e1e01_pca_results.json",
+      "step": "pca",
+      "metadata": {
+        "n_samples": 4,
+        "n_genes": 10,
+        "total_explained_variance": 91.14
+      },
+      "created_at": "2026-08-30T15:15:46.828661+00:00"
+    },
+    {
+      "artifact_id": "art_b7a3001e",
+      "type": "plot",
+      "name": "analysis_6f60482e1e01_pca_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_6f60482e1e01_pca_plot.png",
+      "step": "pca",
+      "metadata": {
+        "format": "png",
+        "dpi": 300
+      },
+      "created_at": "2026-08-30T15:15:47.550069+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:15:46.812743+00:00"
+  },
+  "created_at": "2026-08-30T15:15:46.812791+00:00",
+  "updated_at": "2026-08-30T15:15:47.550540+00:00"
+}

@@ -1,0 +1,85 @@
+{
+  "workflow_title": "OSD-120 / OSD-678 Bulk RNA-seq Analysis & Biological Interpretation Workflow",
+  "nodes": [
+    {
+      "id": "RAW_DATA",
+      "label": "Raw Counts & Metadata Acquisition",
+      "files": [
+        "data/osd120/GLDS-120_rna_seq_STAR_Unnormalized_Counts.csv",
+        "data/osd678/GLDS-612_rna_seq_STAR_Unnormalized_Counts_GLbulkRNAseq.csv",
+        "data/osd678/osd678_sample_metadata.csv"
+      ],
+      "status": "EXECUTED"
+    },
+    {
+      "id": "INPUT_VALIDATION",
+      "label": "Input Integrity & Metadata Schema Validation",
+      "component": "pipeline.input_validation.MetadataValidator",
+      "status": "EXECUTED"
+    },
+    {
+      "id": "STATISTICAL_ANALYSIS",
+      "label": "Factorial PyDESeq2 Differential Expression",
+      "component": "analysis.statistics.deseq2_runner.DESeq2Runner",
+      "script": "scripts/osd678_deseq2_runner.py",
+      "status": "EXECUTED"
+    },
+    {
+      "id": "CANDIDATE_SELECTION",
+      "label": "Candidate Selection & Reconciliation",
+      "component": "analysis.interpretation.gene_identity_verifier.GeneIdentityVerifier",
+      "status": "EXECUTED"
+    },
+    {
+      "id": "META_ANALYSIS",
+      "label": "Inverse-Variance Summary Meta-Analysis",
+      "component": "analysis.statistics.meta_analysis_engine.run_meta_analysis",
+      "status": "EXECUTED"
+    },
+    {
+      "id": "RAG_RETRIEVAL",
+      "label": "Knowledge Retrieval & Citation Verification",
+      "component": "analysis.interpretation.rag_engine.ExtensibleRAGEngine",
+      "status": "EXECUTED"
+    },
+    {
+      "id": "BIOLOGICAL_REPORTING",
+      "label": "Evidence-Graded Interpretation Report",
+      "component": "scripts/osd120_osd678_interpretation_builder.py",
+      "output": "docs/osd120_osd678_biological_interpretation.md",
+      "status": "EXECUTED"
+    }
+  ],
+  "edges": [
+    {
+      "from": "RAW_DATA",
+      "to": "INPUT_VALIDATION",
+      "status": "EXECUTED"
+    },
+    {
+      "from": "INPUT_VALIDATION",
+      "to": "STATISTICAL_ANALYSIS",
+      "status": "EXECUTED"
+    },
+    {
+      "from": "STATISTICAL_ANALYSIS",
+      "to": "CANDIDATE_SELECTION",
+      "status": "EXECUTED"
+    },
+    {
+      "from": "STATISTICAL_ANALYSIS",
+      "to": "META_ANALYSIS",
+      "status": "EXECUTED"
+    },
+    {
+      "from": "CANDIDATE_SELECTION",
+      "to": "RAG_RETRIEVAL",
+      "status": "EXECUTED"
+    },
+    {
+      "from": "RAG_RETRIEVAL",
+      "to": "BIOLOGICAL_REPORTING",
+      "status": "EXECUTED"
+    }
+  ]
+}

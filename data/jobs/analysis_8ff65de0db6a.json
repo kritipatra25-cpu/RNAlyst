@@ -1,0 +1,58 @@
+{
+  "analysis_id": "analysis_8ff65de0db6a",
+  "file_id": "357033ef-cf9c-44a8-b7df-4acd336f8eac",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "qc"
+  ],
+  "steps": [
+    {
+      "step": "qc",
+      "status": "completed",
+      "started_at": "2026-08-30T14:08:50.397508+00:00",
+      "completed_at": "2026-08-30T14:08:50.402029+00:00",
+      "message": "Step 'qc' executed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_a5e96d5e",
+          "type": "qc_summary",
+          "name": "analysis_8ff65de0db6a_qc_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_8ff65de0db6a_qc_summary.json",
+          "step": "qc",
+          "metadata": {
+            "total_reads": 2,
+            "gc_content_percent": 50.0
+          },
+          "created_at": "2026-08-30T14:08:50.401997+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_a5e96d5e",
+      "type": "qc_summary",
+      "name": "analysis_8ff65de0db6a_qc_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_8ff65de0db6a_qc_summary.json",
+      "step": "qc",
+      "metadata": {
+        "total_reads": 2,
+        "gc_content_percent": 50.0
+      },
+      "created_at": "2026-08-30T14:08:50.401997+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T14:08:50.396914+00:00"
+  },
+  "created_at": "2026-08-30T14:08:50.396936+00:00",
+  "updated_at": "2026-08-30T14:08:50.402569+00:00"
+}

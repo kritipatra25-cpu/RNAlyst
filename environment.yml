@@ -1,0 +1,27 @@
+name: rnaseq-ai-agent
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - nextflow>=23.10.0
+  - fastqc>=0.12.1
+  - multiqc>=1.19
+  - fastp>=0.23.4
+  - salmon>=1.10.2
+  - star>=2.7.11a
+  - samtools>=1.19.2
+  - subread>=2.0.6
+  - r-base=4.3.2
+  - r-deseq2>=1.42.0
+  - r-tximport>=1.30.0
+  - r-apeglm>=1.24.0
+  - r-ggplot2>=3.4.4
+  - r-pheatmap>=1.0.12
+  - r-clusterprofiler>=4.10.0
+  - r-org.hs.eg.db
+  - r-org.mm.eg.db
+  - pip
+  - pip:
+      - -e .

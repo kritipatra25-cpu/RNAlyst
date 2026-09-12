@@ -1,0 +1,79 @@
+{
+  "analysis_id": "analysis_53f2079eac1e",
+  "file_id": "413165c6-1d1b-4a0a-80d0-c22659f304d6",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "queued",
+  "current_step": null,
+  "plan": [
+    "qc"
+  ],
+  "structured_plan": {
+    "user_question": "Unspecified user query",
+    "interpreted_intent": "GENERAL_RNA_SEQ_ANALYSIS",
+    "analysis_goal": "Perform dataset discovery and standard workflow",
+    "is_valid": true,
+    "validation_errors": [],
+    "required_inputs": [
+      {
+        "input_type": "fastq",
+        "required_for_steps": [
+          "qc"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/413165c6-1d1b-4a0a-80d0-c22659f304d6_test_job_fixture.fastq",
+        "resolution_message": "FASTQ file resolved at /home/kriti/rna-seq-ai-agent/data/uploads/413165c6-1d1b-4a0a-80d0-c22659f304d6_test_job_fixture.fastq"
+      }
+    ],
+    "selected_steps": [
+      "qc"
+    ],
+    "step_rationales": [
+      {
+        "step": "qc",
+        "rationale": "Evaluates sequence quality, read count, GC content, and Phred quality scores.",
+        "required_inputs": [
+          "fastq"
+        ],
+        "expected_outputs": [
+          "qc_summary.json",
+          "qc_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "qc_summary",
+        "step": "qc",
+        "description": "FASTQ quality metrics summary JSON"
+      },
+      {
+        "artifact_type": "qc_plot",
+        "step": "qc",
+        "description": "Multi-panel FASTQ quality overview PNG plot"
+      }
+    ],
+    "created_at": "2026-08-30T15:43:05.719315+00:00"
+  },
+  "steps": [
+    {
+      "step": "qc",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:43:05.719365+00:00"
+  },
+  "created_at": "2026-08-30T15:43:05.719380+00:00",
+  "updated_at": "2026-08-30T15:43:05.719388+00:00"
+}

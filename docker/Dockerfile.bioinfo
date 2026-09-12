@@ -1,0 +1,20 @@
+# Container image specifically bundling Nextflow bioinformatics tool dependencies
+FROM condaforge/mambaforge:latest AS bioinfo
+
+LABEL maintainer="Bioinformatics Team"
+LABEL description="Container containing FastQC, MultiQC, fastp, Salmon, STAR, and DESeq2"
+
+RUN mamba create -n bioinfo_env -c conda-forge -c bioconda -y \
+    fastqc=0.12.1 \
+    multiqc=1.19 \
+    fastp=0.23.4 \
+    salmon=1.10.2 \
+    star=2.7.11a \
+    samtools=1.19.2 \
+    r-base=4.3.2 \
+    r-deseq2=1.42.0 \
+    r-tximport=1.30.0 \
+    r-apeglm=1.24.0 \
+    && mamba clean --all -y
+
+ENV PATH /opt/conda/envs/bioinfo_env/bin:$PATH

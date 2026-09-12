@@ -1,0 +1,66 @@
+{
+  "project_id": "5C32D887-EEF0-491C-9870-62C59DE0BDA6",
+  "name": "Upload Workspace (1 sample(s))",
+  "origin": "LOCAL_FASTQ",
+  "organism": "Custom Organism",
+  "manifest": {
+    "samples": [
+      {
+        "sample_id": "sampleA",
+        "condition": "UNRESOLVED",
+        "replicate_id": null,
+        "layout": "PAIRED",
+        "batch": null,
+        "genotype": null,
+        "tissue": null,
+        "fastq_r1_path": "/home/kriti/rna-seq-ai-agent/data/uploads/5C32D887-EEF0-491C-9870-62C59DE0BDA6_sampleA_R1.fastq",
+        "fastq_r2_path": "/home/kriti/rna-seq-ai-agent/data/uploads/5C32D887-EEF0-491C-9870-62C59DE0BDA6_sampleA_R2.fastq",
+        "file_size_bytes": null,
+        "is_valid": true
+      }
+    ],
+    "layout": "PAIRED",
+    "organism": "Custom Organism",
+    "condition_column": "condition",
+    "total_samples": 0,
+    "min_replicates_per_group": 0,
+    "replicate_status": "INFERENTIAL"
+  },
+  "design": {
+    "design_formula": "~ condition",
+    "factors": {
+      "condition": [
+        "control",
+        "treatment"
+      ]
+    },
+    "reference_levels": {
+      "condition": "control"
+    },
+    "contrasts": []
+  },
+  "reference": {
+    "organism": "Custom Organism",
+    "transcriptome_fasta": "/home/kriti/rna-seq-ai-agent/projects/5C32D887-EEF0-491C-9870-62C59DE0BDA6/data/transcriptome.fasta",
+    "gtf_annotation": null,
+    "tx2gene_csv": "/home/kriti/rna-seq-ai-agent/projects/5C32D887-EEF0-491C-9870-62C59DE0BDA6/data/tx2gene.csv",
+    "salmon_index_dir": "/home/kriti/rna-seq-ai-agent/projects/5C32D887-EEF0-491C-9870-62C59DE0BDA6/data/salmon_index",
+    "version_build": "DEFAULT_BUILD",
+    "sha256_checksum": null
+  },
+  "reference_spec": null,
+  "workspace_state": {
+    "readiness_stage": "UNINITIALIZED",
+    "has_counts_matrix": false,
+    "has_de_results": false,
+    "active_contrast_id": null,
+    "total_samples": 0,
+    "replicate_status": "INFERENTIAL",
+    "is_ready_for_deseq2": true,
+    "unresolved_reason": null
+  },
+  "execution_history": [],
+  "active_run": null,
+  "artifacts": [],
+  "provenance": null
+}

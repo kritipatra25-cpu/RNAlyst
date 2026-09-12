@@ -1,0 +1,79 @@
+{
+  "project_id": "3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3",
+  "name": "Upload Workspace (2 sample(s))",
+  "origin": "LOCAL_FASTQ",
+  "organism": "Custom Organism",
+  "manifest": {
+    "samples": [
+      {
+        "sample_id": "122843a8-e411-4e6b-b96c-774b5df23b55_GLDS-532_rna-seq_GSM6594657_R2_raw",
+        "condition": "UNRESOLVED",
+        "replicate_id": null,
+        "layout": "SINGLE",
+        "batch": null,
+        "genotype": null,
+        "tissue": null,
+        "fastq_r1_path": "/home/kriti/rna-seq-ai-agent/projects/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3/data/uploads/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3_122843a8-e411-4e6b-b96c-774b5df23b55_GLDS-532_rna-seq_GSM6594657_R2_raw.fastq.gz",
+        "fastq_r2_path": null,
+        "file_size_bytes": null,
+        "is_valid": true
+      },
+      {
+        "sample_id": "A19DBFE0-A5A2-43B7-8348-D0D06748B8E8_GLDS-532_rna-seq_GSM6594657_R1_raw",
+        "condition": "UNRESOLVED",
+        "replicate_id": null,
+        "layout": "SINGLE",
+        "batch": null,
+        "genotype": null,
+        "tissue": null,
+        "fastq_r1_path": "/home/kriti/rna-seq-ai-agent/projects/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3/data/uploads/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3_A19DBFE0-A5A2-43B7-8348-D0D06748B8E8_GLDS-532_rna-seq_GSM6594657_R1_raw.fastq.gz",
+        "fastq_r2_path": null,
+        "file_size_bytes": null,
+        "is_valid": true
+      }
+    ],
+    "layout": "SINGLE",
+    "organism": "Custom Organism",
+    "condition_column": "condition",
+    "total_samples": 2,
+    "min_replicates_per_group": 0,
+    "replicate_status": "INFERENTIAL"
+  },
+  "design": {
+    "design_formula": "~ condition",
+    "factors": {
+      "condition": [
+        "control",
+        "treatment"
+      ]
+    },
+    "reference_levels": {
+      "condition": "control"
+    },
+    "contrasts": []
+  },
+  "reference": {
+    "organism": "Custom Organism",
+    "transcriptome_fasta": "/home/kriti/rna-seq-ai-agent/projects/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3/data/transcriptome.fasta",
+    "gtf_annotation": null,
+    "tx2gene_csv": "/home/kriti/rna-seq-ai-agent/projects/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3/data/tx2gene.csv",
+    "salmon_index_dir": "/home/kriti/rna-seq-ai-agent/projects/3862DEF1-9D01-4D21-AA0C-1DDB3D1346F3/data/salmon_index",
+    "version_build": "DEFAULT_BUILD",
+    "sha256_checksum": null
+  },
+  "reference_spec": null,
+  "workspace_state": {
+    "readiness_stage": "UNINITIALIZED",
+    "has_counts_matrix": false,
+    "has_de_results": false,
+    "active_contrast_id": null,
+    "total_samples": 0,
+    "replicate_status": "INFERENTIAL",
+    "is_ready_for_deseq2": false,
+    "unresolved_reason": "Experimental contrast configuration required before differential expression"
+  },
+  "execution_history": [],
+  "active_run": null,
+  "artifacts": [],
+  "provenance": null
+}

@@ -1,0 +1,112 @@
+{
+  "analysis_id": "analysis_41e522f79bb4",
+  "file_id": "test_de_fixture_98765",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "differential_expression"
+  ],
+  "steps": [
+    {
+      "step": "differential_expression",
+      "status": "completed",
+      "started_at": "2026-08-30T15:19:53.466606+00:00",
+      "completed_at": "2026-08-30T15:19:54.534024+00:00",
+      "message": "Differential expression analysis completed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_1b8d3b9b",
+          "type": "json_data",
+          "name": "analysis_41e522f79bb4_de_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_41e522f79bb4_de_summary.json",
+          "step": "differential_expression",
+          "metadata": {
+            "total_genes": 20,
+            "significant_genes": 7,
+            "upregulated_genes": 5,
+            "downregulated_genes": 2,
+            "alpha": 0.05,
+            "lfc_threshold": 1.0,
+            "contrast": [
+              "condition",
+              "Treated",
+              "Control"
+            ],
+            "statistical_method": "PyDESeq2"
+          },
+          "created_at": "2026-08-30T15:19:54.531853+00:00"
+        },
+        {
+          "artifact_id": "art_8fa120c0",
+          "type": "de_table",
+          "name": "analysis_41e522f79bb4_de_results.csv",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_41e522f79bb4_de_results.csv",
+          "step": "differential_expression",
+          "metadata": {
+            "total_genes": 20,
+            "significant_genes": 7,
+            "contrast": [
+              "condition",
+              "Treated",
+              "Control"
+            ]
+          },
+          "created_at": "2026-08-30T15:19:54.533943+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_1b8d3b9b",
+      "type": "json_data",
+      "name": "analysis_41e522f79bb4_de_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_41e522f79bb4_de_summary.json",
+      "step": "differential_expression",
+      "metadata": {
+        "total_genes": 20,
+        "significant_genes": 7,
+        "upregulated_genes": 5,
+        "downregulated_genes": 2,
+        "alpha": 0.05,
+        "lfc_threshold": 1.0,
+        "contrast": [
+          "condition",
+          "Treated",
+          "Control"
+        ],
+        "statistical_method": "PyDESeq2"
+      },
+      "created_at": "2026-08-30T15:19:54.531853+00:00"
+    },
+    {
+      "artifact_id": "art_8fa120c0",
+      "type": "de_table",
+      "name": "analysis_41e522f79bb4_de_results.csv",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_41e522f79bb4_de_results.csv",
+      "step": "differential_expression",
+      "metadata": {
+        "total_genes": 20,
+        "significant_genes": 7,
+        "contrast": [
+          "condition",
+          "Treated",
+          "Control"
+        ]
+      },
+      "created_at": "2026-08-30T15:19:54.533943+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:19:53.463457+00:00"
+  },
+  "created_at": "2026-08-30T15:19:53.463545+00:00",
+  "updated_at": "2026-08-30T15:19:54.534623+00:00"
+}

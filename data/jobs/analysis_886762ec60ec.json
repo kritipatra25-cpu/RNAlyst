@@ -1,0 +1,41 @@
+{
+  "analysis_id": "analysis_886762ec60ec",
+  "file_id": "37f102a9-00db-4999-9f39-eadaa1ae7043",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "queued",
+  "current_step": null,
+  "plan": [
+    "validating_dataset",
+    "qc"
+  ],
+  "steps": [
+    {
+      "step": "validating_dataset",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    },
+    {
+      "step": "qc",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:14:36.223393+00:00"
+  },
+  "created_at": "2026-08-30T15:14:36.223424+00:00",
+  "updated_at": "2026-08-30T15:14:36.223434+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "analysis_id": "analysis_3f1ceb28c9b1",
+  "file_id": "fcf34f5f-d77f-4e04-9aea-f3fc1e20aedd",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "queued",
+  "current_step": null,
+  "plan": [
+    "qc"
+  ],
+  "steps": [
+    {
+      "step": "qc",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T14:11:10.598420+00:00"
+  },
+  "created_at": "2026-08-30T14:11:10.598450+00:00",
+  "updated_at": "2026-08-30T14:11:10.598487+00:00"
+}

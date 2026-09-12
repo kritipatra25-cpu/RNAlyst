@@ -1,0 +1,19 @@
+{
+  "classification": "REAL-DATA EXECUTED (DOWNSTREAM STATISTICAL ENGINE)",
+  "study": "OSD-120 / GLDS-120",
+  "organism": "Arabidopsis thaliana",
+  "genotype": "Col-0 (Wild Type)",
+  "tissue": "Plant Roots",
+  "growth_time": "Day 13",
+  "light_condition": "Light Treatment",
+  "contrast": "Space Flight (n=3) vs Ground Control (n=3)",
+  "biological_claim_guardrail": "Spaceflight-associated transcriptional difference relative to ground control (not pure microgravity causality)",
+  "design_formula": "~ Spaceflight",
+  "reference_level": "Ground Control",
+  "random_seed": 42,
+  "input_counts_file": "GLDS-120_rna_seq_Unnormalized_Counts.csv",
+  "input_count_transformation": "round(counts) to non-negative integers for DESeq2",
+  "total_genes_analyzed": 21429,
+  "significant_degs_fdr_005": 0,
+  "benchmark_comparison": "Remote reference API fetch timed out"
+}

@@ -1,0 +1,27 @@
+{
+  "phase1_output_hashes": {
+    "differential_expression_csv": "6d7c8b73e30e3baac7c4880d6febef38c0b4cdba9f26cec7ed0b3d22c3ad833b",
+    "vst_counts_csv": "a34bc19241cf66c133187421b43aff401b1c64ad8e5ff5e30a20341f65578b6c",
+    "deseq2_summary_json": "3e4afa957c30da733bf5d8234e19dec643fa90e6d886c59a5abe6806c1723172",
+    "provenance_manifest_json": "bb659622028f9011c169a491ebba6f675950b8038b9c730d398287f59897decc",
+    "tier_c_concordance_report_json": "6113eb9a8695851a0f6cf64977472e81236e9baf54f027bb12e2864cef242114"
+  },
+  "synthesis_mode": "DETERMINISTIC_REFERENCE",
+  "provider_name": "DETERMINISTIC_TEMPLATE_GENERATOR",
+  "model_identifier": "rule_based_v1.0",
+  "api_version": "1.0.0",
+  "system_prompt_hash": "f6e7918ee1c42d0a80801b251a0b0e81d343126f00709255015c5dc04f4d722e",
+  "user_prompt_hash": "faae283659bea7292b725429be2c5a26ee697ae0768707e4244353eeb42089a5",
+  "retrieval_query_string": "auxin cell wall root spaceflight OSD-120",
+  "returned_chunk_ids": [
+    "CIT_PUBMED_29122345",
+    "CIT_PATHWAY_KEGG_ATH04075",
+    "CIT_PATHWAY_REACTOME_PLANT_001",
+    "CIT_MAPMAN_CELL_WALL"
+  ],
+  "temperature": null,
+  "seed": null,
+  "input_payload_hash": "ed35e142134ff11f5e60ec8a54f75d79dd85dedc55e733735fd360247eac412e",
+  "output_payload_hash": "f58df193c6f0e6b7e704e0386222080a721388562517f8d1fc1949115ab44d72",
+  "execution_timestamp": "2026-08-21T13:54:58.910563"
+}

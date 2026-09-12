@@ -1,0 +1,14 @@
+{
+  "analysis_type": "INVERSE_VARIANCE_SUMMARY_STATISTIC_META_ANALYSIS",
+  "source_file_hashes": {
+    "osd120_deseq2_csv": "6d7c8b73e30e3baac7c4880d6febef38c0b4cdba9f26cec7ed0b3d22c3ad833b",
+    "osd120_gse94983_11_xlsx_gz": "2b2fef23d0af05323aaa4c8eafb09b43af4e775595d4de6d42fa5967d3da7df6",
+    "osd658_gse94983_12_xlsx_gz": "427f92a16c0a432aabee9a54bad53fdcda8dd441402201cbd48e0bf9e7916a51"
+  },
+  "contrasts": {
+    "OSD-120": "Space Flight vs Ground Control (Light-Grown Roots)",
+    "OSD-658": "Space Flight vs Ground Control (Dark-Grown Roots)"
+  },
+  "direction_harmonization": "Positive LFC indicates higher expression in Spaceflight relative to Ground Control in both datasets.",
+  "formula": "Inverse-variance weighted fixed-effects pooling with Cochran Q and I^2 heterogeneity estimation"
+}

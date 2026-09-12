@@ -1,0 +1,79 @@
+{
+  "analysis_id": "analysis_93a9c277cea0",
+  "file_id": "test_real_llm_valid_fixture",
+  "user_question": "Do PCA to see clustering",
+  "organism": null,
+  "dataset_id": null,
+  "status": "queued",
+  "current_step": null,
+  "plan": [
+    "pca"
+  ],
+  "structured_plan": {
+    "user_question": "Do PCA to see clustering",
+    "interpreted_intent": "PCA",
+    "analysis_goal": "Execute PCA pipeline based on user query: 'Do PCA to see clustering'",
+    "is_valid": true,
+    "validation_errors": [],
+    "required_inputs": [
+      {
+        "input_type": "count_matrix",
+        "required_for_steps": [
+          "pca"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/test_real_llm_valid_fixture_counts.csv",
+        "resolution_message": "Gene count matrix resolved at /home/kriti/rna-seq-ai-agent/data/uploads/test_real_llm_valid_fixture_counts.csv"
+      }
+    ],
+    "selected_steps": [
+      "pca"
+    ],
+    "step_rationales": [
+      {
+        "step": "pca",
+        "rationale": "Computes Principal Component Analysis on variance-stabilized log2 counts to evaluate sample grouping.",
+        "required_inputs": [
+          "count_matrix"
+        ],
+        "expected_outputs": [
+          "pca_results.json",
+          "pca_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "pca_results",
+        "step": "pca",
+        "description": "PCA coordinates and variance summary JSON"
+      },
+      {
+        "artifact_type": "pca_plot",
+        "step": "pca",
+        "description": "Publication-quality 300 DPI PCA scatter plot PNG"
+      }
+    ],
+    "created_at": "2026-09-07T05:37:36.829340+00:00"
+  },
+  "steps": [
+    {
+      "step": "pca",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-09-07T05:37:36.830993+00:00"
+  },
+  "created_at": "2026-09-07T05:37:36.831685+00:00",
+  "updated_at": "2026-09-07T05:37:36.831745+00:00"
+}

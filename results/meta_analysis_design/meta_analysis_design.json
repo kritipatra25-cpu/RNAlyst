@@ -1,0 +1,91 @@
+{
+  "audit_metadata": {
+    "title": "Read-Only Meta-Analysis Design Audit",
+    "status": "DESIGN_REVIEW_ONLY",
+    "implementation_authorized": false,
+    "decision": "CONDITIONAL_GO"
+  },
+  "experimental_design_comparison": {
+    "OSD-120": {
+      "tissue": "Arabidopsis thaliana roots",
+      "ecotype": "Col-0",
+      "light_condition": "Light-grown",
+      "spaceflight_factor": "Space Flight vs Ground Control",
+      "sample_size": "N=3 FLT, N=3 GC",
+      "primary_tool": "DESeq2 (apeglm shrinkage)"
+    },
+    "OSD-658": {
+      "tissue": "Arabidopsis thaliana roots",
+      "ecotype": "Col-0",
+      "light_condition": "Dark-grown",
+      "spaceflight_factor": "Space Flight vs Ground Control",
+      "sample_size": "N=3 FLT, N=3 GC",
+      "primary_tool": "Cuffdiff / DESeq2"
+    }
+  },
+  "comparability_assessment": {
+    "tissue": "COMPATIBLE",
+    "genotype": "COMPATIBLE",
+    "spaceflight_factor": "COMPATIBLE",
+    "light_condition": "INCOMPATIBLE",
+    "sequencing_pipeline": "PARTIALLY_COMPATIBLE",
+    "study_batch": "INCOMPATIBLE"
+  },
+  "confounding_audit": {
+    "study_light_collinearity": "PERFECT",
+    "pooled_raw_counts_valid": false,
+    "explanation": "Study ID is 100% collinear with Light treatment (OSD-120 = Light, OSD-658 = Dark). Pooling raw counts in a single model violates design identifiability."
+  },
+  "candidate_gene_validation_design": {
+    "AT2G04170": {
+      "status": "VALID",
+      "reason": "Significant upregulation in both datasets (q < 0.01)"
+    },
+    "AT4G04720_CPK21": {
+      "status": "VALID_WITH_COVARIATE_CONTROL",
+      "reason": "Positive trend in both datasets; requires random-effects meta-analysis"
+    },
+    "AT3G46640_LUX": {
+      "status": "VALID_WITH_COVARIATE_CONTROL",
+      "reason": "Positive trend in both light and dark spaceflight"
+    },
+    "AT5G57630_CIPK21": {
+      "status": "VALID_WITH_COVARIATE_CONTROL",
+      "reason": "Positive trend in both datasets"
+    },
+    "AT1G01010_ANAC001": {
+      "status": "NOT_VALID",
+      "reason": "Inconsistent direction between light and dark spaceflight"
+    },
+    "AT3G17609_HYH": {
+      "status": "NOT_VALID_IN_POOLED_RAW",
+      "reason": "Repression specific to light-grown OSD-120; unquantified in dark Cuffdiff"
+    }
+  },
+  "recommended_strategy_ranking": [
+    {
+      "rank": 1,
+      "strategy": "Option B/C: Dataset-Specific DESeq2 followed by Effect-Size Meta-Analysis",
+      "verdict": "APPROVED_RECOMMENDED"
+    },
+    {
+      "rank": 2,
+      "strategy": "Option F: Retain Datasets Independently with Qualitative Synthesis",
+      "verdict": "SAFE_ALTERNATIVE"
+    },
+    {
+      "rank": 3,
+      "strategy": "Option D/E: Pathway-Level Enrichment Meta-Analysis",
+      "verdict": "CONDITIONALLY_ACCEPTABLE"
+    },
+    {
+      "rank": 4,
+      "strategy": "Option A: Pooled Raw-Count DESeq2 Model",
+      "verdict": "REJECTED_UNIDENTIFIABLE"
+    }
+  ],
+  "go_decision": {
+    "classification": "CONDITIONAL_GO",
+    "condition": "Combined meta-analysis MUST be conducted via dataset-specific DESeq2 output integration (inverse-variance effect-size pooling), NOT via raw count matrix pooling."
+  }
+}

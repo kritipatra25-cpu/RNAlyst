@@ -1,0 +1,31 @@
+dataset_id: "OSD-120"
+organism: "Arabidopsis thaliana"
+annotation_source: "TAIR10"
+
+counts_matrix_path: "data/osd120_execution/counts_matrix.csv"
+sample_metadata_path: "data/osd120_execution/sample_table.csv"
+sample_id_column: "sample_id"
+gene_id_column: "gene_id"
+
+design_formula: "~ Spaceflight"
+combined_group_column: "Spaceflight"
+
+factors:
+  Spaceflight: ["Ground Control", "Space Flight"]
+
+reference_levels:
+  Spaceflight: "Ground Control"
+
+contrasts:
+  - id: "Primary_OSD120_Flight_vs_Ground"
+    factor: "Spaceflight"
+    numerator: "Space Flight"
+    denominator: "Ground Control"
+    description: "Col-0 Wild-Type Spaceflight Response (Day 13 Light Root)"
+
+candidate_selection:
+  mode: "FDR_THRESHOLD"
+  fdr_cutoff: 0.05
+  lfc_cutoff: 1.0
+
+output_dir: "results/osd120_primary_analysis"

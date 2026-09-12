@@ -1,0 +1,326 @@
+{
+  "OSD-120": {
+    "AT3G17609": {
+      "status": "NOT_PRESENT"
+    },
+    "AT4G04720": {
+      "status": "PRESENT",
+      "log2FC": 0.500726,
+      "p_value": 0.3004,
+      "q_value": 0.952363,
+      "significant": "no"
+    },
+    "AT2G04170": {
+      "status": "PRESENT",
+      "log2FC": 1.34641,
+      "p_value": 5e-05,
+      "q_value": 0.00473413,
+      "significant": "yes"
+    },
+    "AT1G01010": {
+      "status": "PRESENT",
+      "log2FC": 1.11352,
+      "p_value": 0.0196,
+      "q_value": 0.30251,
+      "significant": "no"
+    },
+    "AT5G57630": {
+      "status": "PRESENT",
+      "log2FC": 0.367391,
+      "p_value": 0.1692,
+      "q_value": 0.806444,
+      "significant": "no"
+    },
+    "AT3G46640": {
+      "status": "PRESENT",
+      "log2FC": 0.839147,
+      "p_value": 0.00115,
+      "q_value": 0.0532896,
+      "significant": "no"
+    },
+    "AT4G08920": {
+      "status": "PRESENT",
+      "log2FC": 0.150221,
+      "p_value": 0.55405,
+      "q_value": 0.999218,
+      "significant": "no"
+    },
+    "AT1G04400": {
+      "status": "PRESENT",
+      "log2FC": 0.481133,
+      "p_value": 0.0581,
+      "q_value": 0.525565,
+      "significant": "no"
+    }
+  },
+  "OSD-658": {
+    "AT3G17609": {
+      "status": "NOT_PRESENT"
+    },
+    "AT4G04720": {
+      "status": "PRESENT",
+      "log2FC": 0.0989011,
+      "p_value": 0.8268,
+      "q_value": 0.999754,
+      "significant": "no"
+    },
+    "AT2G04170": {
+      "status": "PRESENT",
+      "log2FC": 1.58527,
+      "p_value": 5e-05,
+      "q_value": 0.00680385,
+      "significant": "yes"
+    },
+    "AT1G01010": {
+      "status": "PRESENT",
+      "log2FC": -0.247927,
+      "p_value": 0.6124,
+      "q_value": 0.999754,
+      "significant": "no"
+    },
+    "AT5G57630": {
+      "status": "PRESENT",
+      "log2FC": 0.463412,
+      "p_value": 0.18955,
+      "q_value": 0.999754,
+      "significant": "no"
+    },
+    "AT3G46640": {
+      "status": "PRESENT",
+      "log2FC": 0.51459,
+      "p_value": 0.06955,
+      "q_value": 0.873708,
+      "significant": "no"
+    },
+    "AT4G08920": {
+      "status": "PRESENT",
+      "log2FC": -0.173381,
+      "p_value": 0.5633,
+      "q_value": 0.999754,
+      "significant": "no"
+    },
+    "AT1G04400": {
+      "status": "PRESENT",
+      "log2FC": 0.261114,
+      "p_value": 0.41275,
+      "q_value": 0.999754,
+      "significant": "no"
+    }
+  },
+  "WS_Light": {
+    "AT3G17609": {
+      "status": "NOT_PRESENT"
+    },
+    "AT4G04720": {
+      "status": "PRESENT",
+      "log2FC": -0.149287,
+      "p_value": 0.79545,
+      "q_value": 0.999693,
+      "significant": "no"
+    },
+    "AT2G04170": {
+      "status": "PRESENT",
+      "log2FC": 0.945978,
+      "p_value": 0.001,
+      "q_value": 0.116764,
+      "significant": "no"
+    },
+    "AT1G01010": {
+      "status": "PRESENT",
+      "log2FC": 0.587192,
+      "p_value": 0.24555,
+      "q_value": 0.999693,
+      "significant": "no"
+    },
+    "AT5G57630": {
+      "status": "PRESENT",
+      "log2FC": 0.0107615,
+      "p_value": 0.97405,
+      "q_value": 0.999693,
+      "significant": "no"
+    },
+    "AT3G46640": {
+      "status": "PRESENT",
+      "log2FC": 0.541743,
+      "p_value": 0.07845,
+      "q_value": 0.999693,
+      "significant": "no"
+    },
+    "AT4G08920": {
+      "status": "PRESENT",
+      "log2FC": -0.315952,
+      "p_value": 0.2627,
+      "q_value": 0.999693,
+      "significant": "no"
+    },
+    "AT1G04400": {
+      "status": "PRESENT",
+      "log2FC": -0.0530972,
+      "p_value": 0.85535,
+      "q_value": 0.999693,
+      "significant": "no"
+    }
+  },
+  "WS_Dark": {
+    "AT3G17609": {
+      "status": "NOT_PRESENT"
+    },
+    "AT4G04720": {
+      "status": "PRESENT",
+      "log2FC": -0.054723,
+      "p_value": 0.87785,
+      "q_value": 0.99983,
+      "significant": "no"
+    },
+    "AT2G04170": {
+      "status": "PRESENT",
+      "log2FC": 0.307254,
+      "p_value": 0.22695,
+      "q_value": 0.99983,
+      "significant": "no"
+    },
+    "AT1G01010": {
+      "status": "PRESENT",
+      "log2FC": 0.892818,
+      "p_value": 0.07805,
+      "q_value": 0.869824,
+      "significant": "no"
+    },
+    "AT5G57630": {
+      "status": "PRESENT",
+      "log2FC": -0.216664,
+      "p_value": 0.65125,
+      "q_value": 0.99983,
+      "significant": "no"
+    },
+    "AT3G46640": {
+      "status": "PRESENT",
+      "log2FC": 0.65507,
+      "p_value": 0.0234,
+      "q_value": 0.493836,
+      "significant": "no"
+    },
+    "AT4G08920": {
+      "status": "PRESENT",
+      "log2FC": -0.0104566,
+      "p_value": 0.9693,
+      "q_value": 0.99983,
+      "significant": "no"
+    },
+    "AT1G04400": {
+      "status": "PRESENT",
+      "log2FC": 0.451779,
+      "p_value": 0.15285,
+      "q_value": 0.99983,
+      "significant": "no"
+    }
+  },
+  "PhyD_Light": {
+    "AT3G17609": {
+      "status": "NOT_PRESENT"
+    },
+    "AT4G04720": {
+      "status": "PRESENT",
+      "log2FC": 0.0683126,
+      "p_value": 0.89165,
+      "q_value": 0.999953,
+      "significant": "no"
+    },
+    "AT2G04170": {
+      "status": "PRESENT",
+      "log2FC": 0.571885,
+      "p_value": 0.0492,
+      "q_value": 0.993246,
+      "significant": "no"
+    },
+    "AT1G01010": {
+      "status": "PRESENT",
+      "log2FC": -0.075815,
+      "p_value": 0.85505,
+      "q_value": 0.999953,
+      "significant": "no"
+    },
+    "AT5G57630": {
+      "status": "PRESENT",
+      "log2FC": 0.195965,
+      "p_value": 0.5034,
+      "q_value": 0.999953,
+      "significant": "no"
+    },
+    "AT3G46640": {
+      "status": "PRESENT",
+      "log2FC": 0.641146,
+      "p_value": 0.0503,
+      "q_value": 0.999953,
+      "significant": "no"
+    },
+    "AT4G08920": {
+      "status": "PRESENT",
+      "log2FC": 0.0428735,
+      "p_value": 0.87625,
+      "q_value": 0.999953,
+      "significant": "no"
+    },
+    "AT1G04400": {
+      "status": "PRESENT",
+      "log2FC": 0.214064,
+      "p_value": 0.43065,
+      "q_value": 0.999953,
+      "significant": "no"
+    }
+  },
+  "Flight_Dark_vs_Light": {
+    "AT3G17609": {
+      "status": "NOT_PRESENT"
+    },
+    "AT4G04720": {
+      "status": "PRESENT",
+      "log2FC": -0.327638,
+      "p_value": 0.46365,
+      "q_value": 1.0,
+      "significant": "no"
+    },
+    "AT2G04170": {
+      "status": "PRESENT",
+      "log2FC": -0.345966,
+      "p_value": 0.2025,
+      "q_value": 1.0,
+      "significant": "no"
+    },
+    "AT1G01010": {
+      "status": "PRESENT",
+      "log2FC": -0.208797,
+      "p_value": 0.646,
+      "q_value": 1.0,
+      "significant": "no"
+    },
+    "AT5G57630": {
+      "status": "PRESENT",
+      "log2FC": -0.520832,
+      "p_value": 0.09035,
+      "q_value": 1.0,
+      "significant": "no"
+    },
+    "AT3G46640": {
+      "status": "PRESENT",
+      "log2FC": -0.111401,
+      "p_value": 0.67995,
+      "q_value": 1.0,
+      "significant": "no"
+    },
+    "AT4G08920": {
+      "status": "PRESENT",
+      "log2FC": -0.484763,
+      "p_value": 0.0932,
+      "q_value": 1.0,
+      "significant": "no"
+    },
+    "AT1G04400": {
+      "status": "PRESENT",
+      "log2FC": -0.758385,
+      "p_value": 0.01085,
+      "q_value": 1.0,
+      "significant": "no"
+    }
+  }
+}

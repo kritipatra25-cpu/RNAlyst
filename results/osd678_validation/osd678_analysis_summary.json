@@ -1,0 +1,194 @@
+{
+  "dataset_id": "OSD-678",
+  "sample_count": 36,
+  "gene_count": 32833,
+  "design_formula": "~ group (genotype * light * spaceflight)",
+  "reference_levels": {
+    "genotype": "Col-0",
+    "light": "Dark",
+    "spaceflight": "Ground"
+  },
+  "normalization_method": "DESeq2 Median-of-Ratios",
+  "statistical_test": "Negative Binomial Wald Test (PyDESeq2 v0.5.4)",
+  "fdr_correction": "Benjamini-Hochberg",
+  "contrast_summary_metrics": {
+    "A1_Col0_Light_Flight_vs_Ground": {
+      "contrast_definition": "Flight_Col-0_Light vs Ground_Col-0_Light",
+      "genes_tested": 27330,
+      "genes_fdr_005": 7949,
+      "genes_fdr_005_lfc1": 4706
+    },
+    "A2_Ws_Light_Flight_vs_Ground": {
+      "contrast_definition": "Flight_Ws_Light vs Ground_Ws_Light",
+      "genes_tested": 27330,
+      "genes_fdr_005": 6801,
+      "genes_fdr_005_lfc1": 3701
+    },
+    "A3_phyD_Light_Flight_vs_Ground": {
+      "contrast_definition": "Flight_phyD_Light vs Ground_phyD_Light",
+      "genes_tested": 27330,
+      "genes_fdr_005": 7807,
+      "genes_fdr_005_lfc1": 4655
+    },
+    "B1_Col0_Dark_Flight_vs_Ground": {
+      "contrast_definition": "Flight_Col-0_Dark vs Ground_Col-0_Dark",
+      "genes_tested": 27330,
+      "genes_fdr_005": 2074,
+      "genes_fdr_005_lfc1": 1127
+    },
+    "B2_Ws_Dark_Flight_vs_Ground": {
+      "contrast_definition": "Flight_Ws_Dark vs Ground_Ws_Dark",
+      "genes_tested": 27330,
+      "genes_fdr_005": 1953,
+      "genes_fdr_005_lfc1": 1034
+    },
+    "B3_phyD_Dark_Flight_vs_Ground": {
+      "contrast_definition": "Flight_phyD_Dark vs Ground_phyD_Dark",
+      "genes_tested": 27330,
+      "genes_fdr_005": 93,
+      "genes_fdr_005_lfc1": 36
+    },
+    "C_Col0_Flight_x_Light_Interaction": {
+      "contrast_definition": "(Flight_Col-0_Light - Ground_Col-0_Light) - (Flight_Col-0_Dark - Ground_Col-0_Dark)",
+      "genes_tested": 27360,
+      "genes_fdr_005": 4841,
+      "genes_fdr_005_lfc1": 3895
+    },
+    "D_phyD_vs_Col0_Flight_Response_Light": {
+      "contrast_definition": "(Flight_phyD_Light - Ground_phyD_Light) - (Flight_Col-0_Light - Ground_Col-0_Light)",
+      "genes_tested": 27360,
+      "genes_fdr_005": 415,
+      "genes_fdr_005_lfc1": 335
+    }
+  },
+  "candidate_gene_outcomes": [
+    {
+      "gene_id": "AT3G17609",
+      "symbol": "HYH",
+      "osd120_lfc": -4.685631379839752,
+      "osd120_shrunk_lfc": -4.632877478281773,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": -0.8472345849603389,
+      "osd678_light_se": 0.5911281689622657,
+      "osd678_light_pval": 0.15178633921436105,
+      "osd678_light_padj": 0.26900662892436916,
+      "osd678_dark_lfc": -1.030866059740253,
+      "osd678_dark_padj": 0.3042312398358665,
+      "direction_concordance": "CONCORDANT",
+      "passes_osd678_fdr_005": false,
+      "evidence_classification": "DIRECTIONAL_CONVERGENCE_FAIL_FDR"
+    },
+    {
+      "gene_id": "AT4G04720",
+      "symbol": "CPK21",
+      "osd120_lfc": 0.3391227171053598,
+      "osd120_shrunk_lfc": 0.1068495671853853,
+      "osd120_padj": 0.1809166543327769,
+      "osd678_light_lfc": -0.21850818839261169,
+      "osd678_light_se": 0.13190722974716587,
+      "osd678_light_pval": 0.09761468046765806,
+      "osd678_light_padj": 0.1919465896526849,
+      "osd678_dark_lfc": 0.1726950464141412,
+      "osd678_dark_padj": 0.47337165337222586,
+      "direction_concordance": "DISCORDANT",
+      "passes_osd678_fdr_005": false,
+      "evidence_classification": "TISSUE_SPECIFIC_OR_DISCORDANT"
+    },
+    {
+      "gene_id": "AT2G04170",
+      "symbol": "VALID TAIR ID \u2014 NO SYMBOL AVAILABLE",
+      "osd120_lfc": 1.4073782052268944,
+      "osd120_shrunk_lfc": 1.2496508390275378,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": -1.0400701042837492,
+      "osd678_light_se": 0.8220783242899568,
+      "osd678_light_pval": 0.20580984013336456,
+      "osd678_light_padj": 0.338327191270184,
+      "osd678_dark_lfc": -1.151007030216251,
+      "osd678_dark_padj": 0.42679425140721206,
+      "direction_concordance": "DISCORDANT",
+      "passes_osd678_fdr_005": false,
+      "evidence_classification": "TISSUE_SPECIFIC_OR_DISCORDANT"
+    },
+    {
+      "gene_id": "AT1G01010",
+      "symbol": "ANAC001",
+      "osd120_lfc": 1.1403918216955724,
+      "osd120_shrunk_lfc": 0.9565162013601272,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": 2.4599203758331307,
+      "osd678_light_se": 0.35250273998917625,
+      "osd678_light_pval": 2.9846867487238784e-12,
+      "osd678_light_padj": 9.187680573857266e-11,
+      "osd678_dark_lfc": -0.35122635945169256,
+      "osd678_dark_padj": 0.6169858599253694,
+      "direction_concordance": "CONCORDANT",
+      "passes_osd678_fdr_005": true,
+      "evidence_classification": "CROSS_TISSUE_REPLICATION_CONCORDANT"
+    },
+    {
+      "gene_id": "AT5G57630",
+      "symbol": "CIPK21",
+      "osd120_lfc": 0.5196386325609246,
+      "osd120_shrunk_lfc": 0.269824044993861,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": -0.25282103228114466,
+      "osd678_light_se": 0.299110058402709,
+      "osd678_light_pval": 0.3979745269431495,
+      "osd678_light_padj": 0.5488259184187615,
+      "osd678_dark_lfc": 0.8700345211922368,
+      "osd678_dark_padj": 0.0426651066379639,
+      "direction_concordance": "DISCORDANT",
+      "passes_osd678_fdr_005": false,
+      "evidence_classification": "TISSUE_SPECIFIC_OR_DISCORDANT"
+    },
+    {
+      "gene_id": "AT3G46640",
+      "symbol": "LUX",
+      "osd120_lfc": 0.4285672045883118,
+      "osd120_shrunk_lfc": 0.1815087534842491,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": 0.7322455070673851,
+      "osd678_light_se": 0.29784939457509346,
+      "osd678_light_pval": 0.013954125469664281,
+      "osd678_light_padj": 0.04064497642732208,
+      "osd678_dark_lfc": -0.26878885003551417,
+      "osd678_dark_padj": 0.6639020068460046,
+      "direction_concordance": "CONCORDANT",
+      "passes_osd678_fdr_005": true,
+      "evidence_classification": "CROSS_TISSUE_REPLICATION_CONCORDANT"
+    },
+    {
+      "gene_id": "AT5G07390",
+      "symbol": "RBOHA",
+      "osd120_lfc": 1.4754555683160198,
+      "osd120_shrunk_lfc": 1.3234701611263937,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": 5.448672672599422,
+      "osd678_light_se": 1.628653658267692,
+      "osd678_light_pval": 0.0008213220265790717,
+      "osd678_light_padj": 0.0038056309080609315,
+      "osd678_dark_lfc": -3.454017728275549,
+      "osd678_dark_padj": 0.09766139298278644,
+      "direction_concordance": "CONCORDANT",
+      "passes_osd678_fdr_005": true,
+      "evidence_classification": "CROSS_TISSUE_REPLICATION_CONCORDANT"
+    },
+    {
+      "gene_id": "AT5G13930",
+      "symbol": "CHS",
+      "osd120_lfc": -10.680039305397525,
+      "osd120_shrunk_lfc": -10.656682344851976,
+      "osd120_padj": 0.5388276715237375,
+      "osd678_light_lfc": -5.193381866729729,
+      "osd678_light_se": 1.4717288735401841,
+      "osd678_light_pval": 0.0004175074223345057,
+      "osd678_light_padj": 0.0021306278107682394,
+      "osd678_dark_lfc": -1.190243953049036,
+      "osd678_dark_padj": 0.7000319509750665,
+      "direction_concordance": "CONCORDANT",
+      "passes_osd678_fdr_005": true,
+      "evidence_classification": "CROSS_TISSUE_REPLICATION_CONCORDANT"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "samples": [
+    "Control1",
+    "Control2",
+    "Treat1",
+    "Treat2"
+  ],
+  "coordinates": [
+    {
+      "sample_id": "Control1",
+      "PC1": -2.2885,
+      "PC2": -0.0577,
+      "group": "default"
+    },
+    {
+      "sample_id": "Control2",
+      "PC1": -1.4901,
+      "PC2": 0.0783,
+      "group": "default"
+    },
+    {
+      "sample_id": "Treat1",
+      "PC1": 1.7102,
+      "PC2": -0.0766,
+      "group": "default"
+    },
+    {
+      "sample_id": "Treat2",
+      "PC1": 2.0684,
+      "PC2": 0.056,
+      "group": "default"
+    }
+  ],
+  "explained_variance_ratio": {
+    "PC1": 0.9987,
+    "PC2": 0.0013
+  },
+  "explained_variance_percentage": {
+    "PC1": 99.87,
+    "PC2": 0.13
+  },
+  "total_explained_variance": 100.0,
+  "n_samples": 4,
+  "n_genes": 4
+}

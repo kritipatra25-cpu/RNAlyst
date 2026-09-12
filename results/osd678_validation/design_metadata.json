@@ -1,0 +1,38 @@
+{
+  "dataset_id": "OSD-678",
+  "factors": {
+    "spaceflight": [
+      "Ground",
+      "Flight"
+    ],
+    "genotype": [
+      "Col-0",
+      "Ws",
+      "phyD"
+    ],
+    "light": [
+      "Dark",
+      "Light"
+    ]
+  },
+  "reference_levels": {
+    "spaceflight": "Ground",
+    "genotype": "Col-0",
+    "light": "Dark"
+  },
+  "design_formula": "~ group",
+  "groups": [
+    "Flight_Col-0_Dark",
+    "Flight_Col-0_Light",
+    "Flight_Ws_Dark",
+    "Flight_Ws_Light",
+    "Flight_phyD_Dark",
+    "Flight_phyD_Light",
+    "Ground_Col-0_Dark",
+    "Ground_Col-0_Light",
+    "Ground_Ws_Dark",
+    "Ground_Ws_Light",
+    "Ground_phyD_Dark",
+    "Ground_phyD_Light"
+  ]
+}

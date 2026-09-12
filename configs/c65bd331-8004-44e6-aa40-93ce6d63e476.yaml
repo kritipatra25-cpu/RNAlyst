@@ -1,0 +1,22 @@
+dataset_id: C65BD331-8004-44E6-AA40-93CE6D63E476
+organism: Custom Organism
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/C65BD331-8004-44E6-AA40-93CE6D63E476/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/C65BD331-8004-44E6-AA40-93CE6D63E476/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/C65BD331-8004-44E6-AA40-93CE6D63E476/results
+combined_group_column: condition
+factors:
+  condition:
+  - Treatment
+  - Control
+reference_levels:
+  condition: control
+contrasts:
+- id: Primary_Contrast
+  factor: condition
+  numerator: Treatment
+  denominator: Control
+  description: Primary treatment vs control
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

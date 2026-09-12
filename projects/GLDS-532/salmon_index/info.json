@@ -1,0 +1,22 @@
+{
+    "index_version": 4,
+    "reference_gfa": [
+        "/home/kriti/rna-seq-ai-agent/projects/GLDS-532/salmon_index"
+    ],
+    "sampling_type": "dense",
+    "k": 15,
+    "num_kmers": 1781,
+    "num_contigs": 369,
+    "seq_length": 6947,
+    "have_ref_seq": true,
+    "have_edge_vec": false,
+    "SeqHash": "e14b547dfdc9c0950fba50000387234a9771b080058913720cb5c26ced712282",
+    "NameHash": "8800729b1d1fbba4c0f6344d267ab2378c027d8533e26606d2f284abfdc35507",
+    "SeqHash512": "1450b8546a6479d12adba75458292a82ead8c3b5dfb66aeb4f1ed0f2bdfc632e814c86d659806d34a9b1a0c0d612a77f6fa2ab104816f6679f5d80266b4eb51b",
+    "NameHash512": "f27de23496e1fbb3180501916a997a99fa9aa6a78d13d3a0251a065172b8c1de144d337226277dda845b2c2884f3c70edf53a7b101fca6b103672ded5b0e3a7f",
+    "DecoySeqHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "DecoyNameHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "num_decoys": 0,
+    "first_decoy_index": 18446744073709551615,
+    "keep_duplicates": false
+}

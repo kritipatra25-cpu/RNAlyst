@@ -1,0 +1,22 @@
+dataset_id: D5A8240B-4B0D-4C2D-8240-2090B4919EE8
+organism: Custom Organism
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/D5A8240B-4B0D-4C2D-8240-2090B4919EE8/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/D5A8240B-4B0D-4C2D-8240-2090B4919EE8/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/D5A8240B-4B0D-4C2D-8240-2090B4919EE8/results
+combined_group_column: condition
+factors:
+  condition:
+  - Treatment
+  - Control
+reference_levels:
+  condition: Control
+contrasts:
+- id: Primary_Contrast
+  factor: condition
+  numerator: Treatment
+  denominator: Control
+  description: Primary treatment vs control
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

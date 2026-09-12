@@ -1,0 +1,10 @@
+{
+  "total_input_genes": 32833,
+  "filtered_genes": 11404,
+  "analyzed_genes": 21429,
+  "significant_deg_fdr05": 0,
+  "significant_deg_fdr05_lfc1": 0,
+  "random_seed": 42,
+  "r_version": "Python-Native GLM Fallback Engine",
+  "deseq2_version": "2.0-Python"
+}

@@ -1,0 +1,57 @@
+# Python / Virtual Environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets & Credentials
+.env
+.env.*
+*.env
+*.pem
+*.key
+
+# Logs & Temporary OS Files
+*.log
+uvicorn.log
+.DS_Store
+Thumbs.db
+tatus*
+
+# Large Biological Data & Alignment Caches
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.sam
+*.sai
+*.sra
+*.bed
+*.bw
+*.bigWig
+*.sf
+*.bedGraph
+data/uploads/
+data/reference_de_glds120.csv
+projects/*/data/uploads/
+projects/*/data/salmon_index/
+projects/*/data/references/
+tmp/
+workflows/
+.nextflow/
+.nextflow.log*
+
+# IDE & Build Artifacts
+node_modules/
+.idea/
+.vscode/
+build/
+dist/
+*.egg-info/

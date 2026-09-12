@@ -1,0 +1,59 @@
+{
+  "samples": [
+    "S1_Ctrl",
+    "S2_Ctrl",
+    "S3_Ctrl",
+    "S4_Treat",
+    "S5_Treat",
+    "S6_Treat"
+  ],
+  "coordinates": [
+    {
+      "sample_id": "S1_Ctrl",
+      "PC1": -1.8639,
+      "PC2": -1.4032,
+      "group": "default"
+    },
+    {
+      "sample_id": "S2_Ctrl",
+      "PC1": -1.4304,
+      "PC2": 0.8566,
+      "group": "default"
+    },
+    {
+      "sample_id": "S3_Ctrl",
+      "PC1": -3.0935,
+      "PC2": 0.7371,
+      "group": "default"
+    },
+    {
+      "sample_id": "S4_Treat",
+      "PC1": 2.4684,
+      "PC2": -0.0881,
+      "group": "default"
+    },
+    {
+      "sample_id": "S5_Treat",
+      "PC1": 2.4912,
+      "PC2": 1.1797,
+      "group": "default"
+    },
+    {
+      "sample_id": "S6_Treat",
+      "PC1": 1.4282,
+      "PC2": -1.2822,
+      "group": "default"
+    }
+  ],
+  "explained_variance_ratio": {
+    "PC1": 0.643,
+    "PC2": 0.1374
+  },
+  "explained_variance_percentage": {
+    "PC1": 64.3,
+    "PC2": 13.74
+  },
+  "total_explained_variance": 78.04,
+  "n_samples": 6,
+  "n_genes": 15
+}

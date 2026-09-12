@@ -1,0 +1,9 @@
+{
+  "total_reads": 2,
+  "total_bases": 32,
+  "mean_read_length": 16.0,
+  "min_read_length": 16,
+  "max_read_length": 16,
+  "gc_content_percent": 50.0,
+  "mean_phred_quality": 40.0
+}

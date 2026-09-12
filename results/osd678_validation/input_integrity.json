@@ -1,0 +1,24 @@
+{
+  "sha256_provenance": {
+    "counts_matrix": "008e6e056e1904fa70e172e9b67a05ca0c2cf4acada0aebaf2c59c464d5aeced",
+    "metadata": "0716489a3a3d2a95a01187fe6515d9a30f653e8d53569a39bf2bd853c1116f21"
+  },
+  "integrity_audit": {
+    "count_matrix_exists": true,
+    "metadata_exists": true,
+    "gene_id_column": "gene_id",
+    "total_genes": 32833,
+    "unique_genes": 32833,
+    "unique_gene_check": true,
+    "total_count_samples": 36,
+    "total_meta_samples": 36,
+    "sample_count_match": true,
+    "exact_sample_id_reconciliation": true,
+    "counts_non_negative": true,
+    "counts_integer": true,
+    "no_duplicate_sample_columns": true,
+    "no_missing_condition_labels": true,
+    "design_3x2x2_balanced": true,
+    "integrity_overall_status": "PASSED"
+  }
+}

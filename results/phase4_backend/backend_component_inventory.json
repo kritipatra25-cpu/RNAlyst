@@ -1,0 +1,132 @@
+[
+  {
+    "module": "pipeline.input_validation",
+    "target_symbol": "MetadataValidator",
+    "description": "Input Metadata Validator",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "pipeline.schemas.phase2_schemas",
+    "target_symbol": "InterpretationReport",
+    "description": "Pydantic Interpretation Report Schema",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.interpretation.data_loader",
+    "target_symbol": "Phase1DataLoader",
+    "description": "DE Stats & Phase 1 Data Loader",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.interpretation.gene_identity_verifier",
+    "target_symbol": "GeneIdentityVerifier",
+    "description": "TAIR Locus Symbol Reconciler",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.interpretation.rag_engine",
+    "target_symbol": "ExtensibleRAGEngine",
+    "description": "Vector & Knowledge Base Retrieval",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.interpretation.citation_verifier",
+    "target_symbol": "CitationVerifier",
+    "description": "Citation Claim Verifier",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.interpretation.phase3_llm_adapter",
+    "target_symbol": "Phase3LLMAdapter",
+    "description": "Constrained LLM Adapter",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.statistics.deseq2_runner",
+    "target_symbol": "DESeq2Runner",
+    "description": "DESeq2 Differential Expression Runner",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "analysis.statistics.meta_analysis_engine",
+    "target_symbol": "run_meta_analysis",
+    "description": "Inverse-Variance Meta-Analysis Engine",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "provenance.manifest",
+    "target_symbol": "ProvenanceManager",
+    "description": "SHA-256 Provenance Manifest Manager",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "scientific_guardrails.claim_guardrails",
+    "target_symbol": "validate_ai_claim_text",
+    "description": "AI Claim Guardrail Engine",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "scientific_guardrails.design_checker",
+    "target_symbol": "validate_experimental_design_matrix",
+    "description": "Experimental Design Checker",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  },
+  {
+    "module": "scientific_guardrails.replicate_rules",
+    "target_symbol": "validate_biological_replicates",
+    "description": "Biological Replicate Checker",
+    "status": "PASS",
+    "import_pass": true,
+    "executable": true,
+    "invoked_in_workflow": true,
+    "downstream_consumed": true
+  }
+]

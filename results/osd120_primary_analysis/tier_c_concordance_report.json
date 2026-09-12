@@ -1,0 +1,31 @@
+{
+  "reference_file": "GSE94983_11._LT_FLT_Col-0_to_LT_GC_Col-0.xlsx.gz",
+  "reference_provenance": "NCBI GEO GSE94983 (CARA Experiment, Kruse et al.)",
+  "shared_genes_analyzed": 20337,
+  "primary_metrics": {
+    "spearman_rho": 0.8289788767805975,
+    "spearman_pvalue": 0.0,
+    "pearson_r": NaN,
+    "pearson_pvalue": NaN,
+    "directional_agreement_matrix": {
+      "up_up": 8849,
+      "down_down": 8401,
+      "up_down": 1321,
+      "down_up": 1489
+    },
+    "directional_concordance_rate_pct": 85.99202392821536
+  },
+  "secondary_exploratory_metrics": {
+    "strict_padj05_jaccard": 0.0,
+    "exploratory_p01_jaccard": 0.051655629139072845,
+    "exploratory_overlapping_degs_count": 39,
+    "exploratory_overlapping_degs_directional_concordance_pct": 94.87179487179486
+  },
+  "top50_reference_degs": {
+    "directional_concordance_count": 50,
+    "directional_concordance_pct": 100.0,
+    "top50_spearman_rho": 0.9532292917166867
+  },
+  "final_tier_c_classification": "A. CONCORDANT",
+  "causal_claim_guardrail": "Describes spaceflight-associated transcriptional differences relative to ground control; does NOT establish pure microgravity causality or biological replication."
+}

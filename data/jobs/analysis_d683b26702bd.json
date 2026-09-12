@@ -1,0 +1,133 @@
+{
+  "analysis_id": "analysis_d683b26702bd",
+  "file_id": "32c987f2-d2b7-4306-ae4a-11ae528d77ef",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "qc"
+  ],
+  "structured_plan": {
+    "user_question": "Unspecified user query",
+    "interpreted_intent": "QC",
+    "analysis_goal": "Perform dataset discovery and standard workflow",
+    "is_valid": true,
+    "validation_errors": [],
+    "required_inputs": [
+      {
+        "input_type": "fastq",
+        "required_for_steps": [
+          "qc"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/32c987f2-d2b7-4306-ae4a-11ae528d77ef_test_job_fixture.fastq",
+        "resolution_message": "FASTQ file resolved at /home/kriti/rna-seq-ai-agent/data/uploads/32c987f2-d2b7-4306-ae4a-11ae528d77ef_test_job_fixture.fastq"
+      }
+    ],
+    "selected_steps": [
+      "qc"
+    ],
+    "step_rationales": [
+      {
+        "step": "qc",
+        "rationale": "Evaluates sequence quality, read count, GC content, and Phred quality scores.",
+        "required_inputs": [
+          "fastq"
+        ],
+        "expected_outputs": [
+          "qc_summary.json",
+          "qc_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "qc_summary",
+        "step": "qc",
+        "description": "FASTQ quality metrics summary JSON"
+      },
+      {
+        "artifact_type": "qc_plot",
+        "step": "qc",
+        "description": "Multi-panel FASTQ quality overview PNG plot"
+      }
+    ],
+    "created_at": "2026-08-30T15:57:19.650557+00:00"
+  },
+  "steps": [
+    {
+      "step": "qc",
+      "status": "completed",
+      "started_at": "2026-08-30T15:57:19.655201+00:00",
+      "completed_at": "2026-08-30T15:57:20.290225+00:00",
+      "message": "Step 'qc' executed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_0f16182b",
+          "type": "qc_summary",
+          "name": "analysis_d683b26702bd_qc_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_d683b26702bd_qc_summary.json",
+          "step": "qc",
+          "metadata": {
+            "total_reads": 2,
+            "gc_content_percent": 50.0
+          },
+          "created_at": "2026-08-30T15:57:19.661691+00:00"
+        },
+        {
+          "artifact_id": "art_943b832d",
+          "type": "plot",
+          "name": "analysis_d683b26702bd_qc_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_d683b26702bd_qc_plot.png",
+          "step": "qc",
+          "metadata": {
+            "format": "png",
+            "dpi": 300,
+            "parent_artifact_id": "art_0f16182b",
+            "source_file": "analysis_d683b26702bd_qc_summary.json"
+          },
+          "created_at": "2026-08-30T15:57:20.290161+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_0f16182b",
+      "type": "qc_summary",
+      "name": "analysis_d683b26702bd_qc_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_d683b26702bd_qc_summary.json",
+      "step": "qc",
+      "metadata": {
+        "total_reads": 2,
+        "gc_content_percent": 50.0
+      },
+      "created_at": "2026-08-30T15:57:19.661691+00:00"
+    },
+    {
+      "artifact_id": "art_943b832d",
+      "type": "plot",
+      "name": "analysis_d683b26702bd_qc_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_d683b26702bd_qc_plot.png",
+      "step": "qc",
+      "metadata": {
+        "format": "png",
+        "dpi": 300,
+        "parent_artifact_id": "art_0f16182b",
+        "source_file": "analysis_d683b26702bd_qc_summary.json"
+      },
+      "created_at": "2026-08-30T15:57:20.290161+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:57:19.650589+00:00"
+  },
+  "created_at": "2026-08-30T15:57:19.650606+00:00",
+  "updated_at": "2026-08-30T15:57:20.292124+00:00"
+}

@@ -1,0 +1,71 @@
+{
+  "project_id": "PROJ_PROD_CHECK",
+  "name": "prod check",
+  "origin": "LOCAL_FASTQ",
+  "organism": "UNRESOLVED",
+  "manifest": {
+    "samples": [
+      {
+        "sample_id": "S1",
+        "condition": "UNRESOLVED",
+        "batch": null,
+        "genotype": null,
+        "tissue": null,
+        "fastq_r1_path": "/home/kriti/rna-seq-ai-agent//projects//PROJ_PROD_CHECK//data//uploads//PROJ_PROD_CHECK//S1_R1.fastq.gz",
+        "fastq_r2_path": null,
+        "file_size_bytes": null,
+        "is_valid": true
+      }
+    ],
+    "layout": "SINGLE",
+    "organism": "UNRESOLVED",
+    "condition_column": "condition",
+    "total_samples": 1,
+    "min_replicates_per_group": 0,
+    "replicate_status": "UNRESOLVED"
+  },
+  "design": {
+    "design_formula": "~ condition",
+    "factors": {
+      "condition": [
+        "UNRESOLVED"
+      ]
+    },
+    "reference_levels": {
+      "condition": "UNRESOLVED"
+    },
+    "contrasts": [
+      {
+        "id": "UNRESOLVED_vs_UNRESOLVED",
+        "factor": "condition",
+        "numerator": "UNRESOLVED",
+        "denominator": "UNRESOLVED",
+        "description": "UNRESOLVED vs UNRESOLVED"
+      }
+    ]
+  },
+  "reference": {
+    "organism": "UNRESOLVED",
+    "transcriptome_fasta": "/home/kriti/rna-seq-ai-agent//projects//PROJ_PROD_CHECK//data//transcriptome.fasta",
+    "gtf_annotation": null,
+    "tx2gene_csv": "/home/kriti/rna-seq-ai-agent//projects//PROJ_PROD_CHECK//data//tx2gene.csv",
+    "salmon_index_dir": "/home/kriti/rna-seq-ai-agent//projects//PROJ_PROD_CHECK//data//salmon_index",
+    "version_build": "DEFAULT_BUILD",
+    "sha256_checksum": null
+  },
+  "reference_spec": null,
+  "workspace_state": {
+    "readiness_stage": "UNINITIALIZED",
+    "has_counts_matrix": false,
+    "has_de_results": false,
+    "active_contrast_id": null,
+    "total_samples": 0,
+    "replicate_status": "INFERENTIAL",
+    "is_ready_for_deseq2": false,
+    "unresolved_reason": "Experimental contrast configuration required before differential expression"
+  },
+  "execution_history": [],
+  "active_run": null,
+  "artifacts": [],
+  "provenance": null
+}

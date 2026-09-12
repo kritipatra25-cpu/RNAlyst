@@ -1,0 +1,22 @@
+dataset_id: E6AF4F5C-22BC-449C-A21A-BF3C48F5320D
+organism: Custom Organism
+counts_matrix_path: /home/kriti/rna-seq-ai-agent/projects/E6AF4F5C-22BC-449C-A21A-BF3C48F5320D/data/counts_matrix.csv
+sample_metadata_path: /home/kriti/rna-seq-ai-agent/projects/E6AF4F5C-22BC-449C-A21A-BF3C48F5320D/data/sample_metadata.csv
+output_dir: /home/kriti/rna-seq-ai-agent/projects/E6AF4F5C-22BC-449C-A21A-BF3C48F5320D/results
+combined_group_column: condition
+factors:
+  condition:
+  - Treatment
+  - Control
+reference_levels:
+  condition: control
+contrasts:
+- id: Primary_Contrast
+  factor: condition
+  numerator: Treatment
+  denominator: Control
+  description: Primary treatment vs control
+candidate_selection:
+  mode: TOP_N_DEGS
+  top_n: 50
+  specified_genes: []

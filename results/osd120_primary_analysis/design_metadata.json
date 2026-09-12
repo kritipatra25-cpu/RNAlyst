@@ -1,0 +1,17 @@
+{
+  "dataset_id": "OSD-120",
+  "factors": {
+    "Spaceflight": [
+      "Ground Control",
+      "Space Flight"
+    ]
+  },
+  "reference_levels": {
+    "Spaceflight": "Ground Control"
+  },
+  "design_formula": "~ Spaceflight",
+  "groups": [
+    "Ground Control",
+    "Space Flight"
+  ]
+}

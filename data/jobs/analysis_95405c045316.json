@@ -1,0 +1,172 @@
+{
+  "analysis_id": "analysis_95405c045316",
+  "file_id": "real_de_fixture",
+  "user_question": "Perform PCA and Differential Expression",
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "pca",
+    "differential_expression"
+  ],
+  "steps": [
+    {
+      "step": "pca",
+      "status": "completed",
+      "started_at": "2026-08-30T15:17:31.306999+00:00",
+      "completed_at": "2026-08-30T15:17:31.781408+00:00",
+      "message": "PCA analysis and plot generation completed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_e95b317d",
+          "type": "json_data",
+          "name": "analysis_95405c045316_pca_results.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_pca_results.json",
+          "step": "pca",
+          "metadata": {
+            "n_samples": 6,
+            "n_genes": 10,
+            "total_explained_variance": 89.91
+          },
+          "created_at": "2026-08-30T15:17:31.315392+00:00"
+        },
+        {
+          "artifact_id": "art_d4d42ca3",
+          "type": "plot",
+          "name": "analysis_95405c045316_pca_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_pca_plot.png",
+          "step": "pca",
+          "metadata": {
+            "format": "png",
+            "dpi": 300
+          },
+          "created_at": "2026-08-30T15:17:31.781299+00:00"
+        }
+      ]
+    },
+    {
+      "step": "differential_expression",
+      "status": "completed",
+      "started_at": "2026-08-30T15:17:31.782213+00:00",
+      "completed_at": "2026-08-30T15:17:38.883611+00:00",
+      "message": "Differential expression analysis completed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_45eeb398",
+          "type": "json_data",
+          "name": "analysis_95405c045316_de_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_de_summary.json",
+          "step": "differential_expression",
+          "metadata": {
+            "total_genes": 10,
+            "significant_genes": 3,
+            "upregulated_genes": 3,
+            "downregulated_genes": 0,
+            "alpha": 0.05,
+            "lfc_threshold": 1.0,
+            "contrast": [
+              "condition",
+              "Treated",
+              "Control"
+            ],
+            "statistical_method": "PyDESeq2"
+          },
+          "created_at": "2026-08-30T15:17:38.861785+00:00"
+        },
+        {
+          "artifact_id": "art_59899cf4",
+          "type": "de_table",
+          "name": "analysis_95405c045316_de_results.csv",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_de_results.csv",
+          "step": "differential_expression",
+          "metadata": {
+            "total_genes": 10,
+            "significant_genes": 3,
+            "contrast": [
+              "condition",
+              "Treated",
+              "Control"
+            ]
+          },
+          "created_at": "2026-08-30T15:17:38.883270+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_e95b317d",
+      "type": "json_data",
+      "name": "analysis_95405c045316_pca_results.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_pca_results.json",
+      "step": "pca",
+      "metadata": {
+        "n_samples": 6,
+        "n_genes": 10,
+        "total_explained_variance": 89.91
+      },
+      "created_at": "2026-08-30T15:17:31.315392+00:00"
+    },
+    {
+      "artifact_id": "art_d4d42ca3",
+      "type": "plot",
+      "name": "analysis_95405c045316_pca_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_pca_plot.png",
+      "step": "pca",
+      "metadata": {
+        "format": "png",
+        "dpi": 300
+      },
+      "created_at": "2026-08-30T15:17:31.781299+00:00"
+    },
+    {
+      "artifact_id": "art_45eeb398",
+      "type": "json_data",
+      "name": "analysis_95405c045316_de_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_de_summary.json",
+      "step": "differential_expression",
+      "metadata": {
+        "total_genes": 10,
+        "significant_genes": 3,
+        "upregulated_genes": 3,
+        "downregulated_genes": 0,
+        "alpha": 0.05,
+        "lfc_threshold": 1.0,
+        "contrast": [
+          "condition",
+          "Treated",
+          "Control"
+        ],
+        "statistical_method": "PyDESeq2"
+      },
+      "created_at": "2026-08-30T15:17:38.861785+00:00"
+    },
+    {
+      "artifact_id": "art_59899cf4",
+      "type": "de_table",
+      "name": "analysis_95405c045316_de_results.csv",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_95405c045316_de_results.csv",
+      "step": "differential_expression",
+      "metadata": {
+        "total_genes": 10,
+        "significant_genes": 3,
+        "contrast": [
+          "condition",
+          "Treated",
+          "Control"
+        ]
+      },
+      "created_at": "2026-08-30T15:17:38.883270+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:17:31.301221+00:00"
+  },
+  "created_at": "2026-08-30T15:17:31.301259+00:00",
+  "updated_at": "2026-08-30T15:17:38.890332+00:00"
+}

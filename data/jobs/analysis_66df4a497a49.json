@@ -1,0 +1,148 @@
+{
+  "analysis_id": "analysis_66df4a497a49",
+  "file_id": "e85c9068-53c2-405e-9107-56ac1255a1ad",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "validating_dataset",
+    "qc"
+  ],
+  "steps": [
+    {
+      "step": "validating_dataset",
+      "status": "completed",
+      "started_at": "2026-08-30T15:31:53.591824+00:00",
+      "completed_at": "2026-08-30T15:31:55.109216+00:00",
+      "message": "Step 'validating_dataset' executed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_38356df0",
+          "type": "qc_summary",
+          "name": "analysis_66df4a497a49_validating_dataset_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_validating_dataset_summary.json",
+          "step": "validating_dataset",
+          "metadata": {
+            "total_reads": 2,
+            "gc_content_percent": 50.0
+          },
+          "created_at": "2026-08-30T15:31:53.596894+00:00"
+        },
+        {
+          "artifact_id": "art_7711e5d3",
+          "type": "plot",
+          "name": "analysis_66df4a497a49_validating_dataset_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_validating_dataset_plot.png",
+          "step": "validating_dataset",
+          "metadata": {
+            "format": "png",
+            "dpi": 300,
+            "parent_artifact_id": "art_38356df0",
+            "source_file": "analysis_66df4a497a49_validating_dataset_summary.json"
+          },
+          "created_at": "2026-08-30T15:31:55.109039+00:00"
+        }
+      ]
+    },
+    {
+      "step": "qc",
+      "status": "completed",
+      "started_at": "2026-08-30T15:31:55.111753+00:00",
+      "completed_at": "2026-08-30T15:31:56.474674+00:00",
+      "message": "Step 'qc' executed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_24ce6c51",
+          "type": "qc_summary",
+          "name": "analysis_66df4a497a49_qc_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_qc_summary.json",
+          "step": "qc",
+          "metadata": {
+            "total_reads": 2,
+            "gc_content_percent": 50.0
+          },
+          "created_at": "2026-08-30T15:31:55.120349+00:00"
+        },
+        {
+          "artifact_id": "art_0a306290",
+          "type": "plot",
+          "name": "analysis_66df4a497a49_qc_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_qc_plot.png",
+          "step": "qc",
+          "metadata": {
+            "format": "png",
+            "dpi": 300,
+            "parent_artifact_id": "art_24ce6c51",
+            "source_file": "analysis_66df4a497a49_qc_summary.json"
+          },
+          "created_at": "2026-08-30T15:31:56.474637+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_38356df0",
+      "type": "qc_summary",
+      "name": "analysis_66df4a497a49_validating_dataset_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_validating_dataset_summary.json",
+      "step": "validating_dataset",
+      "metadata": {
+        "total_reads": 2,
+        "gc_content_percent": 50.0
+      },
+      "created_at": "2026-08-30T15:31:53.596894+00:00"
+    },
+    {
+      "artifact_id": "art_7711e5d3",
+      "type": "plot",
+      "name": "analysis_66df4a497a49_validating_dataset_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_validating_dataset_plot.png",
+      "step": "validating_dataset",
+      "metadata": {
+        "format": "png",
+        "dpi": 300,
+        "parent_artifact_id": "art_38356df0",
+        "source_file": "analysis_66df4a497a49_validating_dataset_summary.json"
+      },
+      "created_at": "2026-08-30T15:31:55.109039+00:00"
+    },
+    {
+      "artifact_id": "art_24ce6c51",
+      "type": "qc_summary",
+      "name": "analysis_66df4a497a49_qc_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_qc_summary.json",
+      "step": "qc",
+      "metadata": {
+        "total_reads": 2,
+        "gc_content_percent": 50.0
+      },
+      "created_at": "2026-08-30T15:31:55.120349+00:00"
+    },
+    {
+      "artifact_id": "art_0a306290",
+      "type": "plot",
+      "name": "analysis_66df4a497a49_qc_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_66df4a497a49_qc_plot.png",
+      "step": "qc",
+      "metadata": {
+        "format": "png",
+        "dpi": 300,
+        "parent_artifact_id": "art_24ce6c51",
+        "source_file": "analysis_66df4a497a49_qc_summary.json"
+      },
+      "created_at": "2026-08-30T15:31:56.474637+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:31:53.590067+00:00"
+  },
+  "created_at": "2026-08-30T15:31:53.590097+00:00",
+  "updated_at": "2026-08-30T15:31:56.475046+00:00"
+}

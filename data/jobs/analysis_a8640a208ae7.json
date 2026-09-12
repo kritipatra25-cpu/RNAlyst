@@ -1,0 +1,237 @@
+{
+  "analysis_id": "analysis_a8640a208ae7",
+  "file_id": "test_de_fixture_98765",
+  "user_question": null,
+  "organism": null,
+  "dataset_id": null,
+  "status": "completed",
+  "current_step": null,
+  "plan": [
+    "differential_expression"
+  ],
+  "structured_plan": {
+    "user_question": "Unspecified user query",
+    "interpreted_intent": "DIFFERENTIAL_EXPRESSION",
+    "analysis_goal": "Perform dataset discovery and standard workflow",
+    "is_valid": true,
+    "validation_errors": [],
+    "required_inputs": [
+      {
+        "input_type": "count_matrix",
+        "required_for_steps": [
+          "differential_expression"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/test_de_fixture_98765_counts.csv",
+        "resolution_message": "Gene count matrix resolved at /home/kriti/rna-seq-ai-agent/data/uploads/test_de_fixture_98765_counts.csv"
+      },
+      {
+        "input_type": "sample_metadata",
+        "required_for_steps": [
+          "differential_expression"
+        ],
+        "is_available": true,
+        "resolved_path": "/home/kriti/rna-seq-ai-agent/data/uploads/test_de_fixture_98765_metadata.csv",
+        "resolution_message": "Sample metadata resolved at /home/kriti/rna-seq-ai-agent/data/uploads/test_de_fixture_98765_metadata.csv"
+      }
+    ],
+    "selected_steps": [
+      "differential_expression"
+    ],
+    "step_rationales": [
+      {
+        "step": "differential_expression",
+        "rationale": "Performs PyDESeq2 / Welch DE analysis comparing experimental conditions to identify significant genes.",
+        "required_inputs": [
+          "count_matrix",
+          "sample_metadata"
+        ],
+        "expected_outputs": [
+          "de_summary.json",
+          "de_results.csv",
+          "volcano_plot.png",
+          "heatmap_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "de_summary",
+        "step": "differential_expression",
+        "description": "Differential expression statistics summary JSON"
+      },
+      {
+        "artifact_type": "de_table",
+        "step": "differential_expression",
+        "description": "Full gene-level differential expression results CSV"
+      },
+      {
+        "artifact_type": "volcano_plot",
+        "step": "differential_expression",
+        "description": "Differential expression volcano plot PNG"
+      },
+      {
+        "artifact_type": "heatmap_plot",
+        "step": "differential_expression",
+        "description": "Top DE genes expression z-score heatmap PNG"
+      }
+    ],
+    "created_at": "2026-08-30T15:57:27.355560+00:00"
+  },
+  "steps": [
+    {
+      "step": "differential_expression",
+      "status": "completed",
+      "started_at": "2026-08-30T15:57:27.356159+00:00",
+      "completed_at": "2026-08-30T15:57:28.687831+00:00",
+      "message": "Differential expression analysis and plot generation completed successfully.",
+      "artifacts": [
+        {
+          "artifact_id": "art_97c91571",
+          "type": "json_data",
+          "name": "analysis_a8640a208ae7_de_summary.json",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_de_summary.json",
+          "step": "differential_expression",
+          "metadata": {
+            "total_genes": 20,
+            "significant_genes": 7,
+            "upregulated_genes": 5,
+            "downregulated_genes": 2,
+            "alpha": 0.05,
+            "lfc_threshold": 1.0,
+            "contrast": [
+              "condition",
+              "Treated",
+              "Control"
+            ],
+            "statistical_method": "PyDESeq2"
+          },
+          "created_at": "2026-08-30T15:57:27.772121+00:00"
+        },
+        {
+          "artifact_id": "art_27948fc9",
+          "type": "de_table",
+          "name": "analysis_a8640a208ae7_de_results.csv",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_de_results.csv",
+          "step": "differential_expression",
+          "metadata": {
+            "total_genes": 20,
+            "significant_genes": 7,
+            "contrast": [
+              "condition",
+              "Treated",
+              "Control"
+            ]
+          },
+          "created_at": "2026-08-30T15:57:27.773651+00:00"
+        },
+        {
+          "artifact_id": "art_968fc853",
+          "type": "plot",
+          "name": "analysis_a8640a208ae7_volcano_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_volcano_plot.png",
+          "step": "differential_expression",
+          "metadata": {
+            "format": "png",
+            "dpi": 300,
+            "parent_artifact_id": "art_27948fc9",
+            "source_file": "analysis_a8640a208ae7_de_results.csv"
+          },
+          "created_at": "2026-08-30T15:57:28.231683+00:00"
+        },
+        {
+          "artifact_id": "art_6e55a14a",
+          "type": "plot",
+          "name": "analysis_a8640a208ae7_heatmap_plot.png",
+          "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_heatmap_plot.png",
+          "step": "differential_expression",
+          "metadata": {
+            "format": "png",
+            "dpi": 300,
+            "parent_artifact_id": "art_27948fc9",
+            "source_file": "analysis_a8640a208ae7_de_results.csv"
+          },
+          "created_at": "2026-08-30T15:57:28.687794+00:00"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "art_97c91571",
+      "type": "json_data",
+      "name": "analysis_a8640a208ae7_de_summary.json",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_de_summary.json",
+      "step": "differential_expression",
+      "metadata": {
+        "total_genes": 20,
+        "significant_genes": 7,
+        "upregulated_genes": 5,
+        "downregulated_genes": 2,
+        "alpha": 0.05,
+        "lfc_threshold": 1.0,
+        "contrast": [
+          "condition",
+          "Treated",
+          "Control"
+        ],
+        "statistical_method": "PyDESeq2"
+      },
+      "created_at": "2026-08-30T15:57:27.772121+00:00"
+    },
+    {
+      "artifact_id": "art_27948fc9",
+      "type": "de_table",
+      "name": "analysis_a8640a208ae7_de_results.csv",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_de_results.csv",
+      "step": "differential_expression",
+      "metadata": {
+        "total_genes": 20,
+        "significant_genes": 7,
+        "contrast": [
+          "condition",
+          "Treated",
+          "Control"
+        ]
+      },
+      "created_at": "2026-08-30T15:57:27.773651+00:00"
+    },
+    {
+      "artifact_id": "art_968fc853",
+      "type": "plot",
+      "name": "analysis_a8640a208ae7_volcano_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_volcano_plot.png",
+      "step": "differential_expression",
+      "metadata": {
+        "format": "png",
+        "dpi": 300,
+        "parent_artifact_id": "art_27948fc9",
+        "source_file": "analysis_a8640a208ae7_de_results.csv"
+      },
+      "created_at": "2026-08-30T15:57:28.231683+00:00"
+    },
+    {
+      "artifact_id": "art_6e55a14a",
+      "type": "plot",
+      "name": "analysis_a8640a208ae7_heatmap_plot.png",
+      "path": "/home/kriti/rna-seq-ai-agent/data/artifacts/analysis_a8640a208ae7_heatmap_plot.png",
+      "step": "differential_expression",
+      "metadata": {
+        "format": "png",
+        "dpi": 300,
+        "parent_artifact_id": "art_27948fc9",
+        "source_file": "analysis_a8640a208ae7_de_results.csv"
+      },
+      "created_at": "2026-08-30T15:57:28.687794+00:00"
+    }
+  ],
+  "errors": [],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:57:27.355601+00:00"
+  },
+  "created_at": "2026-08-30T15:57:27.355620+00:00",
+  "updated_at": "2026-08-30T15:57:28.688641+00:00"
+}

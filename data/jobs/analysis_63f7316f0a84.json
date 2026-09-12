@@ -1,0 +1,137 @@
+{
+  "analysis_id": "analysis_63f7316f0a84",
+  "file_id": "non_existent_file_id_999",
+  "user_question": "Run PCA and differential expression analysis",
+  "organism": null,
+  "dataset_id": null,
+  "status": "failed",
+  "current_step": "pca",
+  "plan": [
+    "pca",
+    "differential_expression"
+  ],
+  "structured_plan": {
+    "user_question": "Run PCA and differential expression analysis",
+    "interpreted_intent": "PCA_AND_DIFFERENTIAL_EXPRESSION",
+    "analysis_goal": "Execute PCA + DIFFERENTIAL_EXPRESSION pipeline based on user query: 'Run PCA and differential expression analysis'",
+    "is_valid": false,
+    "validation_errors": [
+      "PCA requires a gene-by-sample expression/count matrix CSV/TSV for ID 'non_existent_file_id_999'."
+    ],
+    "required_inputs": [
+      {
+        "input_type": "count_matrix",
+        "required_for_steps": [
+          "pca",
+          "differential_expression"
+        ],
+        "is_available": false,
+        "resolved_path": null,
+        "resolution_message": "No expression/count matrix CSV/TSV found matching ID 'non_existent_file_id_999'."
+      },
+      {
+        "input_type": "sample_metadata",
+        "required_for_steps": [
+          "differential_expression"
+        ],
+        "is_available": false,
+        "resolved_path": null,
+        "resolution_message": "No sample metadata CSV/TSV found matching ID 'non_existent_file_id_999'."
+      }
+    ],
+    "selected_steps": [
+      "pca",
+      "differential_expression"
+    ],
+    "step_rationales": [
+      {
+        "step": "pca",
+        "rationale": "Computes Principal Component Analysis on variance-stabilized log2 counts to evaluate sample grouping.",
+        "required_inputs": [
+          "count_matrix"
+        ],
+        "expected_outputs": [
+          "pca_results.json",
+          "pca_plot.png"
+        ]
+      },
+      {
+        "step": "differential_expression",
+        "rationale": "Performs PyDESeq2 / Welch DE analysis comparing experimental conditions to identify significant genes.",
+        "required_inputs": [
+          "count_matrix",
+          "sample_metadata"
+        ],
+        "expected_outputs": [
+          "de_summary.json",
+          "de_results.csv",
+          "volcano_plot.png",
+          "heatmap_plot.png"
+        ]
+      }
+    ],
+    "expected_artifacts": [
+      {
+        "artifact_type": "pca_results",
+        "step": "pca",
+        "description": "PCA coordinates and variance summary JSON"
+      },
+      {
+        "artifact_type": "pca_plot",
+        "step": "pca",
+        "description": "Publication-quality 300 DPI PCA scatter plot PNG"
+      },
+      {
+        "artifact_type": "de_summary",
+        "step": "differential_expression",
+        "description": "Differential expression statistics summary JSON"
+      },
+      {
+        "artifact_type": "de_table",
+        "step": "differential_expression",
+        "description": "Full gene-level differential expression results CSV"
+      },
+      {
+        "artifact_type": "volcano_plot",
+        "step": "differential_expression",
+        "description": "Differential expression volcano plot PNG"
+      },
+      {
+        "artifact_type": "heatmap_plot",
+        "step": "differential_expression",
+        "description": "Top DE genes expression z-score heatmap PNG"
+      }
+    ],
+    "created_at": "2026-08-30T15:42:00.685377+00:00"
+  },
+  "steps": [
+    {
+      "step": "pca",
+      "status": "failed",
+      "started_at": null,
+      "completed_at": "2026-08-30T15:42:00.691092+00:00",
+      "message": "PCA requires a gene-by-sample expression/count matrix CSV/TSV for ID 'non_existent_file_id_999'.",
+      "artifacts": []
+    },
+    {
+      "step": "differential_expression",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "message": null,
+      "artifacts": []
+    }
+  ],
+  "artifacts": [],
+  "errors": [
+    "PCA requires a gene-by-sample expression/count matrix CSV/TSV for ID 'non_existent_file_id_999'."
+  ],
+  "provenance": {
+    "platform": "linux",
+    "python_version": "3.10.12",
+    "orchestrator_version": "1.0.0",
+    "created_at": "2026-08-30T15:42:00.685430+00:00"
+  },
+  "created_at": "2026-08-30T15:42:00.685457+00:00",
+  "updated_at": "2026-08-30T15:42:00.691122+00:00"
+}

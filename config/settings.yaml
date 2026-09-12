@@ -1,0 +1,29 @@
+# Default Configuration Settings for RNA-seq Platform
+system:
+  version: "0.1.0"
+  environment: "development"
+  work_dir: "./data/work"
+  results_dir: "./data/results"
+  provenance_dir: "./data/provenance"
+
+defaults:
+  fdr_threshold: 0.05
+  log2fc_threshold: 1.0
+  min_biological_replicates: 3
+  max_missing_sample_rate: 0.0
+
+qc_thresholds:
+  min_read_length: 35
+  min_base_quality_q20: 85.0 # percentage
+  min_mapped_percentage: 60.0 # percentage
+  max_adapter_contamination: 10.0 # percentage
+
+supported_organisms:
+  - "Arabidopsis thaliana"
+  - "Homo sapiens"
+  - "Mus musculus"
+
+execution:
+  engine: "nextflow"
+  container_runtime: "docker" # docker | singularity
+  r_executor: "rpy2" # rpy2 | subprocess

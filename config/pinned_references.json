@@ -1,0 +1,37 @@
+{
+  "organisms": {
+    "Arabidopsis thaliana": {
+      "common_name": "thale_cress",
+      "ncbi_taxon_id": 3702,
+      "genome_assembly": "TAIR10",
+      "annotation_source": "EnsemblPlants",
+      "annotation_release": "58",
+      "gene_id_namespace": "AGI_Locus_ID",
+      "chromosome_naming": "numeric_1_5",
+      "reference_checksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transcriptome_version": "TAIR10_cdna_v58"
+    },
+    "Homo sapiens": {
+      "common_name": "human",
+      "ncbi_taxon_id": 9606,
+      "genome_assembly": "GRCh38",
+      "annotation_source": "GENCODE",
+      "annotation_release": "v45",
+      "gene_id_namespace": "ENSEMBL",
+      "chromosome_naming": "chr_prefix",
+      "reference_checksum_sha256": "d41d8cd98f00b204e9800998ecf8427e",
+      "transcriptome_version": "GENCODE_v45_transcripts"
+    },
+    "Mus musculus": {
+      "common_name": "mouse",
+      "ncbi_taxon_id": 10090,
+      "genome_assembly": "GRCm39",
+      "annotation_source": "GENCODE",
+      "annotation_release": "vM34",
+      "gene_id_namespace": "ENSEMBL",
+      "chromosome_naming": "chr_prefix",
+      "reference_checksum_sha256": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "transcriptome_version": "GENCODE_vM34_transcripts"
+    }
+  }
+}

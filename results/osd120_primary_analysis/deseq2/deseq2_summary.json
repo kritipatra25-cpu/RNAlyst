@@ -1,0 +1,21 @@
+{
+  "dataset_id": "OSD-120",
+  "sample_count": 6,
+  "gene_count": 32833,
+  "design_formula": "~ Spaceflight",
+  "reference_levels": {
+    "Spaceflight": "Ground Control"
+  },
+  "normalization_method": "DESeq2 Median-of-Ratios",
+  "statistical_test": "Negative Binomial Wald Test (PyDESeq2 v0.5.4)",
+  "fdr_correction": "Benjamini-Hochberg",
+  "contrast_summary_metrics": {
+    "Primary_OSD120_Flight_vs_Ground": {
+      "contrast_definition": "Space Flight vs Ground Control",
+      "genes_tested": 24925,
+      "genes_fdr_005": 590,
+      "genes_fdr_005_lfc1": 496
+    }
+  },
+  "candidate_gene_outcomes": []
+}
