@@ -99,6 +99,7 @@ To maintain scientific integrity, RNAlyst explicitly categorizes features into t
                     ▼
  [ Web Frontend Editorial Interface ]
 ```
+<img width="1920" height="1080" alt="Screenshot (1552)" src="https://github.com/user-attachments/assets/09126f37-3ff3-42bb-8406-37a4c49a599a" />
 
 ---
 
@@ -116,6 +117,11 @@ RNAlyst has been verified end-to-end against real biological single-end bulk RNA
 - **Zero Synthetic Fallbacks**: Provenance checks confirm no demo or synthetic data fallback was triggered.
 
 ---
+
+<img width="1920" height="1080" alt="Screenshot (1584)" src="https://github.com/user-attachments/assets/b07f4549-aed0-4ba3-8b85-11e4c117eb90" />
+<img width="1920" height="1080" alt="Screenshot (1585)" src="https://github.com/user-attachments/assets/090c4a85-cabb-47bc-b409-f85690490dd6" />
+<img width="1920" height="1080" alt="Screenshot (1586)" src="https://github.com/user-attachments/assets/635efa20-97e3-4ea3-9606-846b2b145424" />
+
 
 ## AI / LLM Integration
 
